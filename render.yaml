@@ -2,6 +2,7 @@ services:
   - type: web
     name: veritas-prayer-api
     runtime: docker
+    plan: free
     dockerContext: .
     dockerfilePath: ./backend/Dockerfile
     healthCheckPath: /api/prayers/
