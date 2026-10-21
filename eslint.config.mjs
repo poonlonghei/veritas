@@ -7,6 +7,7 @@ export default tseslint.config(
       ".venv/**",
       "venv/**",
       "node_modules/**",
+      "out/**",
       "backend/**",
       "next-env.d.ts",
     ],

@@ -12,7 +12,7 @@ The prayer catalog and daily reflections are bundled with the Django API. Prayer
 
 ## Run everything with Docker
 
-From this folder, create a local environment file if desired and start the services:
+From this folder, create the local environment file and start the services:
 
 ```bash
 cp .env.example .env
@@ -43,7 +43,7 @@ Open <http://localhost:3000>. The API is at <http://localhost:8000/api/> and Mon
 
 3. Visit <http://localhost:3000>.
 
-The web app shows its built-in prayer catalog if the API is unavailable. Adding and removing prayer intentions requires a reachable MongoDB instance; API errors are shown in the interface.
+The web app shows its built-in prayer catalog if the API is unavailable. Adding and removing prayer intentions requires a reachable Django API and MongoDB instance; API errors are shown in the interface. In local development, start the complete stack with Docker Compose or run the API and MongoDB separately before adding intentions.
 
 ## Deploy to GitHub Pages
 
@@ -53,7 +53,7 @@ The workflow at `.github/workflows/deploy-pages.yml` exports the Next.js app as 
 2. In the repository, open **Settings → Pages** and set the build and deployment source to **GitHub Actions**.
 3. The first successful workflow run publishes the site at `https://<owner>.github.io/veritas/`.
 
-GitHub Pages serves static files only; it cannot run Django or MongoDB. The prayer library, saved prayers, and Rosary work on Pages, but shared prayer intentions need the Django API and MongoDB deployed separately. To connect that backend, add `NEXT_PUBLIC_API_URL` as a **repository Actions variable** (for example, `https://api.example.com/api`) and allow the Pages origin in the backend's `CORS_ALLOWED_ORIGINS`. Re-run the Pages workflow after adding the variable. Do not put MongoDB credentials or Django secrets in `NEXT_PUBLIC_*` variables.
+GitHub Pages serves static files only; it cannot run Django or MongoDB. The prayer library, saved prayers, and Rosary work on Pages, but shared prayer intentions need the Django API and MongoDB deployed separately. Set `NEXT_PUBLIC_API_URL` at build time to the deployed API base URL (for example, `https://api.example.com/api`) and allow the Pages origin in the backend's `CORS_ALLOWED_ORIGINS`. A production build without this setting will not try the visitor's `localhost`; the intentions page explains the missing configuration instead. Do not put MongoDB credentials or Django secrets in `NEXT_PUBLIC_*` variables.
 
 ## Configuration
 

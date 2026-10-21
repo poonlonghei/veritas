@@ -1,25 +1,43 @@
 import type { DailyContent, Intention, Prayer } from "./types";
 import { prayers as bundledPrayers } from "./data";
 
+const configuredApiUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
 const API_URL =
-  process.env.NEXT_PUBLIC_API_URL === undefined
-    ? "http://localhost:8000/api"
-    : process.env.NEXT_PUBLIC_API_URL.replace(/\/$/, "");
+  configuredApiUrl === undefined
+    ? process.env.NODE_ENV === "development"
+      ? "http://localhost:8000/api"
+      : ""
+    : configuredApiUrl.replace(/\/$/, "");
+
+export function isApiConfigured(): boolean {
+  return Boolean(API_URL);
+}
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   if (!API_URL) {
     throw new Error(
-      "Prayer intentions require a configured Django API and MongoDB. GitHub Pages only hosts the static site.",
+      "Prayer intentions require a reachable Django API and MongoDB. Configure NEXT_PUBLIC_API_URL for this deployment.",
     );
   }
 
-  const response = await fetch(`${API_URL}${path}`, {
-    ...init,
-    headers: {
-      ...(init?.body ? { "Content-Type": "application/json" } : {}),
-      ...init?.headers,
-    },
-  });
+  let response: Response;
+  try {
+    response = await fetch(`${API_URL}${path}`, {
+      ...init,
+      headers: {
+        ...(init?.body ? { "Content-Type": "application/json" } : {}),
+        ...init?.headers,
+      },
+    });
+  } catch (error) {
+    if (error instanceof TypeError) {
+      throw new Error(
+        `Unable to reach the prayer API at ${API_URL}. Check that the API is running and allows this site's origin.`,
+      );
+    }
+    throw error;
+  }
+
   const body = (await response.json()) as T & { error?: string };
   if (!response.ok) {
     throw new Error(body.error ?? `Request failed (${response.status})`);

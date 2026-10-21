@@ -7,6 +7,7 @@ import {
   fetchDaily,
   fetchIntentions,
   fetchPrayers,
+  isApiConfigured,
 } from "@/lib/api";
 import { prayers as starterPrayers } from "@/lib/data";
 import type { DailyContent, Intention, Prayer } from "@/lib/types";
@@ -129,7 +130,7 @@ export default function HomePage() {
     fetchPrayers()
       .then(setPrayerList)
       .catch(() => setToast("Showing the built-in prayer library. The prayer service is unavailable."));
-    if (process.env.NEXT_PUBLIC_API_URL !== "") {
+    if (isApiConfigured()) {
       fetchDaily()
         .then(setDailyContent)
         .catch(() => setToast("Today's reflection is unavailable. Please try again later."));
@@ -140,7 +141,7 @@ export default function HomePage() {
         .finally(() => setIntentionsLoading(false));
     } else {
       setIntentionsError(
-        "Prayer intentions need a configured Django API and MongoDB. GitHub Pages only hosts the static site.",
+        "Prayer intentions need a configured Django API and MongoDB. Set NEXT_PUBLIC_API_URL to your API's /api URL and allow this site's origin.",
       );
     }
   }, []);
