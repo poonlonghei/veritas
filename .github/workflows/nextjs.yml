@@ -32,12 +32,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Spins up a real MongoDB instance inside the build container
-      - name: Start MongoDB
-        uses: supercharge/mongodb-github-action@1.12.1
-        with:
-          mongodb-version: '7.0'
-
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -85,10 +79,9 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      # Injected the local MongoDB connection string so Next.js can pull build-time data safely
       - name: Build with Next.js
         env:
-          MONGODB_URI: mongodb://localhost:27017/mydatabase
+          NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact
