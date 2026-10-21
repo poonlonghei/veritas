@@ -1,61 +1,25 @@
-from datetime import datetime, timezone
+import json
+import sqlite3
+from uuid import UUID
 
-from bson import ObjectId
-from bson.errors import InvalidId
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 
-from .data import DAILY_REFLECTIONS, PRAYERS
-from .mongodb import get_intentions_collection
+from .intentions_store import create_intention, delete_intention, list_intentions
 
 
-def _mongo_error():
+@require_http_methods(["GET"])
+def health(request):
+    return JsonResponse({"status": "ok"})
+
+
+def _storage_error():
     return JsonResponse(
         {
-            "error": "Prayer intentions are temporarily unavailable. Check that MongoDB is running and try again."
+            "error": "Prayer intentions are temporarily unavailable. Check that the intentions database is writable and try again."
         },
         status=503,
-    )
-
-
-def _serialize_intention(document):
-    return {
-        "id": str(document["_id"]),
-        "text": document["text"],
-        "createdAt": document["createdAt"].isoformat(),
-    }
-
-
-@require_http_methods(["GET"])
-def prayers(request):
-    category = request.GET.get("category")
-    query = request.GET.get("q", "").strip().casefold()
-    results = PRAYERS
-    if category and category != "All":
-        results = [prayer for prayer in results if prayer["category"] == category]
-    if query:
-        results = [
-            prayer
-            for prayer in results
-            if query in prayer["title"].casefold()
-            or query in prayer["category"].casefold()
-            or query in prayer["description"].casefold()
-        ]
-    return JsonResponse({"prayers": results})
-
-
-@require_http_methods(["GET"])
-def daily(request):
-    today = datetime.now(timezone.utc).date()
-    reflection = DAILY_REFLECTIONS[today.toordinal() % len(DAILY_REFLECTIONS)]
-    prayer = PRAYERS[today.toordinal() % len(PRAYERS)]
-    return JsonResponse(
-        {
-            "date": today.isoformat(),
-            "reflection": reflection,
-            "prayer": prayer,
-        }
     )
 
 
@@ -64,8 +28,6 @@ def daily(request):
 def intentions(request):
     text = None
     if request.method == "POST":
-        import json
-
         try:
             payload = json.loads(request.body or b"{}")
         except (json.JSONDecodeError, UnicodeDecodeError):
@@ -85,41 +47,26 @@ def intentions(request):
             )
 
     try:
-        collection = get_intentions_collection()
         if request.method == "GET":
-            documents = collection.find().sort("createdAt", -1).limit(50)
-            return JsonResponse(
-                {"intentions": [_serialize_intention(item) for item in documents]}
-            )
-
-        document = {"text": text.strip(), "createdAt": datetime.now(timezone.utc)}
-        result = collection.insert_one(document)
-        document["_id"] = result.inserted_id
-        return JsonResponse({"intention": _serialize_intention(document)}, status=201)
-    except Exception as error:
-        from pymongo.errors import PyMongoError
-
-        if isinstance(error, PyMongoError):
-            return _mongo_error()
-        raise
+            return JsonResponse({"intentions": list_intentions()})
+        intention = create_intention(text.strip())
+        return JsonResponse({"intention": intention}, status=201)
+    except sqlite3.Error:
+        return _storage_error()
 
 
 @csrf_exempt
 @require_http_methods(["DELETE"])
 def intention_detail(request, intention_id):
     try:
-        object_id = ObjectId(intention_id)
-    except (InvalidId, TypeError):
+        normalized_id = str(UUID(intention_id))
+    except (ValueError, TypeError, AttributeError):
         return JsonResponse({"error": "That intention could not be found."}, status=404)
 
     try:
-        result = get_intentions_collection().delete_one({"_id": object_id})
-    except Exception as error:
-        from pymongo.errors import PyMongoError
-
-        if isinstance(error, PyMongoError):
-            return _mongo_error()
-        raise
-    if result.deleted_count == 0:
+        deleted = delete_intention(normalized_id)
+    except sqlite3.Error:
+        return _storage_error()
+    if not deleted:
         return JsonResponse({"error": "That intention could not be found."}, status=404)
     return JsonResponse({"deleted": True})

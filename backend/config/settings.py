@@ -32,6 +32,14 @@ TEMPLATES = []
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 DATABASES = {}
+intentions_db_path = Path(
+    os.environ.get("INTENTIONS_DB_PATH", str(BASE_DIR / "data/intentions.sqlite3"))
+)
+INTENTIONS_DB_PATH = (
+    intentions_db_path
+    if intentions_db_path.is_absolute()
+    else BASE_DIR / intentions_db_path
+)
 
 CORS_ALLOWED_ORIGINS = os.environ.get(
     "CORS_ALLOWED_ORIGINS",
@@ -39,5 +47,3 @@ CORS_ALLOWED_ORIGINS = os.environ.get(
 ).split(",")
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
-MONGODB_URI = os.environ.get("MONGODB_URI", "mongodb://localhost:27017")
-MONGODB_DATABASE = os.environ.get("MONGODB_DATABASE", "veritas")

@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --ink: #29352f;
   --ink-deep: #24342e;
@@ -80,7 +82,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .prayer-card { min-height: 177px; padding: 17px 16px 14px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; transition: .18s ease; }
 .prayer-card:hover { border-color: #d5dccc; box-shadow: 0 5px 18px #25382f0a; }
 .prayer-card-top { display: flex; align-items: center; justify-content: space-between; }
+.card-tags { display: flex; align-items: center; gap: 6px; }
 .category-tag { display: inline-flex; min-height: 20px; align-items: center; padding: 0 8px; border-radius: 20px; color: #71816e; background: #edf0e8; font-size: 8px; font-weight: 600; }
+.latin-tag { display: inline-flex; min-height: 20px; align-items: center; padding: 0 7px; border: 1px solid #e9ddd1; border-radius: 20px; color: #9d6e50; background: #fbf4ed; }
 .icon-button { display: grid; width: 31px; height: 31px; flex: 0 0 auto; place-items: center; border: 0; border-radius: 50%; color: #9a9b92; background: transparent; cursor: pointer; }
 .icon-button:hover { color: var(--green-dark); background: #f1f1eb; }
 .bookmark-button { width: 28px; height: 28px; }
@@ -161,9 +165,14 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .modal-close { position: absolute; top: 13px; right: 13px; }
 .modal-mark { display: block; margin: 22px 0 7px; color: #bd876b; font-size: 27px; }
 .prayer-modal h2 { margin: 0; color: var(--ink-deep); font: 500 30px var(--serif); }
+.prayer-language-switch { display: inline-flex; gap: 3px; margin-top: 17px; padding: 3px; border: 1px solid #e8e4dc; border-radius: 24px; background: #f4f1e9; }
+.language-button { min-height: 29px; padding: 0 13px; border: 0; border-radius: 20px; color: #777d73; background: transparent; font-size: 10px; cursor: pointer; transition: color .18s ease, background .18s ease; }
+.language-button:hover { color: var(--ink-deep); }
+.language-button.active { color: white; background: #657e69; }
 .modal-divider { display: flex; align-items: center; gap: 13px; margin: 19px 0; color: #bd876b; font-size: 13px; }
 .modal-divider:before, .modal-divider:after { height: 1px; flex: 1; background: #e8e4dc; content: ""; }
 .prayer-text { margin: 0; color: #5f685f; font: 400 15px/1.95 var(--serif); }
+.prayer-text-latin { font-style: italic; }
 .modal-done { margin-top: 24px; }
 .toast-message { position: fixed; z-index: 40; right: 24px; bottom: 24px; max-width: min(390px, calc(100% - 48px)); padding: 13px 17px; border: 1px solid #dce3d6; border-radius: 5px; color: #405744; background: #f8fbf5; box-shadow: 0 7px 25px #1b2b201a; font-size: 11px; line-height: 1.6; }
 .closing-note { display: flex; flex-direction: column; align-items: center; margin: 36px 0 5px; color: #a67d64; text-align: center; }

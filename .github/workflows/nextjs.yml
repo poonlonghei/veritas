@@ -82,6 +82,7 @@ jobs:
       - name: Build with Next.js
         env:
           NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL }}
+          NEXT_PUBLIC_PRAYER_API_URL: ${{ vars.NEXT_PUBLIC_PRAYER_API_URL }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact

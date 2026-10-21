@@ -8,6 +8,7 @@ export const prayers: Prayer[] = [
     duration: "1 min",
     description: "The prayer Jesus taught his disciples.",
     text: "Our Father, who art in heaven, hallowed be thy name. Thy kingdom come, thy will be done, on earth as it is in heaven. Give us this day our daily bread, and forgive us our trespasses, as we forgive those who trespass against us. And lead us not into temptation, but deliver us from evil. Amen.",
+    latinText: "Pater noster, qui es in caelis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in caelo et in terra. Panem nostrum quotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo. Amen.",
   },
   {
     id: "hail-mary",
@@ -16,6 +17,7 @@ export const prayers: Prayer[] = [
     duration: "1 min",
     description: "A prayer asking Mary to pray with us and for us.",
     text: "Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.",
+    latinText: "Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.",
   },
   {
     id: "glory-be",
@@ -24,6 +26,7 @@ export const prayers: Prayer[] = [
     duration: "1 min",
     description: "A short doxology of praise to the Holy Trinity.",
     text: "Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.",
+    latinText: "Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.",
   },
   {
     id: "act-of-contrition",

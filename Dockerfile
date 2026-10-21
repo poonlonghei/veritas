@@ -8,7 +8,9 @@ WORKDIR /app
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
 ARG NEXT_PUBLIC_API_URL
+ARG NEXT_PUBLIC_PRAYER_API_URL
 ENV NEXT_PUBLIC_API_URL=$NEXT_PUBLIC_API_URL
+ENV NEXT_PUBLIC_PRAYER_API_URL=$NEXT_PUBLIC_PRAYER_API_URL
 RUN npm run build
 
 FROM nginx:alpine AS runtime

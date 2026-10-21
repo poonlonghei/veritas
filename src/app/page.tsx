@@ -8,6 +8,7 @@ import {
   fetchIntentions,
   fetchPrayers,
   isApiConfigured,
+  isPrayerApiConfigured,
 } from "@/lib/api";
 import { prayers as starterPrayers } from "@/lib/data";
 import type { DailyContent, Intention, Prayer } from "@/lib/types";
@@ -109,6 +110,7 @@ export default function HomePage() {
   const [prayerSearch, setPrayerSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPrayer, setSelectedPrayer] = useState<Prayer | null>(null);
+  const [prayerLanguage, setPrayerLanguage] = useState<"en" | "la">("en");
   const [savedIds, setSavedIds] = useState<string[]>([]);
   const [mysterySet, setMysterySet] = useState<MysterySet>(getMysteryForToday);
   const [decade, setDecade] = useState(0);
@@ -129,11 +131,17 @@ export default function HomePage() {
     }
     fetchPrayers()
       .then(setPrayerList)
-      .catch(() => setToast("Showing the built-in prayer library. The prayer service is unavailable."));
-    if (isApiConfigured()) {
+      .catch(() =>
+        setToast(
+          "Showing the built-in prayer library. The prayer service is unavailable.",
+        ),
+      );
+    if (isPrayerApiConfigured()) {
       fetchDaily()
         .then(setDailyContent)
         .catch(() => setToast("Today's reflection is unavailable. Please try again later."));
+    }
+    if (isApiConfigured()) {
       setIntentionsLoading(true);
       fetchIntentions()
         .then(setIntentions)
@@ -141,7 +149,7 @@ export default function HomePage() {
         .finally(() => setIntentionsLoading(false));
     } else {
       setIntentionsError(
-        "Prayer intentions need a configured Django API and MongoDB. Set NEXT_PUBLIC_API_URL to your API's /api URL and allow this site's origin.",
+        "Prayer intentions need the Python API. Set NEXT_PUBLIC_API_URL to your API's /api URL and allow this site's origin.",
       );
     }
   }, []);
@@ -162,7 +170,7 @@ export default function HomePage() {
           : prayer.category === selectedCategory);
       const matchesSearch =
         !query ||
-        [prayer.title, prayer.category, prayer.description]
+        [prayer.title, prayer.category, prayer.description, prayer.latinText ?? ""]
           .join(" ")
           .toLowerCase()
           .includes(query);
@@ -226,7 +234,10 @@ export default function HomePage() {
     return (
       <article className={`prayer-card${featured ? " prayer-card-featured" : ""}`} key={prayer.id}>
         <div className="prayer-card-top">
-          <span className="category-tag">{prayer.category}</span>
+          <div className="card-tags">
+            <span className="category-tag">{prayer.category}</span>
+            {prayer.latinText && <span className="latin-tag text-[8px] font-semibold tracking-[.04em]">EN · LA</span>}
+          </div>
           <button
             className={`icon-button bookmark-button${saved ? " is-saved" : ""}`}
             aria-label={saved ? `Remove ${prayer.title} from saved prayers` : `Save ${prayer.title}`}
@@ -239,7 +250,7 @@ export default function HomePage() {
         <p>{prayer.description}</p>
         <div className="prayer-card-footer">
           <span className="duration"><Icon name="clock" size={15} /> {prayer.duration}</span>
-          <button className="text-link" onClick={() => setSelectedPrayer(prayer)}>
+          <button className="text-link" onClick={() => { setPrayerLanguage("en"); setSelectedPrayer(prayer); }}>
             Pray now <Icon name="arrow" size={16} />
           </button>
         </div>
@@ -358,7 +369,7 @@ export default function HomePage() {
           <div className="daily-copy"><span className="eyebrow light">A MOMENT OF PRAYER</span>
             <h2>{dailyContent?.reflection.title ?? "Make room for stillness"}</h2>
             <p>{dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough."}</p>
-            <button className="cream-button" onClick={() => setSelectedPrayer(dailyPrayer)}>Begin today’s prayer <Icon name="arrow" size={17} /></button>
+            <button className="cream-button" onClick={() => { setPrayerLanguage("en"); setSelectedPrayer(dailyPrayer); }}>Begin today’s prayer <Icon name="arrow" size={17} /></button>
           </div>
           <div className="daily-art" aria-hidden="true"><div className="sun-disc"><span>✳</span></div><div className="arch arch-one" /><div className="arch arch-two" /><div className="arch arch-three" /><div className="art-ground" /></div>
           <div className="daily-caption">A LITTLE STILLNESS CAN CHANGE THE SHAPE OF A DAY</div>
@@ -385,7 +396,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="app-shell">
+    <div className="app-shell min-h-screen antialiased">
       <aside className={`sidebar${sidebarOpen ? " sidebar-open" : ""}`}>
         <button className="brand" onClick={() => navigate("Home")} aria-label="Veritas home">
           <span className="brand-mark">✳</span><span className="brand-name">veritas<small>A QUIET PLACE TO PRAY</small></span>
@@ -411,7 +422,11 @@ export default function HomePage() {
           <button className="icon-button modal-close" aria-label="Close prayer" onClick={() => setSelectedPrayer(null)}><Icon name="close" /></button>
           <span className="eyebrow">{selectedPrayer.category} · {selectedPrayer.duration}</span>
           <span className="modal-mark">✳</span><h2 id="prayer-modal-title">{selectedPrayer.title}</h2>
-          <div className="modal-divider"><span>✦</span></div><p className="prayer-text">{selectedPrayer.text}</p>
+          {selectedPrayer.latinText && <div className="prayer-language-switch" role="group" aria-label="Prayer language">
+            <button className={`language-button${prayerLanguage === "en" ? " active" : ""} focus-visible:ring-2 focus-visible:ring-[#657e69]`} aria-pressed={prayerLanguage === "en"} onClick={() => setPrayerLanguage("en")}>English</button>
+            <button className={`language-button${prayerLanguage === "la" ? " active" : ""} focus-visible:ring-2 focus-visible:ring-[#657e69]`} aria-pressed={prayerLanguage === "la"} onClick={() => setPrayerLanguage("la")}>Latin</button>
+          </div>}
+          <div className="modal-divider"><span>✦</span></div><p className={`prayer-text${prayerLanguage === "la" ? " prayer-text-latin" : ""}`}>{prayerLanguage === "la" && selectedPrayer.latinText ? selectedPrayer.latinText : selectedPrayer.text}</p>
           <button className="primary-button modal-done" onClick={() => setSelectedPrayer(null)}>Amen <Icon name="arrow" size={17} /></button>
         </section>
       </div>}

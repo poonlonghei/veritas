@@ -5,6 +5,7 @@ export type Prayer = {
   duration: string;
   description: string;
   text: string;
+  latinText?: string;
 };
 
 export type Intention = {

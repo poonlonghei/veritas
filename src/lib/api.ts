@@ -1,28 +1,43 @@
 import type { DailyContent, Intention, Prayer } from "./types";
 import { prayers as bundledPrayers } from "./data";
 
-const configuredApiUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
-const API_URL =
-  configuredApiUrl === undefined
+const configuredIntentionsApiUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
+const INTENTIONS_API_URL =
+  configuredIntentionsApiUrl === undefined
     ? process.env.NODE_ENV === "development"
       ? "http://localhost:8000/api"
       : ""
-    : configuredApiUrl.replace(/\/$/, "");
+    : configuredIntentionsApiUrl.replace(/\/$/, "");
+const configuredPrayerApiUrl = process.env.NEXT_PUBLIC_PRAYER_API_URL?.trim();
+const PRAYER_API_URL =
+  configuredPrayerApiUrl === undefined
+    ? process.env.NODE_ENV === "development"
+      ? "http://localhost:8080/api"
+      : ""
+    : configuredPrayerApiUrl.replace(/\/$/, "");
 
 export function isApiConfigured(): boolean {
-  return Boolean(API_URL);
+  return Boolean(INTENTIONS_API_URL);
 }
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  if (!API_URL) {
+export function isPrayerApiConfigured(): boolean {
+  return Boolean(PRAYER_API_URL);
+}
+
+async function request<T>(
+  baseUrl: string,
+  path: string,
+  init?: RequestInit,
+): Promise<T> {
+  if (!baseUrl) {
     throw new Error(
-      "Prayer intentions require a reachable Django API and MongoDB. Configure NEXT_PUBLIC_API_URL for this deployment.",
+      "This service is not configured. Set its API URL in the deployment environment.",
     );
   }
 
   let response: Response;
   try {
-    response = await fetch(`${API_URL}${path}`, {
+    response = await fetch(`${baseUrl}${path}`, {
       ...init,
       headers: {
         ...(init?.body ? { "Content-Type": "application/json" } : {}),
@@ -32,7 +47,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   } catch (error) {
     if (error instanceof TypeError) {
       throw new Error(
-        `Unable to reach the prayer API at ${API_URL}. Check that the API is running and allows this site's origin.`,
+        `Unable to reach the API at ${baseUrl}. Check that the service is running and allows this site's origin.`,
       );
     }
     throw error;
@@ -46,33 +61,42 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export async function fetchPrayers(): Promise<Prayer[]> {
-  if (!API_URL) {
+  if (!PRAYER_API_URL) {
     return bundledPrayers;
   }
 
-  const result = await request<{ prayers: Prayer[] }>("/prayers/");
+  const result = await request<{ prayers: Prayer[] }>(PRAYER_API_URL, "/prayers/");
   return result.prayers;
 }
 
 export async function fetchDaily(): Promise<DailyContent> {
-  return request<DailyContent>("/daily/");
+  return request<DailyContent>(PRAYER_API_URL, "/daily/");
 }
 
 export async function fetchIntentions(): Promise<Intention[]> {
-  const result = await request<{ intentions: Intention[] }>("/intentions/");
+  const result = await request<{ intentions: Intention[] }>(
+    INTENTIONS_API_URL,
+    "/intentions/",
+  );
   return result.intentions;
 }
 
 export async function createIntention(text: string): Promise<Intention> {
-  const result = await request<{ intention: Intention }>("/intentions/", {
+  const result = await request<{ intention: Intention }>(
+    INTENTIONS_API_URL,
+    "/intentions/",
+    {
     method: "POST",
     body: JSON.stringify({ text }),
-  });
+    },
+  );
   return result.intention;
 }
 
 export async function deleteIntention(id: string): Promise<void> {
-  await request<{ deleted: boolean }>(`/intentions/${encodeURIComponent(id)}/`, {
-    method: "DELETE",
-  });
+  await request<{ deleted: boolean }>(
+    INTENTIONS_API_URL,
+    `/intentions/${encodeURIComponent(id)}/`,
+    { method: "DELETE" },
+  );
 }
