@@ -23,9 +23,22 @@ type Screen =
   | "Daily readings"
   | "Prayer library"
   | "Prayer intentions"
+  | "Order of Holy Mass"
   | "The Rosary"
   | "About";
 type Locale = "en" | "zh-TW";
+type MassForm = "Ordinary Form" | "Extraordinary Form";
+
+function getMassTextUrl(form: MassForm) {
+  const parameters = new URLSearchParams({
+    searchvalue: "2",
+    lang1: "English",
+    lang2: "English",
+    version1: form === "Ordinary Form" ? "New Mass" : "Rubrics 1960 - 1960",
+    version2: form === "Ordinary Form" ? "New Mass" : "Rubrics 1960 - 1960",
+  });
+  return `https://www.divinumofficium.com/cgi-bin/missa/Cmissa.pl?${parameters.toString()}`;
+}
 
 function getCurrentMonth() {
   return new Date().toISOString().slice(0, 7);
@@ -253,6 +266,7 @@ export default function HomePage() {
   const [intentionLocation, setIntentionLocation] = useState("");
   const [intentionText, setIntentionText] = useState("");
   const [intentionConsent, setIntentionConsent] = useState(false);
+  const [massForm, setMassForm] = useState<MassForm>("Ordinary Form");
 
   useEffect(() => {
     try {
@@ -343,6 +357,12 @@ export default function HomePage() {
       // The language switch remains usable when browser storage is unavailable.
     }
   }, [locale]);
+
+  useEffect(() => {
+    if (locale === "zh-TW" && screen === "Order of Holy Mass") {
+      setScreen("Home");
+    }
+  }, [locale, screen]);
 
   useEffect(() => {
     if (!toast) return;
@@ -660,6 +680,55 @@ export default function HomePage() {
       );
     }
 
+    if (screen === "Order of Holy Mass" && locale === "en") {
+      const massTextUrl = getMassTextUrl(massForm);
+      return (
+        <main className="main-content readings-page holy-mass-page">
+          <header className="page-heading">
+            <div>
+              <span className="eyebrow">THE ROMAN RITE</span>
+              <h1>Order of Holy Mass</h1>
+              <p>Follow the order of Mass in either form of the Roman Rite.</p>
+            </div>
+            <span className="heading-mark">✝</span>
+          </header>
+          <section className="readings-section" aria-labelledby="mass-form-heading">
+            <div className="readings-section-heading">
+              <h2 id="mass-form-heading">Choose the form</h2>
+              <p>The full English text is provided by Divinum Officium.</p>
+            </div>
+            <div className="mass-form-selector" role="group" aria-label="Choose the form of Holy Mass">
+              {(["Ordinary Form", "Extraordinary Form"] as const).map((form) => (
+                <button
+                  key={form}
+                  className={`filter-chip${massForm === form ? " active" : ""}`}
+                  aria-pressed={massForm === form}
+                  onClick={() => setMassForm(form)}
+                >
+                  {form}
+                </button>
+              ))}
+            </div>
+            <iframe
+              key={massForm}
+              className="reading-embed holy-mass-embed"
+              src={massTextUrl}
+              title={`${massForm} of the Order of Holy Mass`}
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+            <p className="holy-mass-credit">
+              Text and liturgical materials are displayed from{" "}
+              <a href={massTextUrl} target="_blank" rel="noreferrer">
+                Divinum Officium
+              </a>
+              . If the text does not load here, open it on their website.
+            </p>
+          </section>
+        </main>
+      );
+    }
+
     if (screen === "Prayer library") {
       return (
         <main className="main-content">
@@ -813,6 +882,9 @@ export default function HomePage() {
     { name: "Home", icon: "home" },
     { name: "Daily readings", icon: "book" },
     { name: "Prayer intentions", icon: "info" },
+    ...(locale === "en"
+      ? [{ name: "Order of Holy Mass" as const, icon: "book" }]
+      : []),
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
   ];
