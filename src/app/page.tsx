@@ -159,6 +159,19 @@ function getToday(locale: Locale) {
   }).format(new Date());
 }
 
+function getChineseDailyReadingSourceUrl() {
+  const today = new Date();
+  const cycle = ["lk", "mt", "mk"][today.getFullYear() % 3];
+  const year = String(today.getFullYear()).slice(-2);
+  const month = String(today.getMonth() + 1).padStart(2, "0");
+  const day = String(today.getDate()).padStart(2, "0");
+  return `http://catholic-dlc.org.hk/${cycle}${year}${month}${day}.htm`;
+}
+
+function getChineseDailyReadingUrl() {
+  return `https://r.jina.ai/${getChineseDailyReadingSourceUrl()}`;
+}
+
 function getSaintForToday() {
   const today = new Date();
   const yearStart = Date.UTC(today.getFullYear(), 0, 1);
@@ -378,14 +391,14 @@ export default function HomePage() {
             </div>
             <iframe
               className="reading-embed"
-              src={locale === "zh-TW" ? "http://catholic-dlc.org.hk/frame3.htm" : "https://universalis.com/mass.htm"}
-              title={t("Today’s Mass readings from Universalis")}
+              src={locale === "zh-TW" ? getChineseDailyReadingUrl() : "https://universalis.com/mass.htm"}
+              title={locale === "zh-TW" ? t("Today’s Chinese scripture readings") : t("Today’s Mass readings from Universalis")}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
             />
-            <span className="universalis-credit">{t("Mass readings from Universalis.")}</span>
+            <span className="universalis-credit">{locale === "zh-TW" ? t("Chinese readings from the Hong Kong Diocese") : t("Mass readings from Universalis.")}</span>
             {locale === "zh-TW" && (
-              <a className="reading-resource-link" href="http://catholic-dlc.org.hk/frame3.htm">
+              <a className="reading-resource-link" href={getChineseDailyReadingSourceUrl()}>
                 {t("Open the daily readings from the Hong Kong Diocese")}
               </a>
             )}
@@ -560,7 +573,7 @@ export default function HomePage() {
     <div className="app-shell min-h-screen antialiased">
       <aside className={`sidebar${sidebarOpen ? " sidebar-open" : ""}`}>
         <button className="brand" onClick={() => navigate("Home")} aria-label={t("Veritas home")}>
-          <span className="brand-mark" aria-hidden="true" /><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
+          <img className="brand-mark" src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg`} alt="" /><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
         </button>
         <span className="nav-label">{t("YOUR PRAYER SPACE")}</span>
         <nav className="side-nav" aria-label={t("Main navigation")}>
@@ -582,7 +595,7 @@ export default function HomePage() {
       {sidebarOpen && <button className="sidebar-overlay" aria-label={t("Close navigation")} onClick={() => setSidebarOpen(false)} />}
       <div className="content-column">
         <div className="mobile-header"><button className="icon-button" onClick={() => setSidebarOpen(true)} aria-label={t("Open navigation")}><Icon name="menu" /></button>
-          <button className="mobile-brand" onClick={() => navigate("Home")}><span aria-hidden="true" /> veritas</button><span className="mobile-header-spacer" /></div>
+          <button className="mobile-brand" onClick={() => navigate("Home")}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg`} alt="" /> veritas</button><span className="mobile-header-spacer" /></div>
         {renderMain()}
         <footer className="page-footer"><span>✳</span><span>{t("Made for a little more stillness.")}</span><span>VERITAS</span></footer>
       </div>

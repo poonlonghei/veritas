@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Veritas — A quiet place to pray",
+  title: "Veritas -- A quiet place to pray",
   description:
     "A quiet place for Catholic prayer, the Rosary, and daily reflection.",
 };

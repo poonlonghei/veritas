@@ -23,7 +23,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .app-shell { min-height: 100vh; }
 .sidebar { position: fixed; z-index: 10; inset: 0 auto 0 0; display: flex; flex-direction: column; width: 258px; overflow-y: auto; padding: 34px 23px 21px; background: #f4f1e9; border-right: 1px solid #ebe7de; }
 .brand { display: flex; align-items: center; gap: 12px; padding: 0 8px; border: 0; background: none; text-align: left; cursor: pointer; }
-.brand-mark { display: block; width: 36px; height: 36px; flex: 0 0 auto; background: url("/icon.svg") center / contain no-repeat; }
+.brand-mark { display: block; width: 36px; height: 36px; flex: 0 0 auto; }
 .brand-name { color: var(--ink-deep); font-family: var(--serif); font-size: 27px; line-height: 1; letter-spacing: -.8px; }
 .brand-name small { display: block; margin-top: 7px; color: #929188; font: 600 11px var(--sans); letter-spacing: 1.8px; }
 .nav-label, .eyebrow { color: #898c82; font-size: 12px; font-weight: 700; letter-spacing: 1.65px; }
@@ -227,7 +227,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .mobile-header { position: sticky; z-index: 15; top: 0; display: flex; height: 55px; align-items: center; justify-content: space-between; padding: 0 17px; border-bottom: 1px solid #eeeae2; background: #fbfaf7eF; backdrop-filter: blur(10px); }
   .mobile-header .icon-button { margin-left: -6px; }
   .mobile-brand { display: flex; align-items: center; gap: 6px; border: 0; color: var(--ink-deep); background: transparent; font: 500 20px var(--serif); cursor: pointer; }
-  .mobile-brand span { display: block; width: 24px; height: 24px; flex: 0 0 auto; background: url("/icon.svg") center / contain no-repeat; }
+  .mobile-brand img { display: block; width: 24px; height: 24px; flex: 0 0 auto; }
   .mobile-header-spacer { width: 28px; }
   .main-content { width: calc(100% - 44px); min-height: calc(100vh - 110px); padding-top: 35px; }
 }
