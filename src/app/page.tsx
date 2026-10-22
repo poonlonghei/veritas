@@ -162,16 +162,6 @@ function getSaintForToday() {
   return dailySaints[dayOfYear % dailySaints.length];
 }
 
-function getUniversalisGospelReflectionUrl() {
-  const today = new Date();
-  const date = [
-    String(today.getMonth() + 1).padStart(2, "0"),
-    String(today.getDate()).padStart(2, "0"),
-    today.getFullYear(),
-  ].join("-");
-  return `https://universalis.com/christian.art/${date}-reading`;
-}
-
 function getMysteryForToday(): MysterySet {
   const day = new Date().getDay();
   if ([1, 6].includes(day)) return "Joyful";
@@ -307,32 +297,26 @@ export default function HomePage() {
               <p>Spend a moment with the readings and Gospel for today.</p></div>
             <span className="heading-mark">✳</span>
           </header>
-          <section className="readings-prayer">
-            <span className="eyebrow light">A MOMENT FOR PRAYER</span>
-            <h2>{dailyContent?.reflection.title ?? "Make room for stillness"}</h2>
-            <p>{dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough."}</p>
-            {dailyContent?.reflection.reference && <span className="readings-prayer-reference">{dailyContent.reflection.reference}</span>}
-          </section>
           <section className="readings-section" aria-labelledby="mass-readings-heading">
             <div className="readings-section-heading">
               <span className="eyebrow">THE LITURGY OF THE DAY</span>
-              <h2 id="mass-readings-heading">Read the Scriptures</h2>
-              <p>Find the first reading, psalm, and Gospel in today’s Mass readings.</p>
+              <h2 id="mass-readings-heading">Today’s Mass readings</h2>
+              <p>Read the first reading, responsorial psalm, and Gospel here.</p>
             </div>
-            <a className="reading-link-card" href="https://universalis.com/mass.htm" target="_blank" rel="noreferrer">
-              <span className="reading-card-mark"><Icon name="book" size={22} /></span>
-              <span className="reading-card-copy"><strong>Today’s Mass readings</strong><small>First reading · Responsorial Psalm · Gospel</small></span>
-              <Icon name="arrow" size={18} />
-            </a>
+            <iframe
+              className="reading-embed"
+              src="https://universalis.com/mass.htm"
+              title="Today’s Mass readings from Universalis"
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
+            />
+            <span className="universalis-credit">Mass readings from Universalis.</span>
           </section>
           <section className="gospel-reflection" aria-labelledby="gospel-reflection-heading">
-            <span className="eyebrow">PAUSE WITH THE GOSPEL</span>
-            <h2 id="gospel-reflection-heading">A reflection for today</h2>
-            <p>Continue with Universalis’ reflection on the Gospel. The full reflection is available on its original site.</p>
-            <a className="primary-button reflection-link" href={getUniversalisGospelReflectionUrl()} target="_blank" rel="noreferrer">
-              Read the Gospel reflection <Icon name="arrow" size={17} />
-            </a>
-            <span className="universalis-credit">Gospel reflection by Universalis · Christian Art</span>
+            <span className="eyebrow">PAUSE WITH THE WORD</span>
+            <h2 id="gospel-reflection-heading">{dailyContent?.reflection.title ?? "A reflection for today"}</h2>
+            <p>{dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough."}</p>
+            {dailyContent?.reflection.reference && <span className="reflection-reference">{dailyContent.reflection.reference}</span>}
           </section>
         </main>
       );
@@ -461,11 +445,9 @@ export default function HomePage() {
           </div>
           <p>Take a quiet moment with today’s Gospel. Notice a word or phrase that stays with you, and consider how you might carry it into your day.</p>
           <div className="scripture-links">
-            <button onClick={() => navigate("Daily readings")}>Explore today’s readings <Icon name="arrow" size={15} /></button>
-            <a href="https://universalis.com/mass.htm" target="_blank" rel="noreferrer">Read today’s Mass readings <Icon name="arrow" size={15} /></a>
-            <a href={getUniversalisGospelReflectionUrl()} target="_blank" rel="noreferrer">Read the Gospel reflection <Icon name="arrow" size={15} /></a>
+            <button onClick={() => navigate("Daily readings")}>View today’s readings &amp; reflection <Icon name="arrow" size={15} /></button>
           </div>
-          <span className="scripture-source">Mass readings and Gospel reflection: Universalis · Christian Art</span>
+          <span className="scripture-source">Mass readings: Universalis.</span>
         </section>
         <section className="saint-card" aria-labelledby="saint-heading">
           <div className="saint-card-copy">
