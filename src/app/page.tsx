@@ -7,7 +7,10 @@ import {
   isPrayerApiConfigured,
 } from "@/lib/api";
 import { prayers as starterPrayers } from "@/lib/data";
-import { traditionalChinese } from "@/lib/translations";
+import {
+  traditionalChinese,
+  traditionalChineseDailyReflection,
+} from "@/lib/translations";
 import type { DailyContent, Prayer } from "@/lib/types";
 
 type Screen = "Home" | "Daily readings" | "Prayer library" | "The Rosary" | "About";
@@ -288,6 +291,14 @@ export default function HomePage() {
 
   const dailySaint = getSaintForToday();
   const currentMysteries = mysteries[mysterySet];
+  const dailyReflection =
+    locale === "zh-TW"
+      ? traditionalChineseDailyReflection
+      : dailyContent?.reflection ?? {
+          title: "A reflection for today",
+          text: "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough.",
+          reference: "",
+        };
   const displayedSelectedPrayer = selectedPrayer ? localizePrayer(selectedPrayer, locale) : null;
 
   function navigate(next: Screen) {
@@ -363,18 +374,23 @@ export default function HomePage() {
             </div>
             <iframe
               className="reading-embed"
-              src="https://universalis.com/mass.htm"
+              src={locale === "zh-TW" ? "http://catholic-dlc.org.hk/frame3.htm" : "https://universalis.com/mass.htm"}
               title={t("Today’s Mass readings from Universalis")}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
             />
             <span className="universalis-credit">{t("Mass readings from Universalis.")}</span>
+            {locale === "zh-TW" && (
+              <a className="reading-resource-link" href="http://catholic-dlc.org.hk/frame3.htm">
+                {t("Open the daily readings from the Hong Kong Diocese")}
+              </a>
+            )}
           </section>
           <section className="gospel-reflection" aria-labelledby="gospel-reflection-heading">
             <span className="eyebrow">{t("PAUSE WITH THE WORD")}</span>
-            <h2 id="gospel-reflection-heading">{t(dailyContent?.reflection.title ?? "A reflection for today")}</h2>
-            <p>{t(dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough.")}</p>
-            {dailyContent?.reflection.reference && <span className="reflection-reference">{dailyContent.reflection.reference}</span>}
+            <h2 id="gospel-reflection-heading">{dailyReflection.title}</h2>
+            <p>{dailyReflection.text}</p>
+            {dailyReflection.reference && <span className="reflection-reference">{dailyReflection.reference}</span>}
           </section>
         </main>
       );
@@ -489,8 +505,8 @@ export default function HomePage() {
           <p>{t("Welcome to a quieter place. Let us begin.")}</p></div><div className="sun-mark" aria-hidden="true"><span>✳</span></div></header>
         <section className="daily-card">
           <div className="daily-copy"><span className="eyebrow light">{t("A MOMENT OF PRAYER")}</span>
-            <h2>{t(dailyContent?.reflection.title ?? "Make room for stillness")}</h2>
-            <p>{t(dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough.")}</p>
+            <h2>{locale === "zh-TW" ? dailyReflection.title : t(dailyContent?.reflection.title ?? "Make room for stillness")}</h2>
+            <p>{locale === "zh-TW" ? dailyReflection.text : t(dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough.")}</p>
             <button className="cream-button" onClick={beginRandomPrayer}>{t("Begin today’s prayer")} <Icon name="arrow" size={17} /></button>
           </div>
           <div className="daily-art" aria-hidden="true"><div className="sun-disc"><span>✳</span></div><div className="arch arch-one" /><div className="arch arch-two" /><div className="arch arch-three" /><div className="art-ground" /></div>
