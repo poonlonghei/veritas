@@ -1,6 +1,6 @@
 # Veritas — A quiet place to pray
 
-A quiet and peaceful place for Catholic prayer: daily reflection, a searchable prayer library, a guided Rosary, and a personal list of prayer intentions.
+A quiet and peaceful place for Catholic prayer: daily reflection, a searchable prayer library, and a guided Rosary.
 
 ## Stack
 
@@ -9,7 +9,7 @@ A quiet and peaceful place for Catholic prayer: daily reflection, a searchable p
 - **Intentions API:** Django 5.2, Python 3.10+, JSON REST endpoints
 - **Persistence:** SQLite (prayer intentions)
 
-The prayer catalog and daily reflections are served by the Java API and bundled in the web app as an offline fallback. Our Father, Hail Mary, and Glory Be are available in English and Latin. Prayer intentions are shared with all visitors and saved in SQLite; do not post sensitive or identifying information. Saved prayers are stored in the visitor's browser.
+The prayer catalog and daily reflections are served by the Java API and bundled in the web app as an offline fallback. Our Father, Hail Mary, and Glory Be are available in English and Latin. Saved prayers are stored in the visitor's browser.
 
 ## Run everything with Docker
 
@@ -63,7 +63,7 @@ The workflow at `.github/workflows/nextjs.yml` exports the Next.js app as a stat
 2. In the repository, open **Settings → Pages** and set the build and deployment source to **GitHub Actions**.
 3. The first successful workflow run publishes the site at `https://<owner>.github.io/veritas/`.
 
-GitHub Pages serves static files only; it cannot run Django or Java. The prayer library, saved prayers, and Rosary work on Pages, but shared prayer intentions and live daily content need the Python and Java APIs deployed separately.
+GitHub Pages serves static files only; it cannot run Django or Java. The prayer library, saved prayers, and Rosary work on Pages, while live daily content needs the Java API deployed separately.
 
 ### Deploy the APIs on Render
 
@@ -71,7 +71,7 @@ GitHub Pages serves static files only; it cannot run Django or Java. The prayer 
 2. In GitHub, open **Settings → Secrets and variables → Actions → Variables → New repository variable**. Set `NEXT_PUBLIC_API_URL` to the Django intentions service URL and `NEXT_PUBLIC_PRAYER_API_URL` to the Java prayer service URL; include `/api` in both values.
 3. Re-run **Actions → Deploy Next.js site to Pages → Run workflow** (or push a commit) to build the frontend with the API URLs.
 
-SQLite is stored on the application filesystem. Render's default filesystem is ephemeral, so use a persistent disk for the Python service if intentions must survive redeploys. The Pages origin configured in `render.yaml` is `https://poonlonghei.github.io`. If your published Pages site uses a different owner/domain, update `CORS_ALLOWED_ORIGINS` in `render.yaml` for both services before deploying. Never put Django secrets in `NEXT_PUBLIC_*` variables. A production build without `NEXT_PUBLIC_API_URL` will not try the visitor's `localhost`; the intentions page explains the missing configuration instead.
+SQLite is stored on the application filesystem. Render's default filesystem is ephemeral, so use a persistent disk for the Python service if intentions must survive redeploys. The Pages origin configured in `render.yaml` is `https://poonlonghei.github.io`. If your published Pages site uses a different owner/domain, update `CORS_ALLOWED_ORIGINS` in `render.yaml` for both services before deploying. Never put Django secrets in `NEXT_PUBLIC_*` variables. A production build without `NEXT_PUBLIC_API_URL` will not try the visitor's `localhost`.
 
 
 ## Configuration

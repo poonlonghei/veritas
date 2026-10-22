@@ -1,13 +1,6 @@
-import type { DailyContent, Intention, Prayer } from "./types";
+import type { DailyContent, Prayer } from "./types";
 import { prayers as bundledPrayers } from "./data";
 
-const configuredIntentionsApiUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
-const INTENTIONS_API_URL =
-  configuredIntentionsApiUrl === undefined
-    ? process.env.NODE_ENV === "development"
-      ? "http://localhost:8000/api"
-      : ""
-    : configuredIntentionsApiUrl.replace(/\/$/, "");
 const configuredPrayerApiUrl = process.env.NEXT_PUBLIC_PRAYER_API_URL?.trim();
 const PRAYER_API_URL =
   configuredPrayerApiUrl === undefined
@@ -15,10 +8,6 @@ const PRAYER_API_URL =
       ? "http://localhost:8080/api"
       : ""
     : configuredPrayerApiUrl.replace(/\/$/, "");
-
-export function isApiConfigured(): boolean {
-  return Boolean(INTENTIONS_API_URL);
-}
 
 export function isPrayerApiConfigured(): boolean {
   return Boolean(PRAYER_API_URL);
@@ -71,32 +60,4 @@ export async function fetchPrayers(): Promise<Prayer[]> {
 
 export async function fetchDaily(): Promise<DailyContent> {
   return request<DailyContent>(PRAYER_API_URL, "/daily/");
-}
-
-export async function fetchIntentions(): Promise<Intention[]> {
-  const result = await request<{ intentions: Intention[] }>(
-    INTENTIONS_API_URL,
-    "/intentions/",
-  );
-  return result.intentions;
-}
-
-export async function createIntention(text: string): Promise<Intention> {
-  const result = await request<{ intention: Intention }>(
-    INTENTIONS_API_URL,
-    "/intentions/",
-    {
-    method: "POST",
-    body: JSON.stringify({ text }),
-    },
-  );
-  return result.intention;
-}
-
-export async function deleteIntention(id: string): Promise<void> {
-  await request<{ deleted: boolean }>(
-    INTENTIONS_API_URL,
-    `/intentions/${encodeURIComponent(id)}/`,
-    { method: "DELETE" },
-  );
 }

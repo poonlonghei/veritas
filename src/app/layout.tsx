@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Veritas — A quiet place to pray",
   description:
-    "A quiet place for Catholic prayer, the Rosary, daily reflection, and intentions.",
+    "A quiet place for Catholic prayer, the Rosary, and daily reflection.",
 };
 
 export default function RootLayout({

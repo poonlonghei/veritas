@@ -2,18 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import {
-  createIntention,
-  deleteIntention,
   fetchDaily,
-  fetchIntentions,
   fetchPrayers,
-  isApiConfigured,
   isPrayerApiConfigured,
 } from "@/lib/api";
 import { prayers as starterPrayers } from "@/lib/data";
-import type { DailyContent, Intention, Prayer } from "@/lib/types";
+import type { DailyContent, Prayer } from "@/lib/types";
 
-type Screen = "Home" | "Prayer library" | "The Rosary" | "Intentions";
+type Screen = "Home" | "Prayer library" | "The Rosary" | "About";
 
 const categories = ["All", "Saved", "Daily", "Traditional", "Marian", "Hope & Peace", "Sacraments"];
 const mysteries = {
@@ -64,14 +60,12 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
     home: <><path d="m3 10 9-7 9 7" /><path d="M5 9v12h14V9M9 21v-7h6v7" /></>,
     book: <><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v17H6.5A2.5 2.5 0 0 1 4 17.5z" /><path d="M4 17.5A2.5 2.5 0 0 1 6.5 15H20M8 7h8" /></>,
     rosary: <><circle cx="12" cy="10" r="7" /><path d="M12 17v4m-2-2h4M9 7h.01M15 7h.01M8 11h.01M16 11h.01M12 5h.01" /></>,
-    heart: <path d="M20.8 8.8c0 5.2-8.8 10-8.8 10s-8.8-4.8-8.8-10a4.6 4.6 0 0 1 8.8-1.7 4.6 4.6 0 0 1 8.8 1.7Z" />,
     search: <><circle cx="10.8" cy="10.8" r="6.8" /><path d="m16 16 4.5 4.5" /></>,
     arrow: <><path d="M5 12h14" /><path d="m13 6 6 6-6 6" /></>,
     bookmark: <><path d="M6 4h12v17l-6-4-6 4z" /></>,
     close: <><path d="m6 6 12 12M18 6 6 18" /></>,
     clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
-    plus: <><path d="M12 5v14M5 12h14" /></>,
-    trash: <><path d="M4 7h16M10 11v6m4-6v6M6 7l1 14h10l1-14M9 7V4h6v3" /></>,
+    info: <><circle cx="12" cy="12" r="9" /><path d="M12 11v5m0-8h.01" /></>,
     menu: <><path d="M4 7h16M4 12h16M4 17h16" /></>,
   };
   return <svg {...common}>{paths[name] ?? paths.home}</svg>;
@@ -102,11 +96,6 @@ export default function HomePage() {
   const [screen, setScreen] = useState<Screen>("Home");
   const [prayerList, setPrayerList] = useState<Prayer[]>(starterPrayers);
   const [dailyContent, setDailyContent] = useState<DailyContent | null>(null);
-  const [intentions, setIntentions] = useState<Intention[]>([]);
-  const [intentionsError, setIntentionsError] = useState("");
-  const [intentionsLoading, setIntentionsLoading] = useState(false);
-  const [intentionText, setIntentionText] = useState("");
-  const [savingIntention, setSavingIntention] = useState(false);
   const [prayerSearch, setPrayerSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedPrayer, setSelectedPrayer] = useState<Prayer | null>(null);
@@ -140,17 +129,6 @@ export default function HomePage() {
       fetchDaily()
         .then(setDailyContent)
         .catch(() => setToast("Today's reflection is unavailable. Please try again later."));
-    }
-    if (isApiConfigured()) {
-      setIntentionsLoading(true);
-      fetchIntentions()
-        .then(setIntentions)
-        .catch((error: Error) => setIntentionsError(error.message))
-        .finally(() => setIntentionsLoading(false));
-    } else {
-      setIntentionsError(
-        "Prayer intentions need the Python API. Set NEXT_PUBLIC_API_URL to your API's /api URL and allow this site's origin.",
-      );
     }
   }, []);
 
@@ -195,38 +173,6 @@ export default function HomePage() {
       window.localStorage.setItem("veritas-saved-prayers", JSON.stringify(next));
       return next;
     });
-  }
-
-  async function saveIntention(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    const text = intentionText.trim();
-    if (!text || savingIntention) return;
-    setSavingIntention(true);
-    setIntentionsError("");
-    try {
-      const intention = await createIntention(text);
-      setIntentions((current) => [intention, ...current]);
-      setIntentionText("");
-      setToast("Your intention has been added.");
-    } catch (error) {
-      setIntentionsError(
-        error instanceof Error ? error.message : "Unable to save your intention.",
-      );
-    } finally {
-      setSavingIntention(false);
-    }
-  }
-
-  async function removeIntention(id: string) {
-    setIntentionsError("");
-    try {
-      await deleteIntention(id);
-      setIntentions((current) => current.filter((item) => item.id !== id));
-    } catch (error) {
-      setIntentionsError(
-        error instanceof Error ? error.message : "Unable to remove your intention.",
-      );
-    }
   }
 
   function prayerCard(prayer: Prayer, featured = false) {
@@ -325,38 +271,30 @@ export default function HomePage() {
       );
     }
 
-    if (screen === "Intentions") {
+    if (screen === "About") {
       return (
-        <main className="main-content">
+        <main className="main-content about-page">
           <header className="page-heading">
-            <div><span className="eyebrow">HELD IN PRAYER</span><h1>Prayer intentions</h1>
-              <p>Share a prayer intention with this community and hold one another in prayer.</p></div>
-            <span className="heading-mark">♡</span>
+            <div><span className="eyebrow">A QUIET PLACE TO PRAY</span><h1>About Veritas</h1>
+              <p>A little space to pause, pray, and return to what matters.</p></div>
+            <span className="heading-mark">✳</span>
           </header>
-          <section className="intention-compose">
-            <span className="eyebrow">SHARE AN INTENTION</span>
-            <form onSubmit={saveIntention}>
-              <textarea aria-label="Write a prayer intention" maxLength={500} placeholder="Who or what would you like this community to hold in prayer?"
-                value={intentionText} onChange={(event) => setIntentionText(event.target.value)} />
-              <div className="compose-footer"><span>{intentionText.length}/500</span>
-                <button className="primary-button" disabled={!intentionText.trim() || savingIntention}>
-                  <Icon name="plus" size={17} /> {savingIntention ? "Saving..." : "Add intention"}
-                </button>
-              </div>
-            </form>
+          <section className="about-intro">
+            <span className="about-mark" aria-hidden="true">✳</span>
+            <div><span className="eyebrow">FAITH · HOPE · LOVE</span>
+              <h2>Make room for stillness.</h2>
+              <p>Veritas is a quiet companion for your Catholic prayer life. Take a moment with a daily reflection, find familiar words in the prayer library, or follow a guided Rosary—at your own pace.</p>
+            </div>
           </section>
-          {intentionsError && <div className="error-banner" role="alert">{intentionsError}</div>}
-          <section className="intentions-list">
-            <div className="section-heading"><div><span className="eyebrow">YOUR PRAYER LIST</span><h2>Remembering together</h2></div>
-              <span className="count-pill">{intentions.length}</span></div>
-            {intentionsLoading ? <div className="loading-state">Loading your intentions...</div>
-              : intentions.length ? intentions.map((item) => (
-                <article className="intention-item" key={item.id}>
-                  <span className="intention-heart">♡</span><div className="intention-copy"><p>{item.text}</p><span>Added {new Intl.DateTimeFormat("en", { month: "short", day: "numeric" }).format(new Date(item.createdAt))}</span></div>
-                  <button className="icon-button delete-button" aria-label="Remove intention" onClick={() => removeIntention(item.id)}><Icon name="trash" size={17} /></button>
-                </article>
-              )) : <div className="empty-state compact"><span>♡</span><h3>Your intentions are a quiet offering</h3><p>Add someone or something you would like to remember in prayer.</p></div>}
+          <section className="about-values" aria-label="Explore Veritas">
+            <article><span className="about-value-icon"><Icon name="clock" size={21} /></span>
+              <h3>A moment each day</h3><p>Daily reflections invite you to slow down and bring your whole self to prayer.</p></article>
+            <article><span className="about-value-icon"><Icon name="book" size={21} /></span>
+              <h3>Words to return to</h3><p>Explore traditional prayers in English and Latin, and save the ones you hold close.</p></article>
+            <article><span className="about-value-icon"><Icon name="rosary" size={21} /></span>
+              <h3>Pray at your own pace</h3><p>Follow the mysteries of the Rosary one gentle step at a time.</p></article>
           </section>
+          <div className="about-closing"><span>✦</span><p>“Be still, and let your heart listen.”</p></div>
         </main>
       );
     }
@@ -377,7 +315,6 @@ export default function HomePage() {
         <section className="quick-grid" aria-label="Quick prayer paths">
           <button className="quick-card" onClick={() => navigate("The Rosary")}><span className="quick-icon rosary-icon"><Icon name="rosary" size={22} /></span><span className="quick-text"><strong>Pray the Rosary</strong><small>A guided moment with Mary</small></span><Icon name="arrow" size={17} /></button>
           <button className="quick-card" onClick={() => navigate("Prayer library")}><span className="quick-icon book-icon"><Icon name="book" size={22} /></span><span className="quick-text"><strong>Find a prayer</strong><small>Words for every season</small></span><Icon name="arrow" size={17} /></button>
-          <button className="quick-card" onClick={() => navigate("Intentions")}><span className="quick-icon heart-icon"><Icon name="heart" size={22} /></span><span className="quick-text"><strong>Hold an intention</strong><small>Remember someone today</small></span><Icon name="arrow" size={17} /></button>
         </section>
         <section className="popular-section">
           <div className="section-heading"><div><span className="eyebrow">A FEW WORDS TO KEEP CLOSE</span><h2>Prayers for the everyday</h2></div><button className="text-link" onClick={() => navigate("Prayer library")}>View all <Icon name="arrow" size={16} /></button></div>
@@ -392,7 +329,6 @@ export default function HomePage() {
     { name: "Home", icon: "home" },
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
-    { name: "Intentions", icon: "heart" },
   ];
 
   return (
@@ -404,10 +340,14 @@ export default function HomePage() {
         <span className="nav-label">YOUR PRAYER SPACE</span>
         <nav className="side-nav" aria-label="Main navigation">
           {navItems.map((item) => <button key={item.name} onClick={() => navigate(item.name)} className={`nav-item${screen === item.name ? " nav-active" : ""}`}>
-            <Icon name={item.icon} size={19} /><span>{item.name}</span>{item.name === "Intentions" && intentions.length > 0 && <span className="nav-count">{intentions.length}</span>}
+            <Icon name={item.icon} size={19} /><span>{item.name}</span>
           </button>)}
         </nav>
-        <div className="sidebar-bottom"><div className="sidebar-quote"><span>✧</span><p>“Be still, and let your heart listen.”</p><small>A moment of quiet</small></div>
+        <div className="sidebar-bottom">
+          <button onClick={() => navigate("About")} className={`nav-item about-nav-item${screen === "About" ? " nav-active" : ""}`}>
+            <Icon name="info" size={19} /><span>About</span>
+          </button>
+          <div className="sidebar-quote"><span>✧</span><p>“Be still, and let your heart listen.”</p><small>A moment of quiet</small></div>
           <div className="sidebar-footer"><span className="footer-cross">✝</span><span>FAITH · HOPE · LOVE</span></div></div>
       </aside>
       {sidebarOpen && <button className="sidebar-overlay" aria-label="Close navigation" onClick={() => setSidebarOpen(false)} />}

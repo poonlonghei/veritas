@@ -8,12 +8,6 @@ export type Prayer = {
   latinText?: string;
 };
 
-export type Intention = {
-  id: string;
-  text: string;
-  createdAt: string;
-};
-
 export type DailyContent = {
   date: string;
   reflection: {

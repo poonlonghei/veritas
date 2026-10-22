@@ -33,8 +33,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .nav-item:hover { background: rgba(255,255,255,.62); color: var(--ink); }
 .nav-active { color: #fff; background: #657e69; box-shadow: 0 3px 8px #546e5a22; }
 .nav-active:hover { color: #fff; background: #586f5d; }
-.nav-count { margin-left: auto; padding: 2px 7px; border-radius: 20px; color: #657e69; background: #ffffffd9; font-size: 10px; }
 .sidebar-bottom { margin-top: auto; }
+.about-nav-item { margin-bottom: 13px; }
 .sidebar-quote { padding: 19px 16px 20px; border-radius: 5px; background: #ebe7dc; text-align: center; }
 .sidebar-quote > span { color: var(--rust); font-size: 19px; }
 .sidebar-quote p { margin: 9px 0 8px; color: #59645a; font-family: var(--serif); font-size: 15px; font-style: italic; line-height: 1.6; }
@@ -64,12 +64,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .arch-three { right: 99px; width: 86px; height: 130px; border-color: #d9c9a650; }
 .art-ground { position: absolute; right: -15px; bottom: 0; width: 360px; height: 45px; border-top: 1px solid #c7b58f60; border-radius: 50% 50% 0 0; }
 .daily-caption { position: absolute; right: 24px; bottom: 14px; z-index: 2; color: #d2d7cb; font-size: 7px; letter-spacing: 1.4px; }
-.quick-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin: 17px 0 42px; }
+.quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin: 17px 0 42px; }
 .quick-card { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px 13px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; text-align: left; cursor: pointer; transition: .2s ease; }
 .quick-card:hover { transform: translateY(-2px); border-color: #d6ddcf; box-shadow: 0 5px 16px #25382f0b; }
 .quick-card > svg { margin-left: auto; flex: 0 0 auto; color: #8c978b; }
 .quick-icon { display: grid; flex: 0 0 39px; width: 39px; height: 39px; place-items: center; border-radius: 50%; }
-.rosary-icon { color: #71826f; background: #edf0e7; }.book-icon { color: #b5795c; background: #f6ece5; }.heart-icon { color: #8d7a70; background: #f1eeea; }
+.rosary-icon { color: #71826f; background: #edf0e7; }.book-icon { color: #b5795c; background: #f6ece5; }
 .quick-text { display: grid; gap: 5px; min-width: 0; }
 .quick-text strong { color: #39463e; font-size: 11px; font-weight: 600; white-space: nowrap; }
 .quick-text small { color: #92938b; font-size: 9px; white-space: nowrap; }
@@ -98,6 +98,19 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .page-footer span:first-child { color: #bd876b; font-size: 14px; }.page-footer span:last-child { margin-left: 10px; color: #b6b3aa; font-size: 8px; font-weight: 600; letter-spacing: 1.6px; }
 .page-heading { display: flex; align-items: center; justify-content: space-between; margin: 3px 0 30px; }
 .heading-mark { color: #bd876b; font-size: 33px; }
+.about-page { max-width: 920px; }
+.about-intro { display: flex; align-items: center; gap: 32px; padding: 38px 42px; border: 1px solid var(--line); border-radius: 6px; background: #fffefa; }
+.about-mark { display: grid; width: 92px; height: 92px; flex: 0 0 auto; place-items: center; border: 1px solid #e8e4db; border-radius: 50%; color: #c88967; font-size: 43px; }
+.about-intro h2 { margin: 12px 0 10px; color: var(--ink-deep); font: 500 30px/1.2 var(--serif); letter-spacing: -.4px; }
+.about-intro p { max-width: 610px; margin: 0; color: #777f75; font-size: 12px; line-height: 1.9; }
+.about-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 15px; }
+.about-values article { min-height: 170px; padding: 20px 18px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
+.about-value-icon { display: grid; width: 39px; height: 39px; place-items: center; border-radius: 50%; color: #71826f; background: #edf0e7; }
+.about-values h3 { margin: 14px 0 7px; color: #39463e; font: 500 17px var(--serif); }
+.about-values p { margin: 0; color: #858980; font-size: 10px; line-height: 1.7; }
+.about-closing { display: flex; flex-direction: column; align-items: center; margin: 35px 0 5px; color: #a67d64; text-align: center; }
+.about-closing > span { font-size: 17px; }
+.about-closing p { margin: 8px 0 5px; color: #6f796c; font: italic 15px var(--serif); }
 .library-tools { display: grid; gap: 16px; margin-bottom: 22px; }
 .search-box { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 410px; height: 43px; padding: 0 13px; border: 1px solid var(--line); border-radius: 4px; color: #8c9188; background: #fffefa; }
 .search-box input { width: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 11px; }
@@ -139,24 +152,6 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .rosary-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 15px; padding: 14px 16px; border-radius: 4px; background: #f2f0e9; }
 .note-icon { color: #b88164; font-size: 16px; }
 .rosary-note p { margin: 0; color: #81847a; font-size: 10px; line-height: 1.7; }.rosary-note strong { color: #4b5a4d; }
-.intention-compose { margin: 0 0 28px; padding: 19px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
-.intention-compose form { margin-top: 10px; }
-.intention-compose textarea { display: block; width: 100%; min-height: 85px; resize: vertical; padding: 12px; border: 1px solid #eeece5; border-radius: 4px; color: var(--ink); background: #fdfcf9; font-size: 11px; line-height: 1.7; }
-.intention-compose textarea::placeholder { color: #a4a399; }
-.compose-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 11px; color: #a09f96; font-size: 9px; }
-.error-banner { margin: -12px 0 21px; padding: 11px 13px; border: 1px solid #edd5cc; border-radius: 4px; color: #985e4b; background: #fbf0eb; font-size: 11px; line-height: 1.6; }
-.intentions-list { margin-top: 4px; }
-.count-pill { display: grid; min-width: 26px; height: 26px; place-items: center; padding: 0 7px; border-radius: 20px; color: #657e69; background: #edf0e8; font-size: 10px; }
-.intention-item { display: flex; align-items: flex-start; gap: 13px; padding: 16px 12px; border-bottom: 1px solid #efede7; }
-.intention-heart { color: #bd876b; font-size: 18px; line-height: 1; }
-.intention-copy { flex: 1; }
-.intention-copy p { margin: 0 0 7px; color: #4c574f; font: 400 15px/1.55 var(--serif); }
-.intention-copy span { color: #9a9b92; font-size: 9px; }
-.delete-button { width: 28px; height: 28px; }
-.delete-button:hover { color: #a85640; background: #f7ece7; }
-.empty-state.compact { min-height: 180px; margin-top: 10px; border: 0; background: #f5f3ed; }
-.empty-state.compact > span { font-size: 23px; }
-.loading-state { padding: 30px 10px; color: #898c82; text-align: center; font-size: 11px; }
 .mobile-header { display: none; }
 .sidebar-overlay { display: none; }
 .modal-backdrop { position: fixed; z-index: 30; inset: 0; display: grid; place-items: center; padding: 20px; background: #18241fc2; backdrop-filter: blur(3px); }
@@ -237,7 +232,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .decade-heading h2 { font-size: 20px; }
   .decade-actions { flex-wrap: wrap; }
   .decade-actions .primary-button { margin-left: auto; }
-  .intention-compose { padding: 14px; }
+  .about-intro { flex-direction: column; align-items: flex-start; gap: 22px; padding: 25px 22px; }
+  .about-mark { width: 68px; height: 68px; font-size: 34px; }
+  .about-intro h2 { font-size: 25px; }
+  .about-values { grid-template-columns: 1fr; gap: 9px; }
+  .about-values article { min-height: initial; padding: 16px; }
+  .about-values h3 { margin-top: 11px; }
   .page-footer { min-height: 60px; font-size: 9px; }
   .prayer-modal { padding: 35px 23px 27px; }
   .prayer-modal h2 { font-size: 27px; }
