@@ -28,6 +28,7 @@ async function request<T>(
   try {
     response = await fetch(`${baseUrl}${path}`, {
       ...init,
+      cache: "no-store",
       headers: {
         ...(init?.body ? { "Content-Type": "application/json" } : {}),
         ...init?.headers,

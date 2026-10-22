@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import {
   fetchDaily,
@@ -7,6 +8,7 @@ import {
   isPrayerApiConfigured,
 } from "@/lib/api";
 import { prayers as starterPrayers } from "@/lib/data";
+import veritasLogo from "@/images/veritas-logo.jpg";
 import {
   traditionalChinese,
   traditionalChineseDailyReflection,
@@ -159,19 +161,6 @@ function getToday(locale: Locale) {
   }).format(new Date());
 }
 
-function getChineseDailyReadingSourceUrl() {
-  const today = new Date();
-  const cycle = ["lk", "mt", "mk"][today.getFullYear() % 3];
-  const year = String(today.getFullYear()).slice(-2);
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const day = String(today.getDate()).padStart(2, "0");
-  return `http://catholic-dlc.org.hk/${cycle}${year}${month}${day}.htm`;
-}
-
-function getChineseDailyReadingUrl() {
-  return `https://r.jina.ai/${getChineseDailyReadingSourceUrl()}`;
-}
-
 function getSaintForToday() {
   const today = new Date();
   const yearStart = Date.UTC(today.getFullYear(), 0, 1);
@@ -226,6 +215,7 @@ export default function HomePage() {
   const [decade, setDecade] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [toast, setToast] = useState("");
+  const [readingRefreshKey, setReadingRefreshKey] = useState(0);
 
   useEffect(() => {
     try {
@@ -247,18 +237,61 @@ export default function HomePage() {
     } catch {
       setSavedIds([]);
     }
-    fetchPrayers()
-      .then(setPrayerList)
-      .catch(() =>
-        setToast(
-          "Showing the built-in prayer library. The prayer service is unavailable.",
-        ),
-      );
-    if (isPrayerApiConfigured()) {
-      fetchDaily()
-        .then(setDailyContent)
-        .catch(() => setToast("Today's reflection is unavailable. Please try again later."));
+    let isActive = true;
+    let isRefreshing = false;
+    let lastRefreshDate = new Date().toDateString();
+
+    async function refreshDynamicContent() {
+      if (document.visibilityState !== "visible" || isRefreshing) return;
+      isRefreshing = true;
+      try {
+        const [prayersResult, dailyResult] = await Promise.allSettled([
+          fetchPrayers(),
+          isPrayerApiConfigured() ? fetchDaily() : Promise.resolve(null),
+        ]);
+        if (!isActive) return;
+        const failures: string[] = [];
+        if (prayersResult.status === "fulfilled") {
+          setPrayerList(prayersResult.value);
+        } else {
+          failures.push("Showing the built-in prayer library. The prayer service is unavailable.");
+        }
+        if (dailyResult.status === "fulfilled") {
+          if (dailyResult.value) setDailyContent(dailyResult.value);
+        } else {
+          failures.push("Today's reflection is unavailable. Please try again later.");
+        }
+        if (failures.length) setToast(failures.join(" "));
+
+        const refreshDate = new Date().toDateString();
+        if (refreshDate !== lastRefreshDate) {
+          lastRefreshDate = refreshDate;
+          setMysterySet(getMysteryForToday());
+          setDecade(0);
+        }
+        setReadingRefreshKey((key) => key + 1);
+      } finally {
+        isRefreshing = false;
+      }
     }
+
+    const refreshWhenVisible = () => {
+      if (document.visibilityState === "visible") {
+        void refreshDynamicContent();
+      }
+    };
+
+    void refreshDynamicContent();
+    const refreshTimer = window.setInterval(refreshWhenVisible, 15 * 60 * 1000);
+    window.addEventListener("focus", refreshWhenVisible);
+    document.addEventListener("visibilitychange", refreshWhenVisible);
+
+    return () => {
+      isActive = false;
+      window.clearInterval(refreshTimer);
+      window.removeEventListener("focus", refreshWhenVisible);
+      document.removeEventListener("visibilitychange", refreshWhenVisible);
+    };
   }, []);
 
   useEffect(() => {
@@ -390,15 +423,16 @@ export default function HomePage() {
               <p>{t("Read the first reading, responsorial psalm, and Gospel here.")}</p>
             </div>
             <iframe
+              key={`${locale}-${readingRefreshKey}`}
               className="reading-embed"
-              src={locale === "zh-TW" ? getChineseDailyReadingUrl() : "https://universalis.com/mass.htm"}
+              src={locale === "zh-TW" ? "http://catholic-dlc.org.hk/frame3.htm" : "https://universalis.com/mass.htm"}
               title={locale === "zh-TW" ? t("Today’s Chinese scripture readings") : t("Today’s Mass readings from Universalis")}
               loading="lazy"
               referrerPolicy="strict-origin-when-cross-origin"
             />
             <span className="universalis-credit">{locale === "zh-TW" ? t("Chinese readings from the Hong Kong Diocese") : t("Mass readings from Universalis.")}</span>
             {locale === "zh-TW" && (
-              <a className="reading-resource-link" href={getChineseDailyReadingSourceUrl()}>
+              <a className="reading-resource-link" href="http://catholic-dlc.org.hk/frame3.htm">
                 {t("Open the daily readings from the Hong Kong Diocese")}
               </a>
             )}
@@ -573,7 +607,7 @@ export default function HomePage() {
     <div className="app-shell min-h-screen antialiased">
       <aside className={`sidebar${sidebarOpen ? " sidebar-open" : ""}`}>
         <button className="brand" onClick={() => navigate("Home")} aria-label={t("Veritas home")}>
-          <img className="brand-mark" src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg`} alt="" /><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
+          <Image className="brand-mark" src={veritasLogo} alt="" width={36} height={36} /><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
         </button>
         <span className="nav-label">{t("YOUR PRAYER SPACE")}</span>
         <nav className="side-nav" aria-label={t("Main navigation")}>
@@ -595,7 +629,7 @@ export default function HomePage() {
       {sidebarOpen && <button className="sidebar-overlay" aria-label={t("Close navigation")} onClick={() => setSidebarOpen(false)} />}
       <div className="content-column">
         <div className="mobile-header"><button className="icon-button" onClick={() => setSidebarOpen(true)} aria-label={t("Open navigation")}><Icon name="menu" /></button>
-          <button className="mobile-brand" onClick={() => navigate("Home")}><img src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/icon.svg`} alt="" /> veritas</button><span className="mobile-header-spacer" /></div>
+          <button className="mobile-brand" onClick={() => navigate("Home")}><Image src={veritasLogo} alt="" width={24} height={24} /> veritas</button><span className="mobile-header-spacer" /></div>
         {renderMain()}
         <footer className="page-footer"><span>✳</span><span>{t("Made for a little more stillness.")}</span><span>VERITAS</span></footer>
       </div>

@@ -65,6 +65,8 @@ The workflow at `.github/workflows/nextjs.yml` exports the Next.js app as a stat
 
 GitHub Pages serves static files only; it cannot run Django or Java. The prayer library, saved prayers, and Rosary work on Pages, while live daily content needs the Java API deployed separately.
 
+The static Pages app fetches prayer-library and daily-reflection data in the visitor's browser, without relying on build-time page data. It refreshes when the page opens or regains focus, and every 15 minutes while visible. Daily scripture embeds are also reloaded on that schedule so the English and Chinese pages can reflect their sources' latest readings. Configure `NEXT_PUBLIC_PRAYER_API_URL` in the Pages workflow for live prayer and English reflection data; without it, the built-in prayer library and localized reflection remain available.
+
 ### Deploy the APIs on Render
 
 1. In Render, create a **Blueprint** from this repository and deploy the `render.yaml` configuration. The blueprint deploys the Django intentions API and Java prayer API, generates the Django secret, configures the Pages CORS origin, and uses Render's assigned hostname for Django's allowed-host check.
