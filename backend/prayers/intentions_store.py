@@ -19,10 +19,28 @@ def _connect():
             CREATE TABLE IF NOT EXISTS intentions (
                 id TEXT PRIMARY KEY,
                 text TEXT NOT NULL,
+                name TEXT NOT NULL DEFAULT 'Anonymous',
+                location TEXT NOT NULL DEFAULT '',
+                language TEXT NOT NULL DEFAULT 'en',
                 created_at TEXT NOT NULL
             )
             """
         )
+        existing_columns = {
+            row["name"] for row in connection.execute("PRAGMA table_info(intentions)")
+        }
+        if "name" not in existing_columns:
+            connection.execute(
+                "ALTER TABLE intentions ADD COLUMN name TEXT NOT NULL DEFAULT 'Anonymous'"
+            )
+        if "location" not in existing_columns:
+            connection.execute(
+                "ALTER TABLE intentions ADD COLUMN location TEXT NOT NULL DEFAULT ''"
+            )
+        if "language" not in existing_columns:
+            connection.execute(
+                "ALTER TABLE intentions ADD COLUMN language TEXT NOT NULL DEFAULT 'en'"
+            )
         connection.commit()
         with connection:
             yield connection
@@ -30,34 +48,66 @@ def _connect():
         connection.close()
 
 
-def list_intentions():
+def list_intentions(month, language):
     with _connect() as connection:
         rows = connection.execute(
-            "SELECT id, text, created_at FROM intentions ORDER BY created_at DESC LIMIT 50"
+            """
+            SELECT id, text, name, location, language, created_at
+            FROM intentions
+            WHERE substr(created_at, 1, 7) = ? AND language = ?
+            ORDER BY created_at DESC
+            """,
+            (month, language),
         ).fetchall()
     return [
-        {"id": row["id"], "text": row["text"], "createdAt": row["created_at"]}
+        {
+            "id": row["id"],
+            "text": row["text"],
+            "name": row["name"],
+            "location": row["location"],
+            "language": row["language"],
+            "createdAt": row["created_at"],
+        }
         for row in rows
     ]
 
 
-def create_intention(text):
+def list_intention_months(language):
+    with _connect() as connection:
+        rows = connection.execute(
+            """
+            SELECT DISTINCT substr(created_at, 1, 7) AS month
+            FROM intentions
+            WHERE language = ?
+            ORDER BY month DESC
+            """,
+            (language,),
+        ).fetchall()
+    return [row["month"] for row in rows]
+
+
+def create_intention(text, name, location, language):
     intention = {
         "id": str(uuid4()),
         "text": text,
+        "name": name,
+        "location": location,
+        "language": language,
         "createdAt": datetime.now(timezone.utc).isoformat(),
     }
     with _connect() as connection:
         connection.execute(
-            "INSERT INTO intentions (id, text, created_at) VALUES (?, ?, ?)",
-            (intention["id"], intention["text"], intention["createdAt"]),
+            """
+            INSERT INTO intentions (id, text, name, location, language, created_at)
+            VALUES (?, ?, ?, ?, ?, ?)
+            """,
+            (
+                intention["id"],
+                intention["text"],
+                intention["name"],
+                intention["location"],
+                intention["language"],
+                intention["createdAt"],
+            ),
         )
     return intention
-
-
-def delete_intention(intention_id):
-    with _connect() as connection:
-        cursor = connection.execute(
-            "DELETE FROM intentions WHERE id = ?", (intention_id,)
-        )
-    return cursor.rowcount > 0

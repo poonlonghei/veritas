@@ -1,4 +1,4 @@
-import type { DailyContent, Prayer } from "./types";
+import type { DailyContent, MonthlyIntentions, Prayer, PrayerIntention } from "./types";
 import { prayers as bundledPrayers } from "./data";
 
 const configuredPrayerApiUrl = process.env.NEXT_PUBLIC_PRAYER_API_URL?.trim();
@@ -8,9 +8,48 @@ const PRAYER_API_URL =
       ? "http://localhost:8080/api"
       : ""
     : configuredPrayerApiUrl.replace(/\/$/, "");
+const configuredIntentionsApiUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
+const INTENTIONS_API_URL =
+  configuredIntentionsApiUrl === undefined
+    ? process.env.NODE_ENV === "development"
+      ? "http://localhost:8000/api"
+      : ""
+    : configuredIntentionsApiUrl.replace(/\/$/, "");
 
 export function isPrayerApiConfigured(): boolean {
   return Boolean(PRAYER_API_URL);
+}
+
+export function getChineseReadingsProxyUrl(): string | null {
+  return PRAYER_API_URL ? `${PRAYER_API_URL}/readings/frame3.htm` : null;
+}
+
+export async function fetchMonthlyIntentions(
+  month: string,
+  language: "en" | "zh-TW",
+): Promise<MonthlyIntentions> {
+  return request<MonthlyIntentions>(
+    INTENTIONS_API_URL,
+    `/intentions/?month=${encodeURIComponent(month)}&language=${encodeURIComponent(language)}`,
+  );
+}
+
+export async function createPrayerIntention(input: {
+  name: string;
+  location: string;
+  text: string;
+  consent: boolean;
+  language: "en" | "zh-TW";
+}): Promise<PrayerIntention> {
+  const result = await request<{ intention: PrayerIntention }>(
+    INTENTIONS_API_URL,
+    "/intentions/",
+    {
+      method: "POST",
+      body: JSON.stringify(input),
+    },
+  );
+  return result.intention;
 }
 
 async function request<T>(

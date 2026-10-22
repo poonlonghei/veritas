@@ -1,9 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type FormEvent } from "react";
 import {
+  createPrayerIntention,
+  fetchMonthlyIntentions,
   fetchDaily,
+  getChineseReadingsProxyUrl,
   fetchPrayers,
   isPrayerApiConfigured,
 } from "@/lib/api";
@@ -13,10 +16,36 @@ import {
   traditionalChinese,
   traditionalChineseDailyReflection,
 } from "@/lib/translations";
-import type { DailyContent, Prayer } from "@/lib/types";
+import type { DailyContent, MonthlyIntentions, Prayer } from "@/lib/types";
 
-type Screen = "Home" | "Daily readings" | "Prayer library" | "The Rosary" | "About";
+type Screen =
+  | "Home"
+  | "Daily readings"
+  | "Prayer library"
+  | "Prayer intentions"
+  | "The Rosary"
+  | "About";
 type Locale = "en" | "zh-TW";
+
+function getCurrentMonth() {
+  return new Date().toISOString().slice(0, 7);
+}
+
+function formatMonth(month: string, locale: Locale) {
+  const [year, numericMonth] = month.split("-").map(Number);
+  return new Intl.DateTimeFormat(locale === "zh-TW" ? "zh-TW" : "en", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(Date.UTC(year, numericMonth - 1, 1)));
+}
+
+function formatIntentionDate(createdAt: string, locale: Locale) {
+  return new Intl.DateTimeFormat(locale === "zh-TW" ? "zh-TW" : "en", {
+    dateStyle: "medium",
+    timeZone: "UTC",
+  }).format(new Date(createdAt));
+}
 
 const categories = ["All", "Saved", "Daily", "Traditional", "Marian", "Hope & Peace", "Sacraments"];
 const mysteries = {
@@ -216,6 +245,14 @@ export default function HomePage() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [toast, setToast] = useState("");
   const [readingRefreshKey, setReadingRefreshKey] = useState(0);
+  const [selectedMonth, setSelectedMonth] = useState(getCurrentMonth);
+  const [monthlyIntentions, setMonthlyIntentions] = useState<MonthlyIntentions | null>(null);
+  const [intentionsLoading, setIntentionsLoading] = useState(false);
+  const [intentionSubmitting, setIntentionSubmitting] = useState(false);
+  const [intentionName, setIntentionName] = useState("");
+  const [intentionLocation, setIntentionLocation] = useState("");
+  const [intentionText, setIntentionText] = useState("");
+  const [intentionConsent, setIntentionConsent] = useState(false);
 
   useEffect(() => {
     try {
@@ -315,6 +352,29 @@ export default function HomePage() {
 
   const t = (value: string) => translate(locale, value);
 
+  useEffect(() => {
+    if (screen !== "Prayer intentions") return;
+    let isActive = true;
+    setIntentionsLoading(true);
+    fetchMonthlyIntentions(selectedMonth, locale)
+      .then((result) => {
+        if (isActive) setMonthlyIntentions(result);
+      })
+      .catch(() => {
+        if (isActive) {
+          setToast(
+            translate(locale, "Unable to load prayer intentions. Please try again later."),
+          );
+        }
+      })
+      .finally(() => {
+        if (isActive) setIntentionsLoading(false);
+      });
+    return () => {
+      isActive = false;
+    };
+  }, [locale, screen, selectedMonth]);
+
   const visiblePrayers = useMemo(() => {
     const query = prayerSearch.trim().toLowerCase();
     return prayerList.filter((prayer) => {
@@ -377,6 +437,39 @@ export default function HomePage() {
     setSelectedPrayer(prayer);
   }
 
+  async function submitIntention(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIntentionSubmitting(true);
+    try {
+      const created = await createPrayerIntention({
+        name: intentionName.trim(),
+        location: intentionLocation.trim(),
+        text: intentionText.trim(),
+        consent: intentionConsent,
+        language: locale,
+      });
+      setIntentionName("");
+      setIntentionLocation("");
+      setIntentionText("");
+      setIntentionConsent(false);
+      setToast(t("Your prayer intention has been shared."));
+      const createdMonth = created.createdAt.slice(0, 7);
+      if (createdMonth === selectedMonth) {
+        try {
+          setMonthlyIntentions(await fetchMonthlyIntentions(createdMonth, locale));
+        } catch {
+          setToast(t("Your intention was shared, but this month's list could not be refreshed."));
+        }
+      } else {
+        setSelectedMonth(createdMonth);
+      }
+    } catch {
+      setToast(t("Unable to share your prayer intention. Please try again later."));
+    } finally {
+      setIntentionSubmitting(false);
+    }
+  }
+
   function prayerCard(prayer: Prayer, featured = false) {
     const saved = savedIds.includes(prayer.id);
     const displayedPrayer = localizePrayer(prayer, locale);
@@ -409,6 +502,10 @@ export default function HomePage() {
 
   function renderMain() {
     if (screen === "Daily readings") {
+      const readingUrl =
+        locale === "zh-TW"
+          ? getChineseReadingsProxyUrl()
+          : "https://universalis.com/mass.htm";
       return (
         <main className="main-content readings-page">
           <header className="page-heading">
@@ -422,14 +519,21 @@ export default function HomePage() {
               <h2 id="mass-readings-heading">{t("Today’s Mass readings")}</h2>
               <p>{t("Read the first reading, responsorial psalm, and Gospel here.")}</p>
             </div>
-            <iframe
-              key={`${locale}-${readingRefreshKey}`}
-              className="reading-embed"
-              src={locale === "zh-TW" ? "http://catholic-dlc.org.hk/frame3.htm" : "https://universalis.com/mass.htm"}
-              title={locale === "zh-TW" ? t("Today’s Chinese scripture readings") : t("Today’s Mass readings from Universalis")}
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
+            {!readingUrl ? (
+              <p className="reading-proxy-notice" role="status">
+                {t("Chinese readings cannot be embedded on this HTTPS site until the prayer API is configured.")}
+              </p>
+            ) : (
+              <iframe
+                key={`${locale}-${readingRefreshKey}`}
+                className="reading-embed"
+                src={readingUrl}
+                title={locale === "zh-TW" ? t("Today’s Chinese scripture readings") : t("Today’s Mass readings from Universalis")}
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                sandbox={locale === "zh-TW" ? "allow-scripts" : undefined}
+              />
+            )}
             <span className="universalis-credit">{locale === "zh-TW" ? t("Chinese readings from the Hong Kong Diocese") : t("Mass readings from Universalis.")}</span>
             {locale === "zh-TW" && (
               <a className="reading-resource-link" href="http://catholic-dlc.org.hk/frame3.htm">
@@ -442,6 +546,115 @@ export default function HomePage() {
             <h2 id="gospel-reflection-heading">{dailyReflection.title}</h2>
             <p>{dailyReflection.text}</p>
             {dailyReflection.reference && <span className="reflection-reference">{dailyReflection.reference}</span>}
+          </section>
+        </main>
+      );
+    }
+
+    if (screen === "Prayer intentions") {
+      const availableMonths = Array.from(
+        new Set([getCurrentMonth(), ...(monthlyIntentions?.months ?? [])]),
+      ).sort((first, second) => second.localeCompare(first));
+      return (
+        <main className="main-content readings-page intentions-page">
+          <header className="page-heading">
+            <div>
+              <span className="eyebrow">{t("A COMMUNITY IN PRAYER")}</span>
+              <h1>{t("Prayer intentions")}</h1>
+              <p>{t("Share an intention and pray for others in our community.")}</p>
+            </div>
+            <span className="heading-mark">✳</span>
+          </header>
+          <section className="intention-form-card" aria-labelledby="intention-form-heading">
+            <div className="readings-section-heading">
+              <h2 id="intention-form-heading">{t("Share your prayer intention")}</h2>
+              <p>{t("Your name, location, and intention will be visible to all visitors.")}</p>
+            </div>
+            <form className="intention-form" onSubmit={submitIntention}>
+              <label>
+                {t("Name")}
+                <input
+                  autoComplete="name"
+                  maxLength={100}
+                  required
+                  value={intentionName}
+                  onChange={(event) => setIntentionName(event.target.value)}
+                />
+              </label>
+              <label>
+                {t("Location")}
+                <input
+                  autoComplete="address-level2"
+                  maxLength={100}
+                  required
+                  value={intentionLocation}
+                  onChange={(event) => setIntentionLocation(event.target.value)}
+                />
+              </label>
+              <label>
+                {t("Prayer intention")}
+                <textarea
+                  maxLength={500}
+                  required
+                  rows={4}
+                  value={intentionText}
+                  onChange={(event) => setIntentionText(event.target.value)}
+                />
+              </label>
+              <label className="intention-consent">
+                <input
+                  checked={intentionConsent}
+                  onChange={(event) => setIntentionConsent(event.target.checked)}
+                  required
+                  type="checkbox"
+                />
+                <span>{t("I consent to publishing my name, location, and prayer intention for all visitors to see.")}</span>
+              </label>
+              <button className="cream-button intention-submit" disabled={intentionSubmitting}>
+                {intentionSubmitting ? t("Sharing…") : t("Share intention")}
+                <Icon name="arrow" size={17} />
+              </button>
+            </form>
+          </section>
+          <section className="monthly-intentions-section" aria-labelledby="monthly-intentions-heading">
+            <div className="monthly-intentions-heading">
+              <div>
+                <span className="eyebrow">{t("PRAYING TOGETHER")}</span>
+                <h2 id="monthly-intentions-heading">{t("Monthly intentions")}</h2>
+              </div>
+              <label>
+                <span>{t("Browse by month")}</span>
+                <select
+                  onChange={(event) => setSelectedMonth(event.target.value)}
+                  value={selectedMonth}
+                >
+                  {availableMonths.map((month) => (
+                    <option key={month} value={month}>{formatMonth(month, locale)}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <h3 className="intention-month-title">{formatMonth(selectedMonth, locale)}</h3>
+            {intentionsLoading ? (
+              <p className="intentions-empty" role="status">{t("Loading intentions…")}</p>
+            ) : monthlyIntentions?.intentions.length ? (
+              <div className="intention-list">
+                {monthlyIntentions.intentions.map((intention) => (
+                  <article className="intention-card" key={intention.id}>
+                    <p>{intention.text}</p>
+                    <div className="intention-attribution">
+                      <strong>{intention.name}</strong>
+                      {intention.location && <span>{intention.location}</span>}
+                      <time dateTime={intention.createdAt}>
+                        {formatIntentionDate(intention.createdAt, locale)}
+                      </time>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <p className="intentions-empty">{t("There are no shared intentions for this month yet.")}</p>
+            )}
           </section>
         </main>
       );
@@ -599,6 +812,7 @@ export default function HomePage() {
   const navItems: { name: Screen; icon: string }[] = [
     { name: "Home", icon: "home" },
     { name: "Daily readings", icon: "book" },
+    { name: "Prayer intentions", icon: "info" },
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
   ];

@@ -65,7 +65,9 @@ The workflow at `.github/workflows/nextjs.yml` exports the Next.js app as a stat
 
 GitHub Pages serves static files only; it cannot run Django or Java. The prayer library, saved prayers, and Rosary work on Pages, while live daily content needs the Java API deployed separately.
 
-The static Pages app fetches prayer-library and daily-reflection data in the visitor's browser, without relying on build-time page data. It refreshes when the page opens or regains focus, and every 15 minutes while visible. Daily scripture embeds are also reloaded on that schedule so the English and Chinese pages can reflect their sources' latest readings. Configure `NEXT_PUBLIC_PRAYER_API_URL` in the Pages workflow for live prayer and English reflection data; without it, the built-in prayer library and localized reflection remain available.
+The static Pages app fetches prayer-library and daily-reflection data in the visitor's browser, without relying on build-time page data. It refreshes when the page opens or regains focus, and every 15 minutes while visible. Daily scripture embeds are also reloaded on that schedule so the English and Chinese pages can reflect their sources' latest readings. Configure `NEXT_PUBLIC_PRAYER_API_URL` in the Pages workflow for live prayer and English reflection data. The Java API also provides an HTTPS proxy for the Hong Kong Diocese's HTTP-only Chinese readings; without the API URL, the page shows a setup notice and a direct source link instead. Without the API URL, the built-in prayer library and localized reflection remain available.
+
+Prayer intentions are stored in SQLite by the Django API and are publicly visible, including the submitter's name and location. The form requires explicit consent before publishing. English and Traditional Chinese intentions are stored and listed separately, with monthly browsing within each language. Configure `NEXT_PUBLIC_API_URL` in the Pages workflow; without it, the intentions form cannot submit or load shared intentions. Existing SQLite databases are upgraded automatically with name, location, and language fields; existing records are kept in the English list.
 
 ### Deploy the APIs on Render
 
@@ -94,8 +96,7 @@ SQLite is stored on the application filesystem. Render's default filesystem is e
 - Java `GET /api/daily/` — today's daily reflection and prayer
 - Java `GET /health` — service health check
 - Django `GET /api/health/` — intentions service health check
-- `GET /api/intentions/` — list the latest 50 intentions
-- `POST /api/intentions/` — add an intention (`{"text":"..."}`, up to 500 characters)
-- `DELETE /api/intentions/{id}/` — remove an intention
+- `GET /api/intentions/?month=YYYY-MM&language=en|zh-TW` — list public intentions for a month and available month categories in that language
+- `POST /api/intentions/` — publish an intention (`{"name":"...","location":"...","text":"...","consent":true,"language":"en|zh-TW"}`)
 
 `/api/intentions/` endpoints are served by Django; the Java service serves the prayer and daily endpoints. In production, set each frontend API variable to its respective Render service URL.

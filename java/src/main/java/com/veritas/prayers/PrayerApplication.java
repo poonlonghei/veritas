@@ -4,8 +4,13 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpServer;
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.net.URI;
 import java.net.URLDecoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.ArrayList;
@@ -14,6 +19,14 @@ import java.util.List;
 import java.util.Map;
 
 public final class PrayerApplication {
+    private static final String READINGS_SOURCE = "http://catholic-dlc.org.hk/";
+    private static final String READINGS_PROXY_BASE = "/api/readings";
+    private static final String READINGS_PROXY_PATH = "/api/readings/";
+    private static final HttpClient HTTP_CLIENT = HttpClient.newBuilder()
+        .connectTimeout(Duration.ofSeconds(10))
+        .followRedirects(HttpClient.Redirect.NORMAL)
+        .build();
+
     private static final List<Map<String, String>> PRAYERS = List.of(
         prayer("our-father", "Our Father", "Traditional", "1 min",
             "The prayer Jesus taught his disciples.",
@@ -118,8 +131,79 @@ public final class PrayerApplication {
                 "reflection", REFLECTIONS.get((int) (ordinal % REFLECTIONS.size())),
                 "prayer", PRAYERS.get((int) (ordinal % PRAYERS.size()))
             ));
+        } else if ("/api/readings".equals(path) || path.startsWith(READINGS_PROXY_PATH)) {
+            proxyReadings(exchange, path);
         } else {
             send(exchange, 404, Map.of("error", "Not found."));
+        }
+    }
+
+    private static void proxyReadings(HttpExchange exchange, String path) throws IOException {
+        String resource = path.equals("/api/readings") || path.equals(READINGS_PROXY_PATH)
+            ? "frame3.htm"
+            : path.substring(READINGS_PROXY_PATH.length());
+        if (!resource.matches("[A-Za-z0-9._/-]+") || resource.contains("..")) {
+            send(exchange, 400, Map.of("error", "Invalid readings resource."));
+            return;
+        }
+
+        HttpRequest request = HttpRequest.newBuilder(URI.create(READINGS_SOURCE + resource))
+            .timeout(Duration.ofSeconds(20))
+            .header("User-Agent", "Veritas Readings Embed")
+            .GET()
+            .build();
+        try {
+            HttpResponse<byte[]> response = HTTP_CLIENT.send(
+                request, HttpResponse.BodyHandlers.ofByteArray()
+            );
+            if (response.statusCode() < 200 || response.statusCode() >= 300) {
+                sendReadingsError(exchange);
+                System.err.println("Chinese readings source returned HTTP " + response.statusCode());
+                return;
+            }
+
+            byte[] body = response.body();
+            String contentType = response.headers().firstValue("Content-Type")
+                .orElse("application/octet-stream");
+            if (contentType.toLowerCase().contains("text/html")) {
+                String html = new String(body, StandardCharsets.UTF_8)
+                    .replace("http://catholic-dlc.org.hk", READINGS_PROXY_BASE)
+                    .replace("https://catholic-dlc.org.hk", READINGS_PROXY_BASE);
+                body = html.getBytes(StandardCharsets.UTF_8);
+                if (!contentType.toLowerCase().contains("charset=")) {
+                    contentType += "; charset=utf-8";
+                }
+            }
+            exchange.getResponseHeaders().set("Content-Type", contentType);
+            exchange.getResponseHeaders().set("Cache-Control", "no-store");
+            exchange.getResponseHeaders().set("X-Content-Type-Options", "nosniff");
+            exchange.sendResponseHeaders(200, body.length);
+            try (var output = exchange.getResponseBody()) {
+                output.write(body);
+            }
+        } catch (InterruptedException error) {
+            Thread.currentThread().interrupt();
+            sendReadingsError(exchange);
+            System.err.println("Chinese readings request was interrupted.");
+        } catch (IOException error) {
+            sendReadingsError(exchange);
+            System.err.println("Unable to retrieve Chinese readings: " + error.getMessage());
+        }
+    }
+
+    private static void sendReadingsError(HttpExchange exchange) throws IOException {
+        String html = """
+            <!doctype html><html lang="zh-Hant"><meta charset="utf-8">
+            <p>今日中文讀經暫時無法載入。</p>
+            <a href="http://catholic-dlc.org.hk/frame3.htm">前往香港教區禮儀委員會網站</a>
+            </html>
+            """;
+        byte[] body = html.getBytes(StandardCharsets.UTF_8);
+        exchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
+        exchange.getResponseHeaders().set("Cache-Control", "no-store");
+        exchange.sendResponseHeaders(502, body.length);
+        try (var output = exchange.getResponseBody()) {
+            output.write(body);
         }
     }
 
