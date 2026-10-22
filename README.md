@@ -71,11 +71,11 @@ Prayer intentions are stored in SQLite by the Django API and are publicly visibl
 
 ### Deploy the APIs on Render
 
-1. In Render, create a **Blueprint** from this repository and deploy the `render.yaml` configuration. The blueprint deploys the Django intentions API and Java prayer API, generates the Django secret, configures the Pages CORS origin, and uses Render's assigned hostname for Django's allowed-host check.
-2. In GitHub, open **Settings → Secrets and variables → Actions → Variables → New repository variable**. Set `NEXT_PUBLIC_API_URL` to the Django intentions service URL and `NEXT_PUBLIC_PRAYER_API_URL` to the Java prayer service URL; include `/api` in both values.
+1. In Render, create a **Blueprint** from this repository and deploy the `render.yaml` configuration. The blueprint deploys the Django intentions API and Java prayer API, generates the Django secret, configures the Pages and custom-domain CORS origins, and uses Render's assigned hostname for Django's allowed-host check.
+2. The Pages workflow defaults `NEXT_PUBLIC_API_URL` to `https://veritas-intentions-api.onrender.com/api` and `NEXT_PUBLIC_PRAYER_API_URL` to `https://veritas-prayer-api.onrender.com/api`, based on these Render service names. If Render assigns either service a different public URL, set the corresponding GitHub Actions repository variable to that service's actual HTTPS URL ending in `/api`.
 3. Re-run **Actions → Deploy Next.js site to Pages → Run workflow** (or push a commit) to build the frontend with the API URLs.
 
-SQLite is stored on the application filesystem. Render's default filesystem is ephemeral, so use a persistent disk for the Python service if intentions must survive redeploys. The Pages origin configured in `render.yaml` is `https://poonlonghei.github.io`. If your published Pages site uses a different owner/domain, update `CORS_ALLOWED_ORIGINS` in `render.yaml` for both services before deploying. Never put Django secrets in `NEXT_PUBLIC_*` variables. A production build without `NEXT_PUBLIC_API_URL` will not try the visitor's `localhost`.
+SQLite is stored on the application filesystem. Render's default filesystem is ephemeral, so use a persistent disk for the Python service if intentions must survive redeploys. The Pages origins configured in `render.yaml` include `https://poonlonghei.github.io` and the current custom domain `https://www.chavezpoon.com`. If your published site uses a different domain, add its origin to `CORS_ALLOWED_ORIGINS` for both services before deploying. Never put Django secrets in `NEXT_PUBLIC_*` variables. A production build without `NEXT_PUBLIC_API_URL` will not try the visitor's `localhost`.
 
 
 ## Configuration
