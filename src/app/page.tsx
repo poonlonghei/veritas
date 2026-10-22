@@ -44,6 +44,81 @@ const mysteries = {
 };
 type MysterySet = keyof typeof mysteries;
 
+const dailySaints = [
+  {
+    name: "Saint Francis of Assisi",
+    biography:
+      "After giving up a life of wealth, Francis embraced poverty and founded the Order of Friars Minor. His love for creation and care for the poor continue to inspire a life of simplicity and peace.",
+    virtue: "Simplicity & peace",
+  },
+  {
+    name: "Saint Thérèse of Lisieux",
+    biography:
+      "A Carmelite nun, Thérèse taught that holiness can be found in ordinary acts of love. Her “Little Way” encouraged trust in God and faithfulness in small things.",
+    virtue: "Trust & little acts of love",
+  },
+  {
+    name: "Saint Augustine of Hippo",
+    biography:
+      "After a long search for truth, Augustine became a Christian, a priest, and the bishop of Hippo. His writings, including Confessions, reflect on grace, conversion, and the restless heart seeking God.",
+    virtue: "Conversion & wisdom",
+  },
+  {
+    name: "Saint Joseph",
+    biography:
+      "The foster father of Jesus and husband of Mary, Joseph cared for the Holy Family with courage and quiet faithfulness. The Gospels remember his steady obedience to God’s guidance.",
+    virtue: "Faithfulness & courage",
+  },
+  {
+    name: "Saint Catherine of Siena",
+    biography:
+      "A Dominican tertiary and mystic, Catherine devoted herself to prayer, service to the sick, and peacemaking. Her counsel and letters made her an influential voice in the Church.",
+    virtue: "Courage & peacemaking",
+  },
+  {
+    name: "Saint Benedict of Nursia",
+    biography:
+      "Benedict shaped Western monastic life through a Rule that balances prayer, work, hospitality, and community. His teaching continues to guide Benedictine monasteries around the world.",
+    virtue: "Prayer & hospitality",
+  },
+  {
+    name: "Saint Elizabeth Ann Seton",
+    biography:
+      "A convert to Catholicism and a mother, Elizabeth founded the Sisters of Charity of St. Joseph and helped establish Catholic education in the United States.",
+    virtue: "Education & charity",
+  },
+  {
+    name: "Saint Martin de Porres",
+    biography:
+      "A Dominican lay brother in Lima, Martin served the sick and poor with humility and compassion. He is remembered for his care for people across social divisions.",
+    virtue: "Humility & compassion",
+  },
+  {
+    name: "Saint Teresa of Calcutta",
+    biography:
+      "Teresa founded the Missionaries of Charity to serve people living in poverty. Her community cared especially for those who were sick, abandoned, and dying.",
+    virtue: "Service & mercy",
+  },
+  {
+    name: "Saint John Paul II",
+    biography:
+      "A Polish priest who became pope, John Paul II travelled widely, taught about human dignity, and encouraged young people to live their faith with hope and courage.",
+    virtue: "Hope & human dignity",
+  },
+  {
+    name: "Saint Clare of Assisi",
+    biography:
+      "Inspired by Francis of Assisi, Clare founded the Order of Poor Ladies, now known as the Poor Clares. She chose a life of prayer, poverty, and service in community.",
+    virtue: "Prayer & simplicity",
+  },
+  {
+    name: "Saint Óscar Romero",
+    biography:
+      "As Archbishop of San Salvador, Romero spoke out against violence and injustice and stood with people suffering oppression. He was killed while celebrating Mass in 1980.",
+    virtue: "Justice & solidarity",
+  },
+];
+
 function Icon({ name, size = 20 }: { name: string; size?: number }) {
   const common = {
     width: size,
@@ -77,6 +152,14 @@ function getToday() {
     month: "long",
     day: "numeric",
   }).format(new Date());
+}
+
+function getSaintForToday() {
+  const today = new Date();
+  const yearStart = Date.UTC(today.getFullYear(), 0, 1);
+  const todayUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
+  const dayOfYear = Math.floor((todayUtc - yearStart) / 86_400_000);
+  return dailySaints[dayOfYear % dailySaints.length];
 }
 
 function getUniversalisGospelReflectionUrl() {
@@ -167,6 +250,7 @@ export default function HomePage() {
   }, [prayerList, prayerSearch, savedIds, selectedCategory]);
 
   const dailyPrayer = dailyContent?.prayer ?? getDailyPrayer(prayerList);
+  const dailySaint = getSaintForToday();
   const currentMysteries = mysteries[mysterySet];
 
   function navigate(next: Screen) {
@@ -382,6 +466,15 @@ export default function HomePage() {
             <a href={getUniversalisGospelReflectionUrl()} target="_blank" rel="noreferrer">Read the Gospel reflection <Icon name="arrow" size={15} /></a>
           </div>
           <span className="scripture-source">Mass readings and Gospel reflection: Universalis · Christian Art</span>
+        </section>
+        <section className="saint-card" aria-labelledby="saint-heading">
+          <div className="saint-card-copy">
+            <span className="eyebrow">A SAINT TO ACCOMPANY YOU TODAY</span>
+            <h2 id="saint-heading">{dailySaint.name}</h2>
+            <p>{dailySaint.biography}</p>
+            <span className="saint-virtue">{dailySaint.virtue}</span>
+          </div>
+          <div className="saint-card-mark" aria-hidden="true">✝</div>
         </section>
         <section className="quick-grid" aria-label="Quick prayer paths">
           <button className="quick-card" onClick={() => navigate("The Rosary")}><span className="quick-icon rosary-icon"><Icon name="rosary" size={22} /></span><span className="quick-text"><strong>Pray the Rosary</strong><small>A guided moment with Mary</small></span><Icon name="arrow" size={17} /></button>

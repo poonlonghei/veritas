@@ -1,6 +1,6 @@
 # Veritas — A quiet place to pray
 
-A quiet and peaceful place for Catholic prayer: daily reflection, a searchable prayer library, and a guided Rosary.
+A quiet and peaceful place for Catholic prayer: daily reflection, a rotating saint biography, a searchable prayer library, and a guided Rosary.
 
 ## Stack
 

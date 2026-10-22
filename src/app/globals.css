@@ -92,6 +92,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .gospel-reflection > p { max-width: 620px; }
 .reflection-link { margin-top: 17px; text-decoration: none; }
 .universalis-credit { display: block; margin-top: 13px; color: #898c82; font-size: 9px; }
+.saint-card { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 168px; margin-top: 15px; overflow: hidden; padding: 25px 28px; border: 1px solid #e8e6de; border-radius: 5px; background: #f4f1e9; }
+.saint-card-copy { position: relative; z-index: 1; max-width: 720px; }
+.saint-card h2 { margin: 9px 0 7px; color: var(--ink-deep); font: 500 24px/1.3 var(--serif); }
+.saint-card p { max-width: 690px; margin: 0; color: #777f75; font-size: 11px; line-height: 1.8; }
+.saint-virtue { display: inline-block; margin-top: 12px; color: #71816e; font-size: 9px; font-weight: 600; letter-spacing: .5px; }
+.saint-card-mark { display: grid; width: 80px; height: 80px; flex: 0 0 auto; place-items: center; border: 1px solid #dfd9ca; border-radius: 50%; color: #bd876b; font: 34px var(--serif); }
 .quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin: 17px 0 42px; }
 .quick-card { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px 13px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; text-align: left; cursor: pointer; transition: .2s ease; }
 .quick-card:hover { transform: translateY(-2px); border-color: #d6ddcf; box-shadow: 0 5px 16px #25382f0b; }
@@ -248,6 +254,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .scripture-card-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .scripture-card-heading h2 { font-size: 20px; }
   .scripture-links { flex-direction: column; gap: 12px; }
+  .saint-card { min-height: 0; padding: 21px 18px; }
+  .saint-card h2 { font-size: 21px; }
+  .saint-card-mark { width: 54px; height: 54px; font-size: 25px; }
   .readings-prayer { padding: 24px 21px; }
   .readings-prayer h2 { font-size: 25px; }
   .readings-section, .gospel-reflection { padding: 21px 18px; }
