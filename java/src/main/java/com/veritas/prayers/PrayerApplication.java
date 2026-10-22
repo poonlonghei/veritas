@@ -9,6 +9,7 @@ import java.net.URLDecoder;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.LocalDate;
@@ -17,11 +18,19 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public final class PrayerApplication {
     private static final String READINGS_SOURCE = "http://catholic-dlc.org.hk/";
     private static final String READINGS_PROXY_BASE = "/api/readings";
     private static final String READINGS_PROXY_PATH = "/api/readings/";
+    private static final Pattern HTML_CHARSET = Pattern.compile(
+        "(?i)charset\\s*=\\s*[\"']?([A-Za-z0-9._-]+)"
+    );
+    private static final Pattern HTML_CHARSET_DECLARATION = Pattern.compile(
+        "(?i)(charset\\s*=\\s*[\"']?)[A-Za-z0-9._-]+"
+    );
     private static final HttpClient HTTP_CLIENT = HttpClient.newBuilder()
         .connectTimeout(Duration.ofSeconds(10))
         .followRedirects(HttpClient.Redirect.NORMAL)
@@ -166,13 +175,12 @@ public final class PrayerApplication {
             String contentType = response.headers().firstValue("Content-Type")
                 .orElse("application/octet-stream");
             if (contentType.toLowerCase().contains("text/html")) {
-                String html = new String(body, StandardCharsets.UTF_8)
+                String html = decodeReadingHtml(body, contentType)
                     .replace("http://catholic-dlc.org.hk", READINGS_PROXY_BASE)
                     .replace("https://catholic-dlc.org.hk", READINGS_PROXY_BASE);
+                html = HTML_CHARSET_DECLARATION.matcher(html).replaceAll("$1UTF-8");
                 body = html.getBytes(StandardCharsets.UTF_8);
-                if (!contentType.toLowerCase().contains("charset=")) {
-                    contentType += "; charset=utf-8";
-                }
+                contentType = "text/html; charset=utf-8";
             }
             exchange.getResponseHeaders().set("Content-Type", contentType);
             exchange.getResponseHeaders().set("Cache-Control", "no-store");
@@ -189,6 +197,35 @@ public final class PrayerApplication {
             sendReadingsError(exchange);
             System.err.println("Unable to retrieve Chinese readings: " + error.getMessage());
         }
+    }
+
+    private static String decodeReadingHtml(byte[] body, String contentType) {
+        if (body.length >= 3
+            && (body[0] & 0xff) == 0xef
+            && (body[1] & 0xff) == 0xbb
+            && (body[2] & 0xff) == 0xbf) {
+            return new String(body, 3, body.length - 3, StandardCharsets.UTF_8);
+        }
+
+        String declaredCharset = charsetFrom(contentType);
+        if (declaredCharset == null) {
+            String header = new String(body, StandardCharsets.ISO_8859_1);
+            declaredCharset = charsetFrom(header);
+        }
+        Charset charset;
+        try {
+            charset = declaredCharset == null
+                ? Charset.forName("Big5")
+                : Charset.forName(declaredCharset);
+        } catch (IllegalArgumentException error) {
+            charset = Charset.forName("Big5");
+        }
+        return new String(body, charset);
+    }
+
+    private static String charsetFrom(String text) {
+        Matcher matcher = HTML_CHARSET.matcher(text);
+        return matcher.find() ? matcher.group(1) : null;
     }
 
     private static void sendReadingsError(HttpExchange exchange) throws IOException {
