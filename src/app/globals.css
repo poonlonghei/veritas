@@ -16,43 +16,46 @@
 
 * { box-sizing: border-box; }
 html { min-height: 100%; scroll-behavior: smooth; }
-body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 14px; -webkit-font-smoothing: antialiased; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); font-size: 16px; -webkit-font-smoothing: antialiased; }
 button, input, textarea { font: inherit; }
 button { color: inherit; }
 button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #8c9b78; outline-offset: 3px; }
 .app-shell { min-height: 100vh; }
-.sidebar { position: fixed; z-index: 10; inset: 0 auto 0 0; display: flex; flex-direction: column; width: 258px; padding: 34px 23px 21px; background: #f4f1e9; border-right: 1px solid #ebe7de; }
+.sidebar { position: fixed; z-index: 10; inset: 0 auto 0 0; display: flex; flex-direction: column; width: 258px; overflow-y: auto; padding: 34px 23px 21px; background: #f4f1e9; border-right: 1px solid #ebe7de; }
 .brand { display: flex; align-items: center; gap: 12px; padding: 0 8px; border: 0; background: none; text-align: left; cursor: pointer; }
 .brand-mark { color: var(--rust); font-size: 32px; line-height: 1; }
 .brand-name { color: var(--ink-deep); font-family: var(--serif); font-size: 27px; line-height: 1; letter-spacing: -.8px; }
-.brand-name small { display: block; margin-top: 7px; color: #929188; font: 600 8px var(--sans); letter-spacing: 1.8px; }
-.nav-label, .eyebrow { color: #898c82; font-size: 9px; font-weight: 700; letter-spacing: 1.65px; }
+.brand-name small { display: block; margin-top: 7px; color: #929188; font: 600 11px var(--sans); letter-spacing: 1.8px; }
+.nav-label, .eyebrow { color: #898c82; font-size: 12px; font-weight: 700; letter-spacing: 1.65px; }
 .nav-label { margin: 56px 0 15px 10px; }
 .side-nav { display: grid; gap: 5px; }
-.nav-item { display: flex; align-items: center; gap: 13px; min-height: 45px; padding: 0 13px; border: 0; border-radius: 6px; color: #737a71; background: transparent; text-align: left; font-size: 13px; cursor: pointer; transition: .18s ease; }
+.nav-item { display: flex; align-items: center; gap: 13px; min-height: 45px; padding: 0 13px; border: 0; border-radius: 6px; color: #737a71; background: transparent; text-align: left; font-size: 15px; cursor: pointer; transition: .18s ease; }
 .nav-item:hover { background: rgba(255,255,255,.62); color: var(--ink); }
 .nav-active { color: #fff; background: #657e69; box-shadow: 0 3px 8px #546e5a22; }
 .nav-active:hover { color: #fff; background: #586f5d; }
 .sidebar-bottom { margin-top: auto; }
 .about-nav-item { margin-bottom: 13px; }
+.locale-switch { display: flex; gap: 5px; margin: 0 0 16px; padding: 4px; border: 1px solid #e2ded3; border-radius: 5px; background: #ebe7dc; }
+.locale-switch button { flex: 1; min-height: 34px; padding: 0 6px; border: 0; border-radius: 4px; color: #697166; background: transparent; font-size: 13px; cursor: pointer; }
+.locale-switch button.locale-active { color: #fff; background: #657e69; }
 .sidebar-quote { padding: 19px 16px 20px; border-radius: 5px; background: #ebe7dc; text-align: center; }
 .sidebar-quote > span { color: var(--rust); font-size: 19px; }
 .sidebar-quote p { margin: 9px 0 8px; color: #59645a; font-family: var(--serif); font-size: 15px; font-style: italic; line-height: 1.6; }
-.sidebar-quote small { color: #939188; font-size: 10px; }
-.sidebar-footer { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 24px; color: #a09e94; font-size: 8px; font-weight: 700; letter-spacing: 1.8px; }
+.sidebar-quote small { color: #939188; font-size: 13px; }
+.sidebar-footer { display: flex; align-items: center; justify-content: center; gap: 9px; margin-top: 24px; color: #a09e94; font-size: 11px; font-weight: 700; letter-spacing: 1.8px; }
 .footer-cross { color: var(--rust); font-size: 14px; }
 .content-column { min-height: 100vh; margin-left: 258px; }
 .main-content { width: min(100% - 96px, 1050px); min-height: calc(100vh - 70px); margin: 0 auto; padding: 55px 0 64px; }
 .welcome-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 29px; }
 .welcome-row h1, .page-heading h1 { margin: 10px 0 6px; color: var(--ink-deep); font: 500 36px/1.2 var(--serif); letter-spacing: -.8px; }
-.welcome-row p, .page-heading p { margin: 0; color: #888b82; font-size: 13px; }
+.welcome-row p, .page-heading p { margin: 0; color: #888b82; font-size: 15px; }
 .sun-mark { display: grid; width: 47px; height: 47px; place-items: center; border: 1px solid #e8e4db; border-radius: 50%; color: #c88967; font-size: 25px; }
 .daily-card { position: relative; display: flex; min-height: 286px; overflow: hidden; border-radius: 7px; background: #435e4c; color: #fff; }
 .daily-copy { position: relative; z-index: 2; width: 58%; padding: 31px 38px 35px; }
 .eyebrow.light { color: #c6cabe; }
 .daily-copy h2 { margin: 15px 0 11px; color: #fffdf6; font: 500 37px/1.15 var(--serif); letter-spacing: -.5px; }
-.daily-copy p { max-width: 375px; margin: 0 0 20px; color: #e0e4db; font-size: 12px; line-height: 1.8; }
-.cream-button, .primary-button, .secondary-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 39px; padding: 0 16px; border: 0; border-radius: 4px; cursor: pointer; transition: .18s ease; font-size: 11px; font-weight: 600; }
+.daily-copy p { max-width: 375px; margin: 0 0 20px; color: #e0e4db; font-size: 15px; line-height: 1.8; }
+.cream-button, .primary-button, .secondary-button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 42px; padding: 0 16px; border: 0; border-radius: 4px; cursor: pointer; transition: .18s ease; font-size: 14px; font-weight: 600; }
 .cream-button { color: #3b5141; background: #f2eee5; }
 .cream-button:hover { background: #fff; transform: translateY(-1px); }
 .daily-art { position: absolute; inset: 0 0 0 auto; width: 48%; overflow: hidden; }
@@ -63,30 +66,30 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .arch-two { right: 71px; width: 142px; height: 179px; border-color: #d9c9a665; }
 .arch-three { right: 99px; width: 86px; height: 130px; border-color: #d9c9a650; }
 .art-ground { position: absolute; right: -15px; bottom: 0; width: 360px; height: 45px; border-top: 1px solid #c7b58f60; border-radius: 50% 50% 0 0; }
-.daily-caption { position: absolute; right: 24px; bottom: 14px; z-index: 2; color: #d2d7cb; font-size: 7px; letter-spacing: 1.4px; }
+.daily-caption { position: absolute; right: 24px; bottom: 14px; z-index: 2; color: #d2d7cb; font-size: 11px; letter-spacing: 1.4px; }
 .scripture-card { margin-top: 15px; padding: 23px 27px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .scripture-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 .scripture-card-heading h2 { margin: 7px 0 0; color: var(--ink-deep); font: 500 22px/1.3 var(--serif); }
 .scripture-reference { color: #71816e; font: italic 14px var(--serif); }
-.scripture-card > p { max-width: 680px; margin: 13px 0 16px; color: #777f75; font-size: 11px; line-height: 1.8; }
+.scripture-card > p { max-width: 680px; margin: 13px 0 16px; color: #777f75; font-size: 15px; line-height: 1.8; }
 .scripture-links { display: flex; flex-wrap: wrap; gap: 18px; }
-.scripture-links a, .scripture-links button { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; color: #607560; background: transparent; font-size: 10px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.scripture-links a, .scripture-links button { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; color: #607560; background: transparent; font-size: 14px; font-weight: 600; text-decoration: none; cursor: pointer; }
 .scripture-links a:hover, .scripture-links button:hover { color: #344d39; }
-.scripture-source { display: block; margin-top: 15px; color: #a09e94; font-size: 9px; }
+.scripture-source { display: block; margin-top: 15px; color: #a09e94; font-size: 12px; }
 .readings-page { max-width: 900px; }
 .readings-section { margin-top: 16px; padding: 26px 28px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .readings-section-heading h2, .gospel-reflection h2 { margin: 8px 0 6px; color: var(--ink-deep); font: 500 23px/1.3 var(--serif); }
-.readings-section-heading p, .gospel-reflection > p { margin: 0; color: #777f75; font-size: 11px; line-height: 1.8; }
+.readings-section-heading p, .gospel-reflection > p { margin: 0; color: #777f75; font-size: 15px; line-height: 1.8; }
 .reading-embed { display: block; width: 100%; height: 720px; margin-top: 20px; border: 1px solid #eeece5; border-radius: 4px; background: #fff; }
 .gospel-reflection { margin-top: 16px; padding: 27px 28px; border: 1px solid var(--line); border-radius: 5px; background: #f4f1e9; }
 .gospel-reflection > p { max-width: 620px; }
-.reflection-reference { display: block; margin-top: 14px; color: #71816e; font: italic 14px var(--serif); }
-.universalis-credit { display: block; margin-top: 13px; color: #898c82; font-size: 9px; }
+.reflection-reference { display: block; margin-top: 14px; color: #71816e; font: italic 15px var(--serif); }
+.universalis-credit { display: block; margin-top: 13px; color: #898c82; font-size: 12px; }
 .saint-card { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 168px; margin-top: 15px; overflow: hidden; padding: 25px 28px; border: 1px solid #e8e6de; border-radius: 5px; background: #f4f1e9; }
 .saint-card-copy { position: relative; z-index: 1; max-width: 720px; }
 .saint-card h2 { margin: 9px 0 7px; color: var(--ink-deep); font: 500 24px/1.3 var(--serif); }
-.saint-card p { max-width: 690px; margin: 0; color: #777f75; font-size: 11px; line-height: 1.8; }
-.saint-virtue { display: inline-block; margin-top: 12px; color: #71816e; font-size: 9px; font-weight: 600; letter-spacing: .5px; }
+.saint-card p { max-width: 690px; margin: 0; color: #777f75; font-size: 15px; line-height: 1.8; }
+.saint-virtue { display: inline-block; margin-top: 12px; color: #71816e; font-size: 12px; font-weight: 600; letter-spacing: .5px; }
 .saint-card-mark { display: grid; width: 80px; height: 80px; flex: 0 0 auto; place-items: center; border: 1px solid #dfd9ca; border-radius: 50%; color: #bd876b; font: 34px var(--serif); }
 .quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin: 17px 0 42px; }
 .quick-card { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px 13px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; text-align: left; cursor: pointer; transition: .2s ease; }
@@ -95,19 +98,19 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .quick-icon { display: grid; flex: 0 0 39px; width: 39px; height: 39px; place-items: center; border-radius: 50%; }
 .rosary-icon { color: #71826f; background: #edf0e7; }.book-icon { color: #b5795c; background: #f6ece5; }
 .quick-text { display: grid; gap: 5px; min-width: 0; }
-.quick-text strong { color: #39463e; font-size: 11px; font-weight: 600; white-space: nowrap; }
-.quick-text small { color: #92938b; font-size: 9px; white-space: nowrap; }
+.quick-text strong { color: #39463e; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.quick-text small { color: #92938b; font-size: 13px; white-space: nowrap; }
 .popular-section { margin-top: 4px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 16px; margin-bottom: 15px; }
 .section-heading h2 { margin: 7px 0 0; color: var(--ink-deep); font: 500 23px var(--serif); letter-spacing: -.3px; }
-.text-link { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; color: #607560; background: transparent; font-size: 10px; font-weight: 600; cursor: pointer; }
+.text-link { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; color: #607560; background: transparent; font-size: 14px; font-weight: 600; cursor: pointer; }
 .text-link:hover { color: #344d39; }
 .prayer-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .prayer-card { min-height: 177px; padding: 17px 16px 14px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; transition: .18s ease; }
 .prayer-card:hover { border-color: #d5dccc; box-shadow: 0 5px 18px #25382f0a; }
 .prayer-card-top { display: flex; align-items: center; justify-content: space-between; }
 .card-tags { display: flex; align-items: center; gap: 6px; }
-.category-tag { display: inline-flex; min-height: 20px; align-items: center; padding: 0 8px; border-radius: 20px; color: #71816e; background: #edf0e8; font-size: 8px; font-weight: 600; }
+.category-tag { display: inline-flex; min-height: 26px; align-items: center; padding: 0 9px; border-radius: 20px; color: #71816e; background: #edf0e8; font-size: 12px; font-weight: 600; }
 .latin-tag { display: inline-flex; min-height: 20px; align-items: center; padding: 0 7px; border: 1px solid #e9ddd1; border-radius: 20px; color: #9d6e50; background: #fbf4ed; }
 .icon-button { display: grid; width: 31px; height: 31px; flex: 0 0 auto; place-items: center; border: 0; border-radius: 50%; color: #9a9b92; background: transparent; cursor: pointer; }
 .icon-button:hover { color: var(--green-dark); background: #f1f1eb; }
@@ -115,49 +118,49 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .bookmark-button.is-saved { color: var(--rust); }
 .bookmark-button.is-saved svg { fill: #bd775522; }
 .prayer-card h3 { margin: 7px 0 6px; color: #38463d; font: 500 18px var(--serif); }
-.prayer-card p { min-height: 30px; margin: 0; color: #888b82; font-size: 10px; line-height: 1.65; }
+.prayer-card p { min-height: 30px; margin: 0; color: #888b82; font-size: 14px; line-height: 1.65; }
 .prayer-card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 14px; padding-top: 11px; border-top: 1px solid #efede7; }
-.duration { display: inline-flex; align-items: center; gap: 5px; color: #9a9b91; font-size: 9px; }
-.page-footer { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 70px; border-top: 1px solid #efede7; color: #9b9b91; font-size: 10px; }
-.page-footer span:first-child { color: #bd876b; font-size: 14px; }.page-footer span:last-child { margin-left: 10px; color: #b6b3aa; font-size: 8px; font-weight: 600; letter-spacing: 1.6px; }
+.duration { display: inline-flex; align-items: center; gap: 5px; color: #9a9b91; font-size: 12px; }
+.page-footer { display: flex; align-items: center; justify-content: center; gap: 9px; min-height: 70px; border-top: 1px solid #efede7; color: #9b9b91; font-size: 12px; }
+.page-footer span:first-child { color: #bd876b; font-size: 14px; }.page-footer span:last-child { margin-left: 10px; color: #b6b3aa; font-size: 11px; font-weight: 600; letter-spacing: 1.6px; }
 .page-heading { display: flex; align-items: center; justify-content: space-between; margin: 3px 0 30px; }
 .heading-mark { color: #bd876b; font-size: 33px; }
 .about-page { max-width: 920px; }
 .about-intro { display: flex; align-items: center; gap: 32px; padding: 38px 42px; border: 1px solid var(--line); border-radius: 6px; background: #fffefa; }
 .about-mark { display: grid; width: 92px; height: 92px; flex: 0 0 auto; place-items: center; border: 1px solid #e8e4db; border-radius: 50%; color: #c88967; font-size: 43px; }
 .about-intro h2 { margin: 12px 0 10px; color: var(--ink-deep); font: 500 30px/1.2 var(--serif); letter-spacing: -.4px; }
-.about-intro p { max-width: 610px; margin: 0; color: #777f75; font-size: 12px; line-height: 1.9; }
+.about-intro p { max-width: 610px; margin: 0; color: #777f75; font-size: 15px; line-height: 1.9; }
 .about-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 13px; margin-top: 15px; }
 .about-values article { min-height: 170px; padding: 20px 18px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .about-value-icon { display: grid; width: 39px; height: 39px; place-items: center; border-radius: 50%; color: #71826f; background: #edf0e7; }
 .about-values h3 { margin: 14px 0 7px; color: #39463e; font: 500 17px var(--serif); }
-.about-values p { margin: 0; color: #858980; font-size: 10px; line-height: 1.7; }
+.about-values p { margin: 0; color: #858980; font-size: 14px; line-height: 1.7; }
 .about-me { margin-top: 15px; padding: 30px 34px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .about-me h2 { margin: 10px 0 16px; color: var(--ink-deep); font: 500 25px/1.25 var(--serif); }
-.about-me p { margin: 0 0 13px; color: #777f75; font-size: 11px; line-height: 1.85; }
+.about-me p { margin: 0 0 13px; color: #777f75; font-size: 15px; line-height: 1.85; }
 .about-me p:last-child { margin-bottom: 0; }
-.about-me .about-motto { margin-top: 18px; color: #a67d64; font: italic 14px var(--serif); }
+.about-me .about-motto { margin-top: 18px; color: #a67d64; font: italic 15px var(--serif); }
 .about-closing { display: flex; flex-direction: column; align-items: center; margin: 35px 0 5px; color: #a67d64; text-align: center; }
 .about-closing > span { font-size: 17px; }
 .about-closing p { margin: 8px 0 5px; color: #6f796c; font: italic 15px var(--serif); }
 .library-tools { display: grid; gap: 16px; margin-bottom: 22px; }
 .search-box { display: flex; align-items: center; gap: 10px; width: 100%; max-width: 410px; height: 43px; padding: 0 13px; border: 1px solid var(--line); border-radius: 4px; color: #8c9188; background: #fffefa; }
-.search-box input { width: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 11px; }
+.search-box input { width: 100%; border: 0; outline: 0; color: var(--ink); background: transparent; font-size: 14px; }
 .search-box input::placeholder { color: #a3a39a; }
 .search-clear { display: grid; width: 25px; height: 25px; place-items: center; border: 0; color: #8d9187; background: transparent; cursor: pointer; }
 .filter-list { display: flex; flex-wrap: wrap; gap: 8px; }
-.filter-chip { min-height: 31px; padding: 0 13px; border: 1px solid #e8e6df; border-radius: 20px; color: #777d73; background: #fffefa; font-size: 10px; cursor: pointer; transition: .15s ease; }
+.filter-chip { min-height: 37px; padding: 0 13px; border: 1px solid #e8e6df; border-radius: 20px; color: #777d73; background: #fffefa; font-size: 14px; cursor: pointer; transition: .15s ease; }
 .filter-chip:hover { border-color: #a9b5a5; }
 .filter-chip.active { border-color: #657e69; color: #fff; background: #657e69; }
 .empty-state { display: flex; min-height: 230px; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed #deded5; border-radius: 5px; text-align: center; }
 .empty-state > span { color: #b88869; font-size: 25px; }
 .empty-state h3 { margin: 9px 0 5px; font: 500 19px var(--serif); }
-.empty-state p { margin: 0; color: #92938a; font-size: 11px; }
+.empty-state p { margin: 0; color: #92938a; font-size: 14px; }
 .rosary-page { max-width: 850px; }
 .rosary-hero { position: relative; display: flex; min-height: 210px; align-items: center; overflow: hidden; padding: 30px 36px; border-radius: 6px; color: white; background: #536b59; }
 .rosary-hero-copy { position: relative; z-index: 1; }
 .rosary-hero h2 { margin: 12px 0 8px; font: 500 34px/1.12 var(--serif); }
-.rosary-hero p { margin: 0; color: #d8dfd4; font-size: 11px; }
+.rosary-hero p { margin: 0; color: #d8dfd4; font-size: 15px; }
 .rosary-illustration { position: absolute; top: -43px; right: 46px; width: 260px; height: 260px; border: 1px solid #d8cead41; border-radius: 50%; }
 .rosary-ring { position: absolute; inset: 30px; border: 1px solid #e3d2ab9c; border-radius: 50%; }
 .rosary-ring:before, .rosary-ring:after { position: absolute; inset: 25px; border: 1px solid #e3d2ab5d; border-radius: 50%; content: ""; }
@@ -168,10 +171,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .decade-card { padding: 24px 25px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .decade-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
 .decade-heading h2 { margin: 7px 0 0; font: 500 23px var(--serif); }
-.decade-count { color: #777f71; font: 500 13px var(--serif); }
+.decade-count { color: #777f71; font: 500 15px var(--serif); }
 .progress-track { height: 4px; margin: 19px 0 15px; overflow: hidden; border-radius: 6px; background: #eeede6; }
 .progress-track span { display: block; height: 100%; border-radius: 6px; background: #758971; transition: width .3s ease; }
-.decade-instruction { margin: 0; color: #7e847b; font-size: 11px; line-height: 1.8; }
+.decade-instruction { margin: 0; color: #7e847b; font-size: 15px; line-height: 1.8; }
 .decade-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 19px; }
 .primary-button { color: white; background: #657e69; }
 .primary-button:hover:not(:disabled) { background: #506854; }
@@ -180,7 +183,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .secondary-button:hover { background: #e1e7dc; }
 .rosary-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 15px; padding: 14px 16px; border-radius: 4px; background: #f2f0e9; }
 .note-icon { color: #b88164; font-size: 16px; }
-.rosary-note p { margin: 0; color: #81847a; font-size: 10px; line-height: 1.7; }.rosary-note strong { color: #4b5a4d; }
+.rosary-note p { margin: 0; color: #81847a; font-size: 14px; line-height: 1.7; }.rosary-note strong { color: #4b5a4d; }
 .mobile-header { display: none; }
 .sidebar-overlay { display: none; }
 .modal-backdrop { position: fixed; z-index: 30; inset: 0; display: grid; place-items: center; padding: 20px; background: #18241fc2; backdrop-filter: blur(3px); }
@@ -190,19 +193,19 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .modal-mark { display: block; margin: 22px 0 7px; color: #bd876b; font-size: 27px; }
 .prayer-modal h2 { margin: 0; color: var(--ink-deep); font: 500 30px var(--serif); }
 .prayer-language-switch { display: inline-flex; gap: 3px; margin-top: 17px; padding: 3px; border: 1px solid #e8e4dc; border-radius: 24px; background: #f4f1e9; }
-.language-button { min-height: 29px; padding: 0 13px; border: 0; border-radius: 20px; color: #777d73; background: transparent; font-size: 10px; cursor: pointer; transition: color .18s ease, background .18s ease; }
+.language-button { min-height: 36px; padding: 0 13px; border: 0; border-radius: 20px; color: #777d73; background: transparent; font-size: 14px; cursor: pointer; transition: color .18s ease, background .18s ease; }
 .language-button:hover { color: var(--ink-deep); }
 .language-button.active { color: white; background: #657e69; }
-.modal-divider { display: flex; align-items: center; gap: 13px; margin: 19px 0; color: #bd876b; font-size: 13px; }
+.modal-divider { display: flex; align-items: center; gap: 13px; margin: 19px 0; color: #bd876b; font-size: 14px; }
 .modal-divider:before, .modal-divider:after { height: 1px; flex: 1; background: #e8e4dc; content: ""; }
 .prayer-text { margin: 0; color: #5f685f; font: 400 15px/1.95 var(--serif); }
 .prayer-text-latin { font-style: italic; }
 .modal-done { margin-top: 24px; }
-.toast-message { position: fixed; z-index: 40; right: 24px; bottom: 24px; max-width: min(390px, calc(100% - 48px)); padding: 13px 17px; border: 1px solid #dce3d6; border-radius: 5px; color: #405744; background: #f8fbf5; box-shadow: 0 7px 25px #1b2b201a; font-size: 11px; line-height: 1.6; }
+.toast-message { position: fixed; z-index: 40; right: 24px; bottom: 24px; max-width: min(390px, calc(100% - 48px)); padding: 13px 17px; border: 1px solid #dce3d6; border-radius: 5px; color: #405744; background: #f8fbf5; box-shadow: 0 7px 25px #1b2b201a; font-size: 14px; line-height: 1.6; }
 .closing-note { display: flex; flex-direction: column; align-items: center; margin: 36px 0 5px; color: #a67d64; text-align: center; }
 .closing-note > span { font-size: 17px; }
 .closing-note p { margin: 8px 0 5px; color: #6f796c; font: italic 15px var(--serif); }
-.closing-note small { color: #a1a097; font-size: 9px; }
+.closing-note small { color: #a1a097; font-size: 12px; }
 
 @media (min-width: 1450px) { .main-content { width: min(100% - 130px, 1100px); padding-top: 65px; } }
 @media (max-width: 1100px) {
@@ -212,8 +215,8 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .quick-grid { gap: 9px; }
   .quick-card { gap: 8px; padding: 12px 9px; }
   .quick-icon { flex-basis: 34px; width: 34px; height: 34px; }
-  .quick-text strong { font-size: 10px; }
-  .quick-text small { font-size: 8px; }
+  .quick-text strong { font-size: 14px; }
+  .quick-text small { font-size: 13px; }
 }
 @media (max-width: 800px) {
   .sidebar { z-index: 25; width: min(280px, 84vw); transform: translateX(-102%); transition: transform .25s ease; }
@@ -231,15 +234,15 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .main-content { width: calc(100% - 34px); padding-top: 29px; }
   .welcome-row { margin-bottom: 20px; }
   .welcome-row h1, .page-heading h1 { font-size: 29px; }
-  .welcome-row p, .page-heading p { font-size: 11px; line-height: 1.65; }
+  .welcome-row p, .page-heading p { font-size: 14px; line-height: 1.65; }
   .sun-mark { width: 38px; height: 38px; font-size: 21px; }
   .daily-card { min-height: 315px; }
   .daily-copy { width: 100%; padding: 25px 23px 29px; }
   .daily-copy h2 { font-size: 34px; }
-  .daily-copy p { max-width: 285px; font-size: 11px; }
+  .daily-copy p { max-width: 285px; font-size: 14px; }
   .daily-art { width: 68%; opacity: .46; }
   .sun-disc { top: 98px; right: 10px; width: 108px; height: 108px; font-size: 34px; }
-  .daily-caption { right: 12px; bottom: 11px; font-size: 6px; }
+  .daily-caption { right: 12px; bottom: 11px; font-size: 11px; }
   .scripture-card { padding: 20px 18px; }
   .scripture-card-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .scripture-card-heading h2 { font-size: 20px; }
@@ -253,7 +256,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .quick-grid { grid-template-columns: 1fr; gap: 8px; margin: 12px 0 33px; }
   .quick-card { min-height: 61px; gap: 12px; padding: 10px 13px; }
   .quick-icon { flex-basis: 38px; width: 38px; height: 38px; }
-  .quick-text strong { font-size: 11px; }.quick-text small { font-size: 9px; }
+  .quick-text strong { font-size: 14px; }.quick-text small { font-size: 13px; }
   .section-heading h2 { font-size: 20px; }
   .prayer-grid { grid-template-columns: 1fr; gap: 9px; }
   .prayer-card { min-height: 155px; }
@@ -263,7 +266,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .heading-mark { font-size: 27px; }
   .library-tools { gap: 12px; }
   .filter-list { gap: 6px; }
-  .filter-chip { min-height: 29px; padding: 0 10px; font-size: 9px; }
+  .filter-chip { min-height: 36px; padding: 0 10px; font-size: 14px; }
   .rosary-hero { min-height: 190px; padding: 24px; }
   .rosary-hero h2 { font-size: 30px; }
   .rosary-illustration { right: -88px; opacity: .65; }
@@ -278,9 +281,9 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .about-values article { min-height: initial; padding: 16px; }
   .about-values h3 { margin-top: 11px; }
   .about-me { padding: 23px 20px; }
-  .page-footer { min-height: 60px; font-size: 9px; }
+  .page-footer { min-height: 60px; font-size: 12px; }
   .prayer-modal { padding: 35px 23px 27px; }
   .prayer-modal h2 { font-size: 27px; }
-  .prayer-text { font-size: 14px; }
+  .prayer-text { font-size: 16px; }
   .toast-message { right: 12px; bottom: 12px; }
 }
