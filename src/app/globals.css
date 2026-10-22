@@ -64,6 +64,15 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .arch-three { right: 99px; width: 86px; height: 130px; border-color: #d9c9a650; }
 .art-ground { position: absolute; right: -15px; bottom: 0; width: 360px; height: 45px; border-top: 1px solid #c7b58f60; border-radius: 50% 50% 0 0; }
 .daily-caption { position: absolute; right: 24px; bottom: 14px; z-index: 2; color: #d2d7cb; font-size: 7px; letter-spacing: 1.4px; }
+.scripture-card { margin-top: 15px; padding: 23px 27px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
+.scripture-card-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.scripture-card-heading h2 { margin: 7px 0 0; color: var(--ink-deep); font: 500 22px/1.3 var(--serif); }
+.scripture-reference { color: #71816e; font: italic 14px var(--serif); }
+.scripture-card > p { max-width: 680px; margin: 13px 0 16px; color: #777f75; font-size: 11px; line-height: 1.8; }
+.scripture-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.scripture-links a { display: inline-flex; align-items: center; gap: 7px; color: #607560; font-size: 10px; font-weight: 600; text-decoration: none; }
+.scripture-links a:hover { color: #344d39; }
+.scripture-source { display: block; margin-top: 15px; color: #a09e94; font-size: 9px; }
 .quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin: 17px 0 42px; }
 .quick-card { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px 13px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; text-align: left; cursor: pointer; transition: .2s ease; }
 .quick-card:hover { transform: translateY(-2px); border-color: #d6ddcf; box-shadow: 0 5px 16px #25382f0b; }
@@ -216,6 +225,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .daily-art { width: 68%; opacity: .46; }
   .sun-disc { top: 98px; right: 10px; width: 108px; height: 108px; font-size: 34px; }
   .daily-caption { right: 12px; bottom: 11px; font-size: 6px; }
+  .scripture-card { padding: 20px 18px; }
+  .scripture-card-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
+  .scripture-card-heading h2 { font-size: 20px; }
+  .scripture-links { flex-direction: column; gap: 12px; }
   .quick-grid { grid-template-columns: 1fr; gap: 8px; margin: 12px 0 33px; }
   .quick-card { min-height: 61px; gap: 12px; padding: 10px 13px; }
   .quick-icon { flex-basis: 38px; width: 38px; height: 38px; }

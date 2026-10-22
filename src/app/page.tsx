@@ -79,6 +79,16 @@ function getToday() {
   }).format(new Date());
 }
 
+function getUniversalisGospelReflectionUrl() {
+  const today = new Date();
+  const date = [
+    String(today.getMonth() + 1).padStart(2, "0"),
+    String(today.getDate()).padStart(2, "0"),
+    today.getFullYear(),
+  ].join("-");
+  return `https://universalis.com/christian.art/${date}-reading`;
+}
+
 function getMysteryForToday(): MysterySet {
   const day = new Date().getDay();
   if ([1, 6].includes(day)) return "Joyful";
@@ -320,6 +330,18 @@ export default function HomePage() {
           </div>
           <div className="daily-art" aria-hidden="true"><div className="sun-disc"><span>✳</span></div><div className="arch arch-one" /><div className="arch arch-two" /><div className="arch arch-three" /><div className="art-ground" /></div>
           <div className="daily-caption">A LITTLE STILLNESS CAN CHANGE THE SHAPE OF A DAY</div>
+        </section>
+        <section className="scripture-card" aria-labelledby="scripture-heading">
+          <div className="scripture-card-heading">
+            <div><span className="eyebrow">TODAY’S SCRIPTURE</span><h2 id="scripture-heading">Read, reflect, and pray.</h2></div>
+            {dailyContent?.reflection.reference && <span className="scripture-reference">{dailyContent.reflection.reference}</span>}
+          </div>
+          <p>Take a quiet moment with today’s Gospel. Notice a word or phrase that stays with you, and consider how you might carry it into your day.</p>
+          <div className="scripture-links">
+            <a href="https://universalis.com/mass.htm" target="_blank" rel="noreferrer">Read today’s Mass readings <Icon name="arrow" size={15} /></a>
+            <a href={getUniversalisGospelReflectionUrl()} target="_blank" rel="noreferrer">Read the Gospel reflection <Icon name="arrow" size={15} /></a>
+          </div>
+          <span className="scripture-source">Readings and reflection from Universalis</span>
         </section>
         <section className="quick-grid" aria-label="Quick prayer paths">
           <button className="quick-card" onClick={() => navigate("The Rosary")}><span className="quick-icon rosary-icon"><Icon name="rosary" size={22} /></span><span className="quick-text"><strong>Pray the Rosary</strong><small>A guided moment with Mary</small></span><Icon name="arrow" size={17} /></button>
