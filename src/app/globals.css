@@ -70,9 +70,28 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .scripture-reference { color: #71816e; font: italic 14px var(--serif); }
 .scripture-card > p { max-width: 680px; margin: 13px 0 16px; color: #777f75; font-size: 11px; line-height: 1.8; }
 .scripture-links { display: flex; flex-wrap: wrap; gap: 18px; }
-.scripture-links a { display: inline-flex; align-items: center; gap: 7px; color: #607560; font-size: 10px; font-weight: 600; text-decoration: none; }
-.scripture-links a:hover { color: #344d39; }
+.scripture-links a, .scripture-links button { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; color: #607560; background: transparent; font-size: 10px; font-weight: 600; text-decoration: none; cursor: pointer; }
+.scripture-links a:hover, .scripture-links button:hover { color: #344d39; }
 .scripture-source { display: block; margin-top: 15px; color: #a09e94; font-size: 9px; }
+.readings-page { max-width: 900px; }
+.readings-prayer { padding: 30px 34px; border-radius: 6px; color: #fff; background: #435e4c; }
+.readings-prayer h2 { margin: 12px 0 9px; color: #fffdf6; font: 500 29px/1.2 var(--serif); }
+.readings-prayer p { max-width: 650px; margin: 0; color: #e0e4db; font-size: 12px; line-height: 1.8; }
+.readings-prayer-reference { display: block; margin-top: 14px; color: #c6cabe; font-size: 10px; }
+.readings-section { margin-top: 16px; padding: 26px 28px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
+.readings-section-heading h2, .gospel-reflection h2 { margin: 8px 0 6px; color: var(--ink-deep); font: 500 23px/1.3 var(--serif); }
+.readings-section-heading p, .gospel-reflection > p { margin: 0; color: #777f75; font-size: 11px; line-height: 1.8; }
+.reading-link-card { display: flex; align-items: center; gap: 13px; margin-top: 20px; padding: 15px; border: 1px solid #eeece5; border-radius: 4px; color: inherit; text-decoration: none; transition: .18s ease; }
+.reading-link-card:hover { border-color: #d5dccc; box-shadow: 0 5px 18px #25382f0a; }
+.reading-card-mark { display: grid; width: 40px; height: 40px; flex: 0 0 auto; place-items: center; border-radius: 50%; color: #71826f; background: #edf0e7; }
+.reading-card-copy { display: grid; gap: 5px; min-width: 0; }
+.reading-card-copy strong { color: #39463e; font-size: 11px; font-weight: 600; }
+.reading-card-copy small { color: #92938b; font-size: 9px; }
+.reading-link-card > svg:last-child { margin-left: auto; flex: 0 0 auto; color: #8c978b; }
+.gospel-reflection { margin-top: 16px; padding: 27px 28px; border: 1px solid var(--line); border-radius: 5px; background: #f4f1e9; }
+.gospel-reflection > p { max-width: 620px; }
+.reflection-link { margin-top: 17px; text-decoration: none; }
+.universalis-credit { display: block; margin-top: 13px; color: #898c82; font-size: 9px; }
 .quick-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin: 17px 0 42px; }
 .quick-card { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px 13px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; text-align: left; cursor: pointer; transition: .2s ease; }
 .quick-card:hover { transform: translateY(-2px); border-color: #d6ddcf; box-shadow: 0 5px 16px #25382f0b; }
@@ -229,6 +248,12 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .scripture-card-heading { align-items: flex-start; flex-direction: column; gap: 8px; }
   .scripture-card-heading h2 { font-size: 20px; }
   .scripture-links { flex-direction: column; gap: 12px; }
+  .readings-prayer { padding: 24px 21px; }
+  .readings-prayer h2 { font-size: 25px; }
+  .readings-section, .gospel-reflection { padding: 21px 18px; }
+  .readings-section-heading h2, .gospel-reflection h2 { font-size: 21px; }
+  .reading-link-card { gap: 10px; padding: 12px; }
+  .reading-card-copy small { line-height: 1.5; }
   .quick-grid { grid-template-columns: 1fr; gap: 8px; margin: 12px 0 33px; }
   .quick-card { min-height: 61px; gap: 12px; padding: 10px 13px; }
   .quick-icon { flex-basis: 38px; width: 38px; height: 38px; }

@@ -9,7 +9,7 @@ import {
 import { prayers as starterPrayers } from "@/lib/data";
 import type { DailyContent, Prayer } from "@/lib/types";
 
-type Screen = "Home" | "Prayer library" | "The Rosary" | "About";
+type Screen = "Home" | "Daily readings" | "Prayer library" | "The Rosary" | "About";
 
 const categories = ["All", "Saved", "Daily", "Traditional", "Marian", "Hope & Peace", "Sacraments"];
 const mysteries = {
@@ -215,6 +215,45 @@ export default function HomePage() {
   }
 
   function renderMain() {
+    if (screen === "Daily readings") {
+      return (
+        <main className="main-content readings-page">
+          <header className="page-heading">
+            <div><span className="eyebrow">{getToday().toUpperCase()}</span><h1>Daily readings &amp; reflection</h1>
+              <p>Spend a moment with the readings and Gospel for today.</p></div>
+            <span className="heading-mark">✳</span>
+          </header>
+          <section className="readings-prayer">
+            <span className="eyebrow light">A MOMENT FOR PRAYER</span>
+            <h2>{dailyContent?.reflection.title ?? "Make room for stillness"}</h2>
+            <p>{dailyContent?.reflection.text ?? "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough."}</p>
+            {dailyContent?.reflection.reference && <span className="readings-prayer-reference">{dailyContent.reflection.reference}</span>}
+          </section>
+          <section className="readings-section" aria-labelledby="mass-readings-heading">
+            <div className="readings-section-heading">
+              <span className="eyebrow">THE LITURGY OF THE DAY</span>
+              <h2 id="mass-readings-heading">Read the Scriptures</h2>
+              <p>Find the first reading, psalm, and Gospel in today’s Mass readings.</p>
+            </div>
+            <a className="reading-link-card" href="https://universalis.com/mass.htm" target="_blank" rel="noreferrer">
+              <span className="reading-card-mark"><Icon name="book" size={22} /></span>
+              <span className="reading-card-copy"><strong>Today’s Mass readings</strong><small>First reading · Responsorial Psalm · Gospel</small></span>
+              <Icon name="arrow" size={18} />
+            </a>
+          </section>
+          <section className="gospel-reflection" aria-labelledby="gospel-reflection-heading">
+            <span className="eyebrow">PAUSE WITH THE GOSPEL</span>
+            <h2 id="gospel-reflection-heading">A reflection for today</h2>
+            <p>Continue with Universalis’ reflection on the Gospel. The full reflection is available on its original site.</p>
+            <a className="primary-button reflection-link" href={getUniversalisGospelReflectionUrl()} target="_blank" rel="noreferrer">
+              Read the Gospel reflection <Icon name="arrow" size={17} />
+            </a>
+            <span className="universalis-credit">Gospel reflection by Universalis · Christian Art</span>
+          </section>
+        </main>
+      );
+    }
+
     if (screen === "Prayer library") {
       return (
         <main className="main-content">
@@ -338,10 +377,11 @@ export default function HomePage() {
           </div>
           <p>Take a quiet moment with today’s Gospel. Notice a word or phrase that stays with you, and consider how you might carry it into your day.</p>
           <div className="scripture-links">
+            <button onClick={() => navigate("Daily readings")}>Explore today’s readings <Icon name="arrow" size={15} /></button>
             <a href="https://universalis.com/mass.htm" target="_blank" rel="noreferrer">Read today’s Mass readings <Icon name="arrow" size={15} /></a>
             <a href={getUniversalisGospelReflectionUrl()} target="_blank" rel="noreferrer">Read the Gospel reflection <Icon name="arrow" size={15} /></a>
           </div>
-          <span className="scripture-source">Readings and reflection from Universalis</span>
+          <span className="scripture-source">Mass readings and Gospel reflection: Universalis · Christian Art</span>
         </section>
         <section className="quick-grid" aria-label="Quick prayer paths">
           <button className="quick-card" onClick={() => navigate("The Rosary")}><span className="quick-icon rosary-icon"><Icon name="rosary" size={22} /></span><span className="quick-text"><strong>Pray the Rosary</strong><small>A guided moment with Mary</small></span><Icon name="arrow" size={17} /></button>
@@ -358,6 +398,7 @@ export default function HomePage() {
 
   const navItems: { name: Screen; icon: string }[] = [
     { name: "Home", icon: "home" },
+    { name: "Daily readings", icon: "book" },
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
   ];
