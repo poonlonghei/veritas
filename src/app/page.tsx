@@ -250,6 +250,10 @@ export default function HomePage() {
 
   useEffect(() => {
     document.documentElement.lang = locale === "zh-TW" ? "zh-Hant" : "en";
+    document.title =
+      locale === "zh-TW"
+        ? "Veritas -- 靜下來，讓你的心聆聽"
+        : "Veritas — A quiet place to pray";
     try {
       window.localStorage.setItem("veritas-locale", locale);
     } catch {
@@ -556,7 +560,7 @@ export default function HomePage() {
     <div className="app-shell min-h-screen antialiased">
       <aside className={`sidebar${sidebarOpen ? " sidebar-open" : ""}`}>
         <button className="brand" onClick={() => navigate("Home")} aria-label={t("Veritas home")}>
-          <span className="brand-mark">✳</span><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
+          <span className="brand-mark" aria-hidden="true" /><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
         </button>
         <span className="nav-label">{t("YOUR PRAYER SPACE")}</span>
         <nav className="side-nav" aria-label={t("Main navigation")}>
@@ -578,7 +582,7 @@ export default function HomePage() {
       {sidebarOpen && <button className="sidebar-overlay" aria-label={t("Close navigation")} onClick={() => setSidebarOpen(false)} />}
       <div className="content-column">
         <div className="mobile-header"><button className="icon-button" onClick={() => setSidebarOpen(true)} aria-label={t("Open navigation")}><Icon name="menu" /></button>
-          <button className="mobile-brand" onClick={() => navigate("Home")}><span>✳</span> veritas</button><span className="mobile-header-spacer" /></div>
+          <button className="mobile-brand" onClick={() => navigate("Home")}><span aria-hidden="true" /> veritas</button><span className="mobile-header-spacer" /></div>
         {renderMain()}
         <footer className="page-footer"><span>✳</span><span>{t("Made for a little more stillness.")}</span><span>VERITAS</span></footer>
       </div>
