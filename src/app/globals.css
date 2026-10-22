@@ -108,6 +108,11 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .about-value-icon { display: grid; width: 39px; height: 39px; place-items: center; border-radius: 50%; color: #71826f; background: #edf0e7; }
 .about-values h3 { margin: 14px 0 7px; color: #39463e; font: 500 17px var(--serif); }
 .about-values p { margin: 0; color: #858980; font-size: 10px; line-height: 1.7; }
+.about-me { margin-top: 15px; padding: 30px 34px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
+.about-me h2 { margin: 10px 0 16px; color: var(--ink-deep); font: 500 25px/1.25 var(--serif); }
+.about-me p { margin: 0 0 13px; color: #777f75; font-size: 11px; line-height: 1.85; }
+.about-me p:last-child { margin-bottom: 0; }
+.about-me .about-motto { margin-top: 18px; color: #a67d64; font: italic 14px var(--serif); }
 .about-closing { display: flex; flex-direction: column; align-items: center; margin: 35px 0 5px; color: #a67d64; text-align: center; }
 .about-closing > span { font-size: 17px; }
 .about-closing p { margin: 8px 0 5px; color: #6f796c; font: italic 15px var(--serif); }
@@ -238,6 +243,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .about-values { grid-template-columns: 1fr; gap: 9px; }
   .about-values article { min-height: initial; padding: 16px; }
   .about-values h3 { margin-top: 11px; }
+  .about-me { padding: 23px 20px; }
   .page-footer { min-height: 60px; font-size: 9px; }
   .prayer-modal { padding: 35px 23px 27px; }
   .prayer-modal h2 { font-size: 27px; }

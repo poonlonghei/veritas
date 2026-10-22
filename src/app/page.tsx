@@ -294,6 +294,15 @@ export default function HomePage() {
             <article><span className="about-value-icon"><Icon name="rosary" size={21} /></span>
               <h3>Pray at your own pace</h3><p>Follow the mysteries of the Rosary one gentle step at a time.</p></article>
           </section>
+          <section className="about-me" aria-labelledby="about-me-heading">
+            <span className="eyebrow">THE PERSON BEHIND VERITAS</span>
+            <h2 id="about-me-heading">About me</h2>
+            <p>My name is Chavez Cyrillus Mariae Long Hei Poon. I am a Traditionalist Roman Catholic lay Acolyte, Liturgical Master of Ceremonies, freelance writer, and Catholic digital content creator based in England. Born and educated in Hong Kong, I have served the Church for more than a decade as an Acolyte, Sacristan, and Liturgical Master of Ceremonies. This service has deepened my appreciation for the Sacred Liturgy, ecclesiastical history, and the spiritual heritage of the Roman Catholic Church.</p>
+            <p>I combine my background in information technology with my commitment to the Church through website development, Catholic communications, and digital projects. Veritas is my latest initiative: a prayer app intended to make traditional and contemporary devotional resources more accessible and to encourage daily prayer, reflection, and a deeper relationship with God.</p>
+            <p>I am also the founder of Lumen Orientale, where I write about Catholic liturgy, ecclesiastical history, and developments in the Church. Through writing and digital publishing, I hope to make the Church’s traditions better understood while remaining faithful to her teachings and communion with the Holy See.</p>
+            <p>My mission is to bring the timeless treasures of Catholic spirituality to everyday life, using faith, liturgical knowledge, writing, and technology in the service of the Church and a new generation.</p>
+            <p className="about-motto"><em>Ad maiorem Dei gloriam</em> — For the greater glory of God.</p>
+          </section>
           <div className="about-closing"><span>✦</span><p>“Be still, and let your heart listen.”</p></div>
         </main>
       );
