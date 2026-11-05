@@ -2,6 +2,7 @@ export const traditionalChinese: Record<string, string> = {
   "Home": "首頁",
   "Daily readings": "每日讀經",
   "Prayer intentions": "祈禱意向",
+  "Order of Holy Mass": "彌撒常規",
   "Prayer library": "祈禱文庫",
   "The Rosary": "玫瑰經",
   "About": "關於",

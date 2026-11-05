@@ -28,14 +28,16 @@ type Screen =
   | "About";
 type Locale = "en" | "zh-TW";
 type MassForm = "Ordinary Form" | "Extraordinary Form";
-type MassContent = { latin: string; english: string };
-type MassLanguage = "latin" | "english";
+type MassContent = { latin: string; english: string; chinese: string };
+type MassLanguage = "latin" | "english" | "chinese";
 
-function getMassMarkdownUrls(form: MassForm) {
+function getMassMarkdownUrls(form: MassForm, locale: Locale) {
   const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
   return {
     latin: `./mass/${name}-form-latin.md`,
-    english: `./mass/${name}-form.md`,
+    ...(locale === "zh-TW"
+      ? { chinese: "./mass/ordinary-form-chinese.md" }
+      : { english: `./mass/${name}-form.md` }),
   };
 }
 
@@ -339,7 +341,7 @@ export default function HomePage() {
   const [intentionConsent, setIntentionConsent] = useState(false);
   const [massForm, setMassForm] = useState<MassForm>("Ordinary Form");
   const [massLanguage, setMassLanguage] = useState<MassLanguage>("latin");
-  const [massContent, setMassContent] = useState<MassContent>({ latin: "", english: "" });
+  const [massContent, setMassContent] = useState<MassContent>({ latin: "", english: "", chinese: "" });
   const [massLoading, setMassLoading] = useState(false);
 
   useEffect(() => {
@@ -433,16 +435,15 @@ export default function HomePage() {
   }, [locale]);
 
   useEffect(() => {
-    if (locale === "zh-TW" && screen === "Order of Holy Mass") {
-      setScreen("Home");
-    }
-  }, [locale, screen]);
+    setMassLanguage("latin");
+    if (locale === "zh-TW") setMassForm("Ordinary Form");
+  }, [locale]);
 
   useEffect(() => {
     if (screen !== "Order of Holy Mass") return;
     let isActive = true;
     setMassLoading(true);
-    const urls = getMassMarkdownUrls(massForm);
+    const urls = getMassMarkdownUrls(massForm, locale);
     Promise.all(
       (Object.entries(urls) as [keyof MassContent, string][]).map(async ([language, url]) => {
         const response = await fetch(url);
@@ -458,6 +459,7 @@ export default function HomePage() {
           setMassContent({
             latin: "The Latin Mass text could not be loaded. Please try again later.",
             english: "The English Mass text could not be loaded. Please try again later.",
+            chinese: "中文彌撒經文無法載入，請稍後再試。",
           });
         }
       })
@@ -467,7 +469,7 @@ export default function HomePage() {
     return () => {
       isActive = false;
     };
-  }, [massForm, screen]);
+  }, [locale, massForm, screen]);
 
   useEffect(() => {
     if (!toast) return;
@@ -785,23 +787,24 @@ export default function HomePage() {
       );
     }
 
-    if (screen === "Order of Holy Mass" && locale === "en") {
+    if (screen === "Order of Holy Mass") {
+      const isChinese = locale === "zh-TW";
       return (
         <main className="main-content readings-page holy-mass-page">
           <header className="page-heading">
             <div>
-              <span className="eyebrow">THE ROMAN RITE</span>
-              <h1>Order of Holy Mass</h1>
-              <p>Follow the order of Mass in either form of the Roman Rite.</p>
+              <span className="eyebrow">{isChinese ? "羅馬禮" : "THE ROMAN RITE"}</span>
+              <h1>{isChinese ? "彌撒常規" : "Order of Holy Mass"}</h1>
+              <p>{isChinese ? "閱讀羅馬禮普通形式的中拉對照彌撒經文。" : "Follow the order of Mass in either form of the Roman Rite."}</p>
             </div>
             <span className="heading-mark">✝</span>
           </header>
           <section className="readings-section" aria-labelledby="mass-form-heading">
             <div className="readings-section-heading">
-              <h2 id="mass-form-heading">Choose the form</h2>
-              <p>Choose a form to read its locally maintained liturgical text.</p>
+              <h2 id="mass-form-heading">{isChinese ? "選擇形式" : "Choose the form"}</h2>
+              <p>{isChinese ? "普通形式的彌撒經文由本地 Markdown 檔案維護。" : "Choose a form to read its locally maintained liturgical text."}</p>
             </div>
-            <div className="mass-form-selector" role="group" aria-label="Choose the form of Holy Mass">
+            {!isChinese && <div className="mass-form-selector" role="group" aria-label="Choose the form of Holy Mass">
               {(["Ordinary Form", "Extraordinary Form"] as const).map((form) => (
                 <button
                   key={form}
@@ -812,27 +815,29 @@ export default function HomePage() {
                   {form}
                 </button>
               ))}
-            </div>
-            <div className="mass-mobile-language-switch" role="group" aria-label="Choose the Mass language">
-              {(["latin", "english"] as const).map((language) => (
+            </div>}
+            <div className="mass-mobile-language-switch" role="group" aria-label={isChinese ? "選擇彌撒語言" : "Choose the Mass language"}>
+              {(isChinese ? (["latin", "chinese"] as const) : (["latin", "english"] as const)).map((language) => (
                 <button
                   key={language}
                   className={`filter-chip${massLanguage === language ? " active" : ""}`}
                   aria-pressed={massLanguage === language}
                   onClick={() => setMassLanguage(language)}
                 >
-                  {language === "latin" ? "Latin" : "English"}
+                  {language === "latin" ? "Latin" : isChinese ? "中文" : "English"}
                 </button>
               ))}
             </div>
             <div className="mass-columns" aria-live="polite">
-              <article className={`mass-markdown mass-language-column${massLanguage === "english" ? " mobile-language-hidden" : ""}`}>
-                <h3>Latin</h3>
+              <article className={`mass-markdown mass-language-column${massLanguage !== "latin" ? " mobile-language-hidden" : ""}`}>
+                <h3>{isChinese ? "拉丁文" : "Latin"}</h3>
                 {massLoading ? <p>Loading the Latin text…</p> : renderMarkdown(massContent.latin)}
               </article>
               <article className={`mass-markdown mass-language-column${massLanguage === "latin" ? " mobile-language-hidden" : ""}`}>
-                <h3>English Translation</h3>
-                {massLoading ? <p>Loading the English translation…</p> : renderMarkdown(massContent.english)}
+                <h3>{isChinese ? "繁體中文" : "English Translation"}</h3>
+                {massLoading
+                  ? <p>{isChinese ? "正在載入中文彌撒經文…" : "Loading the English translation…"}</p>
+                  : renderMarkdown(isChinese ? massContent.chinese : massContent.english)}
               </article>
             </div>
           </section>
@@ -993,9 +998,7 @@ export default function HomePage() {
     { name: "Home", icon: "home" },
     { name: "Daily readings", icon: "book" },
     { name: "Prayer intentions", icon: "info" },
-    ...(locale === "en"
-      ? [{ name: "Order of Holy Mass" as const, icon: "book" }]
-      : []),
+    { name: "Order of Holy Mass" as const, icon: "book" },
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
   ];
