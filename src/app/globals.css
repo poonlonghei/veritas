@@ -79,7 +79,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .readings-page { max-width: 900px; }
 .readings-section { margin-top: 16px; padding: 26px 28px; border: 1px solid var(--line); border-radius: 5px; background: #fffefa; }
 .mass-form-selector { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 20px; }
-.mass-markdown { margin-top: 24px; padding-top: 24px; border-top: 1px solid #eeece5; color: #5f6b61; font-family: var(--serif); line-height: 1.8; }
+.mass-columns { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 25px; margin-top: 24px; }
+.mass-language-column { min-width: 0; padding: 22px 20px; border: 1px solid #eeece5; border-radius: 4px; }
+.mass-language-column > h3 { margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid #eeece5; color: var(--green-dark); font: 700 13px var(--sans); letter-spacing: 1.4px; text-transform: uppercase; }
+.mass-markdown { color: #5f6b61; font-family: var(--serif); line-height: 1.8; }
 .mass-markdown h1 { margin: 0 0 8px; color: var(--ink-deep); font-size: 30px; font-weight: 500; }
 .mass-markdown h2 { margin: 30px 0 10px; color: var(--ink-deep); font-size: 24px; font-weight: 500; }
 .mass-markdown h3 { margin: 25px 0 8px; color: var(--ink-deep); font-size: 20px; font-weight: 500; }
@@ -90,6 +93,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .mass-markdown li { padding-left: 5px; }
 .mass-markdown hr { margin: 25px 0; border: 0; border-top: 1px solid #eeece5; }
 .mass-markdown blockquote { margin: 18px 0; padding: 10px 18px; border-left: 3px solid #c99064; color: #687568; }
+@media (max-width: 760px) { .mass-columns { grid-template-columns: 1fr; } }
 .readings-section-heading h2, .gospel-reflection h2 { margin: 8px 0 6px; color: var(--ink-deep); font: 500 23px/1.3 var(--serif); }
 .readings-section-heading p, .gospel-reflection > p { margin: 0; color: #777f75; font-size: 15px; line-height: 1.8; }
 .reading-embed { display: block; width: 100%; height: 720px; margin-top: 20px; border: 1px solid #eeece5; border-radius: 4px; background: #fff; }

@@ -28,10 +28,15 @@ type Screen =
   | "About";
 type Locale = "en" | "zh-TW";
 type MassForm = "Ordinary Form" | "Extraordinary Form";
+type MassContent = { latin: string; english: string };
 
-function getMassMarkdownUrl(form: MassForm) {
+function getMassMarkdownUrls(form: MassForm) {
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
-  return `${basePath}/mass/${form === "Ordinary Form" ? "ordinary" : "extraordinary"}-form.md`;
+  const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
+  return {
+    latin: `${basePath}/mass/${name}-form-latin.md`,
+    english: `${basePath}/mass/${name}-form.md`,
+  };
 }
 
 function renderMarkdown(markdown: string) {
@@ -333,7 +338,7 @@ export default function HomePage() {
   const [intentionText, setIntentionText] = useState("");
   const [intentionConsent, setIntentionConsent] = useState(false);
   const [massForm, setMassForm] = useState<MassForm>("Ordinary Form");
-  const [massMarkdown, setMassMarkdown] = useState("");
+  const [massContent, setMassContent] = useState<MassContent>({ latin: "", english: "" });
   const [massLoading, setMassLoading] = useState(false);
 
   useEffect(() => {
@@ -436,16 +441,24 @@ export default function HomePage() {
     if (screen !== "Order of Holy Mass") return;
     let isActive = true;
     setMassLoading(true);
-    fetch(getMassMarkdownUrl(massForm))
-      .then((response) => {
-        if (!response.ok) throw new Error(`Mass content request failed (${response.status})`);
-        return response.text();
-      })
+    const urls = getMassMarkdownUrls(massForm);
+    Promise.all(
+      (Object.entries(urls) as [keyof MassContent, string][]).map(async ([language, url]) => {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`${language} Mass content request failed (${response.status})`);
+        return [language, await response.text()] as const;
+      }),
+    )
       .then((content) => {
-        if (isActive) setMassMarkdown(content);
+        if (isActive) setMassContent(Object.fromEntries(content) as MassContent);
       })
       .catch(() => {
-        if (isActive) setMassMarkdown("The Mass text could not be loaded. Please try again later.");
+        if (isActive) {
+          setMassContent({
+            latin: "The Latin Mass text could not be loaded. Please try again later.",
+            english: "The English Mass text could not be loaded. Please try again later.",
+          });
+        }
       })
       .finally(() => {
         if (isActive) setMassLoading(false);
@@ -799,9 +812,16 @@ export default function HomePage() {
                 </button>
               ))}
             </div>
-            <article className="mass-markdown" aria-live="polite">
-              {massLoading ? <p>Loading the Order of Holy Mass…</p> : renderMarkdown(massMarkdown)}
-            </article>
+            <div className="mass-columns" aria-live="polite">
+              <article className="mass-markdown mass-language-column">
+                <h3>Latin</h3>
+                {massLoading ? <p>Loading the Latin text…</p> : renderMarkdown(massContent.latin)}
+              </article>
+              <article className="mass-markdown mass-language-column">
+                <h3>English Translation</h3>
+                {massLoading ? <p>Loading the English translation…</p> : renderMarkdown(massContent.english)}
+              </article>
+            </div>
           </section>
         </main>
       );
