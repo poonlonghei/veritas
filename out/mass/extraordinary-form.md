@@ -6,41 +6,45 @@ In the name of the Father, and of the Son, and of the Holy Ghost.
 
 **R. Amen.**
 
-**V. I will go in to the altar of God.**
+V. I will go in to the altar of God.
+
 **R. To God, who giveth joy to my youth.**
 
-**V. Judge me, O God, and distinguish my cause from the nation that is not holy: deliver me from the unjust and deceitful man.**
+V. Judge me, O God, and distinguish my cause from the nation that is not holy: deliver me from the unjust and deceitful man.
 
 **R. For thou, O God, art my strength: why hast thou cast me off? and why do I go sorrowful, whilst the enemy afflicteth me?**
 
-**V. Send forth thy light and thy truth: they have conducted me, and brought me unto thy holy hill, and into thy tabernacles.**
+V. Send forth thy light and thy truth: they have conducted me, and brought me unto thy holy hill, and into thy tabernacles.
 
 **R. And I will go in to the altar of God: to God who giveth joy to my youth.**
 
-**V. I will praise thee upon the harp, O God, my God. Why art thou sad, O my soul? and why dost thou disquiet me?**
+V. I will praise thee upon the harp, O God, my God. Why art thou sad, O my soul? and why dost thou disquiet me?
 
 **R. Hope in God, for I will still give praise to him: the salvation of my countenance, and my God.**
 
-**V. Our help is in the name of the Lord.**
+V. Our help is in the name of the Lord.
+
 **R. Who made heaven and earth.**
 
-**V. I confess to almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, to all the Saints, and to you, brethren, that I have sinned exceedingly in thought, word, and deed: through my fault, through my fault, through my most grievous fault.**
+V. I confess to almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, to all the Saints, and to you, brethren, that I have sinned exceedingly in thought, word, and deed: through my fault, through my fault, through my most grievous fault.
 
 **R. Therefore I beseech blessed Mary ever Virgin, blessed Michael the Archangel, blessed John the Baptist, the holy Apostles Peter and Paul, all the Saints, and you, brethren, to pray for me to the Lord our God.**
 
-**V. May almighty God have mercy on thee, forgive thee thy sins, and bring thee to life everlasting.**
+V. May almighty God have mercy on thee, forgive thee thy sins, and bring thee to life everlasting.
 
 **R. Amen.**
 
-**V. May the almighty and merciful Lord grant us pardon, absolution, and remission of our sins.**
+V. May the almighty and merciful Lord grant us pardon, absolution, and remission of our sins.
 
 **R. Amen.**
 
 ### Introit, Kyrie, and Gloria
 
-**V. Lord, have mercy.**
+V. Lord, have mercy.
+
 **R. Lord, have mercy.**
-**V. Christ, have mercy.**
+V. Christ, have mercy.
+
 **R. Christ, have mercy.**
 Lord, have mercy.
 **R. Lord, have mercy.**
@@ -59,10 +63,12 @@ For thou only art holy, thou only art Lord, thou only art most high, O Jesus Chr
 
 **R. Thanks be to God.**
 
-**V. The Lord be with you.**
+V. The Lord be with you.
+
 **R. And with thy spirit.**
 
-**V. The continuation of the holy Gospel according to N.**
+V. The continuation of the holy Gospel according to N.
+
 **R. Glory be to thee, O Lord.**
 
 **R. Praise be to thee, O Christ.**
@@ -85,26 +91,69 @@ We offer unto thee, O Lord, the chalice of salvation, beseeching thy clemency th
 
 **R. Amen.**
 
-**V. Pray, brethren, that my sacrifice and yours may be acceptable to God the Father almighty.**
+V. Pray, brethren, that my sacrifice and yours may be acceptable to God the Father almighty.
 
 **R. May the Lord receive the sacrifice at thy hands, to the praise and glory of his name, for our good and the good of all his holy Church.**
 
 **R. Amen.**
 
-### Canon of the Mass
+#### Preface
 
-**V. The Lord be with you.  **
-**R. And with thy spirit.**
+V. The Lord be with you.
 
-**V. Lift up your hearts.  **
-**R. We have lifted them up unto the Lord.**
+**R. And with your spirit.**
 
-**V. Let us give thanks to the Lord our God.  **
-**R. It is meet and just.**
+V. Lift up your hearts.
 
-Holy, holy, holy, Lord God of hosts. The heavens and the earth are full of thy glory. Hosanna in the highest. Blessed is he that cometh in the name of the Lord. Hosanna in the highest.
+**R. We lift them up to the Lord.**
 
-Through him, and with him, and in him, is to thee, God the Father almighty, in the unity of the Holy Ghost, all honour and glory, world without end.
+V. Let us give thanks to the Lord our God.
+
+**R. It is right and just.**
+
+**Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest.**
+
+#### Eucharistic Prayer
+
+To you, therefore, most merciful Father, we make humble prayer and petition through Jesus Christ, your Son, our Lord: He joins his hands and says that you accept and bless ✠ these gifts, these offerings, these holy and unblemished sacrifices, which we offer you first of all for your holy catholic Church. Be pleased to grant her peace, to guard, unite and govern her throughout the whole world, together with your servant Leo our Pope and N. our Bishop, and all those who, holding to the truth, hand on the catholic and apostolic faith.
+
+Remember, Lord, your servants N. and N., and all gathered here, whose faith and devotion are known to you. For them and all who are dear to them we offer you this sacrifice of praise or they offer it for themselves and all who are dear to them, for the redemption of their souls, in hope of health and well-being, and fulfilling their vows to you, the eternal God, living and true.
+
+In communion with those whose memory we venerate, especially the glorious ever-Virgin Mary, Mother of our God and Lord, Jesus Christ, and blessed Joseph, Spouse of the same Virgin,
+your blessed Apostles and Martyrs, Peter and Paul, Andrew, James, John, Thomas, James, Philip, Bartholomew, Matthew, Simon and Jude: Linus, Cletus, Clement, Sixtus, Cornelius, Cyprian, Lawrence, Chrysogonus, John and Paul, Cosmas and Damian and all your Saints: through their merits and prayers, grant that in all things we may be defended by your protecting help. Through Christ our Lord. Amen.
+
+Therefore, Lord, we pray: graciously accept this oblation of our service, that of your whole family;
+order our days in your peace, and command that we be delivered from eternal damnation and counted among the flock of those you have chosen. Through Christ our Lord. Amen.
+
+Be pleased, O God, we pray, to bless, acknowledge, and approve this offering in very respect; make it spiritual and acceptable, so that it may become for us the Body and Blood of your most beloved Son, our Lord Jesus Christ.
+
+On the day before he was to suffer, he took bread in his holy and venerable hands, and with eyes raised to heaven to you, O God, his almighty Father, giving you thanks he said the blessing, broke the bread and gave it to his disciples, saying:
+
+TAKE THIS, ALL OF YOU, AND EAT OF IT, FOR THIS IS MY BODY, WHICH WILL BE GIVEN UP FOR YOU.
+
+In a similar way, when supper was ended, he took this precious chalice in his holy and venerable hands, and once more giving you thanks, he said the blessing and gave the chalice to his disciples, saying:
+
+TAKE THIS, ALL OF YOU, AND DRINK FROM IT, FOR THIS IS THE CHALICE OF MY BLOOD, THE BLOOD OF THE NEW AND ETERNAL COVENANT, WHICH WILL BE POURED OUT FOR YOU AND FOR MANY FOR THE FORGIVENESS OF SINS. DO THIS IN MEMORY OF ME.
+
+V. The mystery of faith.
+
+**R. We proclaim your death, O Lord, and profess your Resurrection until you come again.**
+
+Therefore, O Lord, as we celebrate the memorial of the blessed Passion, the Resurrection from the dead, and the glorious Ascension into heaven of Christ, your Son, our Lord, we, your servants and your holy people, offer to your glorious majesty
+from the gifts that you have given us, this pure victim, this holy victim, this spotless victim, the holy Bread of eternal life and the Chalice of everlasting salvation.
+
+Be pleased to look upon them with serene and kindly countenance, and to accept them, as you were pleased to accept the gifts of your servant Abel the just, the sacrifice of Abraham, our father in faith, and the offering of your high priest Melchizedek, a holy sacrifice, a spotless victim.
+
+In humble prayer we ask you, almighty God: command that these gifts be borne by the hands of your holy Angel to your altar on high in the sight of your divine majesty, so that all of us who through this participation at the altar receive the most holy Body and Blood of your Son He stands upright again and signs himself with the Sign of the Cross, saying: may be filled with every grace and heavenly blessing. Through Christ our Lord. Amen.
+
+Remember also, Lord, your servants N. and N., who have gone before us with the sign of faith and rest in the sleep of peace. Grant them, O Lord, we pray, and all who sleep in Christ, a place of refreshment, light and peace. Through Christ our Lord. Amen.
+
+To us, also, your servants, who, though sinners, hope in your abundant mercies, graciously grant some share and fellowship with your holy Apostles and Martyrs: with John the Baptist, Stephen, Matthias, Barnabas, Ignatius, Alexander, Marcellinus, Peter, Felicity, Perpetua, Agatha, Lucy, Agnes, Cecilia, Anastasia and all your Saints; admit us, we beseech you, into their company,
+not weighing our merits, but granting us your pardon. Through Christ our Lord.
+
+Through whom you continue to make all these good things, O Lord; you sanctify them, fill them with life, bless them, and bestow them upon us.
+
+V. Through him, and with him, and in him, O God, almighty Father, in the unity of the Holy Spirit, all glory and honor is yours, for ever and ever.
 
 **R. Amen.**
 
@@ -135,7 +184,8 @@ Behold the Lamb of God, behold him who taketh away the sins of the world. Blesse
 
 ### Dismissal and Blessing
 
-**V. The Lord be with you.  **
+V. The Lord be with you.
+
 **R. And with thy spirit.**
 
 Go, the Mass is ended.
