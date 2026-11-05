@@ -105,12 +105,15 @@ V. Pray, brethren, that my sacrifice and yours may be acceptable to God, the alm
 #### Preface
 
 V. The Lord be with you.
+
 **R. And with your spirit.**
 
 V. Lift up your hearts.
+
 **R. We lift them up to the Lord.**
 
 V. Let us give thanks to the Lord our God.
+
 **R. It is right and just.**
 
 **Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest.**
@@ -138,6 +141,7 @@ In a similar way, when supper was ended, he took this precious chalice in his ho
 TAKE THIS, ALL OF YOU, AND DRINK FROM IT, FOR THIS IS THE CHALICE OF MY BLOOD, THE BLOOD OF THE NEW AND ETERNAL COVENANT, WHICH WILL BE POURED OUT FOR YOU AND FOR MANY FOR THE FORGIVENESS OF SINS. DO THIS IN MEMORY OF ME.
 
 V. The mystery of faith.
+
 **R. We proclaim your death, O Lord, and profess your Resurrection until you come again.**
 
 Therefore, O Lord, as we celebrate the memorial of the blessed Passion, the Resurrection from the dead, and the glorious Ascension into heaven of Christ, your Son, our Lord, we, your servants and your holy people, offer to your glorious majesty
@@ -175,12 +179,15 @@ V. Lord Jesus Christ, who said to your Apostles: Peace I leave you, my peace I g
 **R. Amen.**
 
 V. The peace of the Lord be with you always.
+
 **R. And with your spirit.**
 
 #### Fraction and Lamb of God
 
 Lamb of God, you take away the sins of the world, have mercy on us.
+
 Lamb of God, you take away the sins of the world, have mercy on us.
+
 Lamb of God, you take away the sins of the world, grant us peace.
 
 #### Holy Communion
