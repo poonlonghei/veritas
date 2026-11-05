@@ -109,6 +109,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .office-hour-card p { margin: 0; color: #777f75; font-size: 14px; line-height: 1.65; }
 .office-hour-card .text-link { align-self: flex-start; }
 .office-source { margin: 17px 0 0; color: #a09e94; font-size: 12px; font-style: italic; }
+.divine-office-embed { display: block; width: 100%; height: 900px; margin-top: 20px; border: 1px solid #e8e2d9; border-radius: 4px; background: #faf7f5; }
 @media (max-width: 760px) {
   .mass-mobile-language-switch { margin-top: 15px; }
   .mass-language-column.mobile-language-hidden { display: none; }
@@ -314,8 +315,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .office-intro { align-items: flex-start; flex-direction: column; gap: 17px; padding: 22px 18px; }
   .office-intro h2 { font-size: 23px; }
   .office-hours { padding: 21px 18px; }
-  .office-hour-grid { grid-template-columns: 1fr; }
-  .office-hour-card:last-child { grid-column: auto; }
+  .divine-office-embed { height: 820px; }
   .intention-form-card, .monthly-intentions-section { padding: 21px 18px; }
   .monthly-intentions-heading { align-items: stretch; flex-direction: column; gap: 13px; }
   .monthly-intentions-heading select { min-width: 0; }

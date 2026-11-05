@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#faf7f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1b1a17" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="noindex">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>Cantus Horarum</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-title" content="Cantus Horarum">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="bar">
+    <a class="logo" href="./" aria-label="Cantus Horarum"><svg viewBox="0 0 512 512" aria-hidden="true"><rect class="bg" width="512" height="512" rx="112"/><g class="staff"><rect y="144" width="512" height="16"/><rect y="208" width="512" height="16"/><rect y="272" width="512" height="16"/><rect y="336" width="512" height="16"/></g><g class="notes"><path d="M112 144Q152 152 192 144V224Q152 216 112 224Z"/><path d="M192 208Q232 216 272 208V288Q232 280 192 288Z"/><rect x="112" y="144" width="16" height="144"/><path d="M304 272Q344 280 384 272V352Q344 344 304 352Z"/></g></svg></a>
+    <select id="hour" aria-label="Hour">
+      <option value="lectio">Office of Readings</option>
+      <option value="laudes">Lauds</option>
+      <option value="tertia">Terce</option>
+      <option value="sexta">Sext</option>
+      <option value="nona">None</option>
+      <option value="vesperae">Vespers</option>
+      <option value="completorium">Compline</option>
+    </select>
+    <input type="date" id="date" aria-label="Date">
+    <button class="gear" id="settings-toggle" aria-label="Settings" aria-expanded="false" aria-controls="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6-2-3.5-2.5 1a7.4 7.4 0 0 0-1.7-1L15 3.3h-4l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.5-1-2 3.5L6.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6 2 3.5 2.5-1a7.4 7.4 0 0 0 1.7 1l.4 2.6h4l.4-2.6a7.4 7.4 0 0 0 1.7-1l2.5 1 2-3.5zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg></button>
+  </div>
+  <div id="settings" class="settings" hidden>
+    <p class="settings-title">Psalm display mode</p>
+    <div class="modes" role="radiogroup" aria-label="Psalm display mode">
+      <button class="mode" data-psalms="text" role="radio">
+        <span class="preview mini" aria-hidden="true"></span>
+        <span class="mode-name">Compact</span>
+      </button>
+      <button class="mode" data-psalms="" role="radio">
+        <span class="preview mini" aria-hidden="true"></span>
+        <span class="mode-name">Detailed</span>
+      </button>
+    </div>
+    <label class="row">Invitatory before <select id="opt-invitatory"><option value="">—</option><option value="lectio">Office of Readings</option><option value="laudes">Lauds</option></select></label>
+    <label class="row">Memorials, from the short reading <select id="opt-memoria"><option value="">of the weekday</option><option value="commune">of the common</option></select></label>
+    <label class="row">Priest or deacon present <select id="opt-presider"><option value="">No</option><option value="1">Yes</option></select></label>
+    <label class="row">Singing voice <select id="opt-voice"><option value="gravis">Low</option><option value="">Medium</option><option value="acuta">High</option></select></label>
+    <label class="row">Dark mode <select id="opt-theme"><option value="">System</option><option value="light">Off</option><option value="dark">On</option></select></label>
+    <div class="row">PDF <span class="pdf"><select id="pdf-size" aria-label="Print size"><option value="70">70 %</option><option value="80">80 %</option><option value="90">90 %</option><option value="100">100 %</option><option value="110">110 %</option><option value="120">120 %</option><option value="130">130 %</option><option value="140">140 %</option><option value="150">150 %</option></select><select id="pdf-format" aria-label="Page format"><option value="a4">A4</option><option value="a5">A5</option><option value="letter">Letter</option><option value="booklet-a4">Booklet A4</option><option value="booklet-letter">Booklet Letter</option></select><button id="pdf-make" type="button">Make</button><a id="pdf-link" class="pdf-get" hidden>Download</a><button id="pdf-share" class="pdf-get" type="button" hidden>Share</button></span></div>
+    <div class="row">Help and sources <button type="button" class="link help-open">Open</button></div>
+    <label class="row">Text size <input type="range" id="text-size" min="85" max="140" step="5" value="100"></label>
+  </div>
+</header>
+
+<main id="office" class="office" lang="la">
+  <p class="loading">Loading…</p>
+</main>
+<footer class="colophon">
+  <p>For private use only.</p>
+  <p><button type="button" class="link help-open">Help and sources</button></p>
+  <p><a href="mailto:fr.joe@missionsetrangeres.com">fr.joe@missionsetrangeres.com</a></p>
+</footer>
+
+<dialog id="help" class="help" aria-labelledby="help-title">
+  <form method="dialog"><button class="close" aria-label="Close">×</button></form>
+  <h2 id="help-title">Help and sources</h2>
+  <p>Cantus Horarum sets the Liturgy of the Hours to Gregorian chant as the <i>Ordo Cantus Officii</i> (2015) assigns it. It is for private use only.</p>
+  <h3>Using it</h3>
+  <ul>
+    <li>Choose the hour and the date in the bar; the gear opens the settings: how the psalms are shown, the invitatory, the singing voice, dark mode, the PDF and its print size.</li>
+    <li>▶ above a score sings it; ■ stops.</li>
+    <li>The small label beside ▶ says where the score comes from: the book and its page, as listed below. Where the score is on GregoBase, tapping the label opens it there.</li>
+    <li>PDF: choose the size and the format, press Make, then Share (on an iPhone: Print, Save to Files) or Download. A booklet prints on both sides, flipped on the short edge, then folded.</li>
+  </ul>
+  <h3>Where the scores come from</h3>
+  <dl id="help-books" class="help-books"></dl>
+  <h3>Other sources</h3>
+  <ul>
+    <li><i>Ordo Cantus Officii</i>, editio typica altera (Libreria Editrice Vaticana, 2015), in the <i>editio cum cantu</i> of <a href="https://antiphonale.net/" target="_blank" rel="noopener">antiphonale.net</a> (v.6, 2026): which chant is sung where, and in which mode.</li>
+    <li><a href="https://gregobase.selapa.net/" target="_blank" rel="noopener">GregoBase</a>, the database of Gregorian scores, whose transcriptions are in the public domain (CC0), with antiphonale.net's transcriptions of the Ordo's chants.</li>
+    <li><a href="https://www.ibreviary.com/" target="_blank" rel="noopener">iBreviary</a>: the Latin texts of the <i>Liturgia Horarum</i> (© Libreria Editrice Vaticana).</li>
+    <li>The <i>Nova Vulgata</i> (vatican.va): the division of the psalms into verses.</li>
+    <li><a href="https://github.com/romcal/romcal" target="_blank" rel="noopener">romcal</a>: the General Roman Calendar.</li>
+    <li>Exsurge (Fr Matthew Spencer, MIT) draws the scores; <a href="https://github.com/bbloomf/jgabc" target="_blank" rel="noopener">jgabc</a> (Benjamin Bloomfield, public domain) points the psalms to their tones; jsPDF and svg2pdf.js (MIT) make the PDF.</li>
+    <li>EB Garamond (Georg Duffner and Octavio Pardo, SIL Open Font License).</li>
+  </ul>
+  <h3>Contact</h3>
+  <p><a href="mailto:fr.joe@missionsetrangeres.com">fr.joe@missionsetrangeres.com</a></p>
+</dialog>
+
+<script src="vendor/exsurge.min.js"></script>
+<script src="vendor/jgabc/shim.js"></script>
+<script src="vendor/jgabc/jquery.hypher.js"></script>
+<script src="vendor/jgabc/la-hypher.js"></script>
+<script src="vendor/jgabc/util.js"></script>
+<script src="vendor/jgabc/psalmtone.js"></script>
+<script src="vendor/jgabc/after.js"></script>
+<script type="module" src="app.js"></script>
+</body>
+</html>

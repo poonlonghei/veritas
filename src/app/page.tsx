@@ -32,14 +32,6 @@ type MassForm = "Ordinary Form" | "Extraordinary Form";
 type MassContent = { latin: string; english: string; chinese: string };
 type MassLanguage = "latin" | "english" | "chinese";
 
-const divineOfficeHours = [
-  { name: "Office of Readings", time: "Any time", description: "A spacious hour for Scripture, the Fathers, and quiet reflection." },
-  { name: "Morning Prayer", time: "Morning", description: "Begin the day by praising God and offering the work ahead." },
-  { name: "Daytime Prayer", time: "Midday", description: "Return briefly to prayer in the middle of the day's work." },
-  { name: "Evening Prayer", time: "Evening", description: "Give thanks for the day and place the night in God's hands." },
-  { name: "Night Prayer", time: "Night", description: "End the day with a peaceful examination of conscience." },
-] as const;
-
 function getMassMarkdownUrls(form: MassForm, locale: Locale) {
   const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
   return {
@@ -878,27 +870,18 @@ export default function HomePage() {
             <div className="section-heading">
               <div>
                 <span className="eyebrow">THE HOURS</span>
-                <h2 id="office-hours-heading">Choose an office</h2>
+                <h2 id="office-hours-heading">Latin prayers for every hour</h2>
               </div>
               <span className="office-date">{new Intl.DateTimeFormat("en", { weekday: "short", month: "short", day: "numeric" }).format(new Date())}</span>
             </div>
-            <div className="office-hour-grid">
-              {divineOfficeHours.map((hour, index) => (
-                <article className="office-hour-card" key={hour.name}>
-                  <span className="office-hour-number">{String(index + 1).padStart(2, "0")}</span>
-                  <div>
-                    <span className="office-hour-time">{hour.time}</span>
-                    <h3>{hour.name}</h3>
-                    <p>{hour.description}</p>
-                  </div>
-                  <button className="text-link" onClick={() => setToast(`${hour.name} is being prepared for Veritas.`)}>
-                    Begin prayer <Icon name="arrow" size={16} />
-                  </button>
-                </article>
-              ))}
-            </div>
+            <iframe
+              className="divine-office-embed"
+              src="./divine-office/site/index.html"
+              title="Latin Divine Office prayers"
+              loading="lazy"
+            />
+            <p className="office-source">Powered by the Latin prayer and Gregorian chant resources adapted from Cantus Horarum.</p>
           </section>
-          <p className="office-source">The structure is inspired by the traditional arrangement of the Roman Divine Office.</p>
         </main>
       );
     }

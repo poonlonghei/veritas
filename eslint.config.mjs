@@ -8,6 +8,7 @@ export default tseslint.config(
       "venv/**",
       "node_modules/**",
       "out/**",
+      "public/divine-office/**",
       "backend/**",
       "next-env.d.ts",
     ],
