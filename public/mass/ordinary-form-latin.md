@@ -6,40 +6,37 @@ In nomine Patris, et Filii, et Spiritus Sancti.
 
 **R. Amen.**
 
-Gratia Domini nostri Iesu Christi, et caritas Dei, et communicatio Sancti Spiritus sit cum omnibus vobis.
+V. Dominus vobiscum.
 
 **R. Et cum spiritu tuo.**
 
 #### Actus Pænitentialis
 
-Fratres, agnoscamus peccata nostra, ut apti simus ad sacra mysteria celebranda.
+V. Fratres, agnoscamus peccata nostra, ut apti simus ad sacra mysteria celebranda.
 
-Confiteor Deo omnipotenti et vobis, fratres, quia peccavi nimis cogitatione, verbo, opere et omissione: mea culpa, mea culpa, mea maxima culpa. Ideo precor beatam Mariam semper Virginem, omnes Angelos et Sanctos, et vos, fratres, orare pro me ad Dominum Deum nostrum.
+**Confiteor Deo omnipotenti et vobis, fratres, quia peccavi nimis cogitatione, verbo, opere et omissione: mea culpa, mea culpa, mea maxima culpa. Ideo precor beatam Mariam semper Virginem, omnes Angelos et Sanctos, et vos, fratres, orare pro me ad Dominum Deum nostrum.**
 
-**R. Misereatur nostri omnipotens Deus et, dimissis peccatis nostris, perducat nos ad vitam æternam.**
+V. Misereatur nostri omnipotens Deus et, dimissis peccatis nostris, perducat nos ad vitam æternam.
 
 **R. Amen.**
 
 #### Kyrie
 
-Kyrie, eleison.
+V. Kyrie, eleison.
+
 **R. Kyrie, eleison.**
 
-Christe, eleison.
+V. Christe, eleison.
+
 **R. Christe, eleison.**
 
-Kyrie, eleison.
+V. Kyrie, eleison.
+
 **R. Kyrie, eleison.**
 
 #### Gloria
 
-Gloria in excelsis Deo et in terra pax hominibus bonæ voluntatis. Laudamus te, benedicimus te, adoramus te, glorificamus te, gratias agimus tibi propter magnam gloriam tuam, Domine Deus, Rex cælestis, Deus Pater omnipotens.
-
-Domine Fili unigenite, Iesu Christe, Domine Deus, Agnus Dei, Filius Patris, qui tollis peccata mundi, miserere nobis; qui tollis peccata mundi, suscipe deprecationem nostram; qui sedes ad dexteram Patris, miserere nobis.
-
-Quoniam tu solus Sanctus, tu solus Dominus, tu solus Altissimus, Iesu Christe, cum Sancto Spiritu: in gloria Dei Patris.
-
-**R. Amen.**
+**Gloria in excelsis Deo et in terra pax hominibus bonæ voluntatis. Laudamus te, benedicimus te, adoramus te, glorificamus te, gratias agimus tibi propter magnam gloriam tuam, Domine Deus, Rex cælestis, Deus Pater omnipotens. Domine Fili unigenite, Iesu Christe, Domine Deus, Agnus Dei, Filius Patris, qui tollis peccata mundi, miserere nobis; qui tollis peccata mundi, suscipe deprecationem nostram; qui sedes ad dexteram Patris, miserere nobis. Quoniam tu solus Sanctus, tu solus Dominus, tu solus Altissimus, Iesu Christe, cum Sancto Spiritu: in gloria Dei Patris. Amen.**
 
 #### Collecta
 
@@ -49,27 +46,32 @@ Quoniam tu solus Sanctus, tu solus Dominus, tu solus Altissimus, Iesu Christe, c
 
 #### Prima Lectio
 
-**V. Verbum Domini.**
+V. Verbum Domini.
+
 **R. Deo gratias.**
 
 #### Psalmus Responsorius
 
 #### Secunda Lectio
 
-**V. Verbum Domini.**
+V. Verbum Domini.
+
 **R. Deo gratias.**
 
 #### Acclamatio Evangelii
 
 #### Evangelium
 
-**V. Dominus vobiscum.**
+V. Dominus vobiscum.
+
 **R. Et cum spiritu tuo.**
 
-**V. Lectio sancti Evangelii secundum N.**
+V. Lectio sancti Evangelii secundum N.
+
 **R. Gloria tibi, Domine.**
 
-**V. Verbum Domini.**
+V. Verbum Domini.
+
 **R. Laus tibi, Christe.**
 
 #### Homilia
@@ -84,15 +86,15 @@ Quoniam tu solus Sanctus, tu solus Dominus, tu solus Altissimus, Iesu Christe, c
 
 #### Præparatio Donorum
 
-Benedictus es, Domine, Deus universi, quia de tua largitate accepimus panem, quem tibi offerimus, fructum terræ et operis manuum hominum: ex quo nobis fiet panis vitæ.
+V. Benedictus es, Domine, Deus universi, quia de tua largitate accepimus panem, quem tibi offerimus, fructum terræ et operis manuum hominum: ex quo nobis fiet panis vitæ.
 
 **R. Benedictus Deus in sæcula.**
 
-Benedictus es, Domine, Deus universi, quia de tua largitate accepimus vinum, quod tibi offerimus, fructum vitis et operis manuum hominum: ex quo nobis fiet potus spiritalis.
+V. Benedictus es, Domine, Deus universi, quia de tua largitate accepimus vinum, quod tibi offerimus, fructum vitis et operis manuum hominum: ex quo nobis fiet potus spiritalis.
 
 **R. Benedictus Deus in sæcula.**
 
-**V. Orate, fratres, ut meum ac vestrum sacrificium acceptabile fiat apud Deum Patrem omnipotentem.**
+V. Orate, fratres, ut meum ac vestrum sacrificium acceptabile fiat apud Deum Patrem omnipotentem.
 
 **R. Suscipiat Dominus sacrificium de manibus tuis ad laudem et gloriam nominis sui, ad utilitatem quoque nostram totiusque Ecclesiæ suæ sanctæ.**
 
@@ -102,13 +104,16 @@ Benedictus es, Domine, Deus universi, quia de tua largitate accepimus vinum, quo
 
 #### Præfacio
 
-**V. Dominus vobiscum.  **
+V. Dominus vobiscum.  
+
 **R. Et cum spiritu tuo.**
 
-**V. Sursum corda.  **
+V. Sursum corda.
+
 **R. Habemus ad Dominum.**
 
-**V. Gratias agamus Domino Deo nostro.  **
+V. Gratias agamus Domino Deo nostro.
+
 **R. Dignum et iustum est.**
 
 Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth. Pleni sunt cæli et terra gloria tua. Hosanna in excelsis. Benedictus qui venit in nomine Domini. Hosanna in excelsis.
@@ -133,7 +138,8 @@ Símili modo, postquam cenátum est, accipit calicem, eumque parum elevatum supe
 
 ACCÍPITE ET BÍBITE EX EO OMNES: HIC EST ENIM CALIX SÁNGUINIS MEI NOVI ET AETÉRNI TESTAMÉNTI, QUI PRO VOBIS ET PRO MULTIS EFFUNDÉTUR IN REMISSIÓNEM PECCATÓRUM. HOC FÁCITE IN MEAM COMMEMORATIÓNEM.
 
-**V. Mystérium fídei.  **
+V. Mystérium fídei.  
+
 **R. Mortem tuam annuntiámus, Dómine, et tuam resurrectiónem confitémur, donec vénias.**
 
 Unde et mémores, Dómine, nos servi tui, sed et plebs tua sancta, eiúsdem Christi, Fílii tui, Dómini nostri, tam beátae passiónis, necnon et ab ínferis resurrectiónis, sed et in caelos gloriósae ascensiónis: offérimus praeclárae maiestáti tuae de tuis donis ac datis hóstiam puram, hóstiam sanctam, hóstiam immaculátam, Panem sanctum vitae aetérnae et Cálicem salútis perpétuae.
@@ -148,26 +154,28 @@ Nobis quoque peccatóribus fámulis tuis, de multitúdine miseratiónum tuárum 
 
 Per quem haec ómnia, Dómine, semper bona creas, sanctíficas, vivíficas, benedícis, et praestas nobis.
 
-Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria per omnia sæcula sæculorum.
+V. Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria per omnia sæcula sæculorum.
+
 **R. Amen.**
 
 ### Ritus Communionis
 
 #### Oratio Dominica
 
-**R. Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo.**
+**Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo.**
 
-Libera nos, quæsumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiæ tuæ adiuti, et a peccato simus semper liberi et ab omni perturbatione securi, exspectantes beatam spem et adventum Salvatoris nostri Iesu Christi.
+V. Libera nos, quæsumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiæ tuæ adiuti, et a peccato simus semper liberi et ab omni perturbatione securi, exspectantes beatam spem et adventum Salvatoris nostri Iesu Christi.
 
 **R. Quia tuum est regnum, et potestas, et gloria in sæcula.**
 
 #### Ritus Pacis
 
-Domine Iesu Christe, qui dixisti Apostolis tuis: Pacem relinquo vobis, pacem meam do vobis; ne respicias peccata nostra, sed fidem Ecclesiæ tuæ, eamque secundum voluntatem tuam pacificare et coadunare digneris. Qui vivis et regnas in sæcula sæculorum.
+V. Domine Iesu Christe, qui dixisti Apostolis tuis: Pacem relinquo vobis, pacem meam do vobis; ne respicias peccata nostra, sed fidem Ecclesiæ tuæ, eamque secundum voluntatem tuam pacificare et coadunare digneris. Qui vivis et regnas in sæcula sæculorum.
 
 **R. Amen.**
 
-**V. Pax Domini sit semper vobiscum.  **
+V. Pax Domini sit semper vobiscum.
+
 **R. Et cum spiritu tuo.**
 
 #### Fractio Panis et Agnus Dei
@@ -178,7 +186,7 @@ Agnus Dei, qui tollis peccata mundi, dona nobis pacem.
 
 #### Sancta Communio
 
-Ecce Agnus Dei, ecce qui tollit peccata mundi. Beati qui ad cenam Agni vocati sunt.
+V. Ecce Agnus Dei, ecce qui tollit peccata mundi. Beati qui ad cenam Agni vocati sunt.
 
 **R. Domine, non sum dignus ut intres sub tectum meum, sed tantum dic verbo et sanabitur anima mea.**
 
@@ -190,11 +198,14 @@ Ecce Agnus Dei, ecce qui tollit peccata mundi. Beati qui ad cenam Agni vocati su
 
 #### Benedictio et Dimissio
 
-**V. Dominus vobiscum.  **
+V. Dominus vobiscum.  
+
 **R. Et cum spiritu tuo.**
 
-Benedicat vos omnipotens Deus, Pater , et Filius, ✠ et Spiritus Sanctus.
+V. Benedicat vos omnipotens Deus, Pater , et Filius, ✠ et Spiritus Sanctus.
+
 **R. Amen.**
 
-**V. Ite, missa est.  **
+V. Ite, missa est.
+
 **R. Deo gratias.**
