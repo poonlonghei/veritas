@@ -108,17 +108,16 @@ And in the Holy Ghost, the Lord and giver of life, who proceedeth from the Fathe
 
 Accept, O holy Father, almighty and eternal God, this spotless host, which I, thine unworthy servant, offer unto thee, my living and true God, for my countless sins, offences, and negligences, and for all here present; and for all faithful Christians, living and dead, that it may avail both me and them for salvation unto life everlasting.
 
-**R. Amen.**
 
 We offer unto thee, O Lord, the chalice of salvation, beseeching thy clemency that it may ascend before thy divine majesty as a sweet odour for our salvation and for that of the whole world.
 
-**R. Amen.**
+Accept us, O Lord, in the spirit of humility and contrition of heart, and grant that the sacrifice which we offer this day in Thy sight may be pleasing to Thee, O Lord God.
+
+Come, O almighty and eternal God, the Sanctifier, and bless this Sacrifice, prepared for the glory of Thy holy Name.
 
 V. Pray, brethren, that my sacrifice and yours may be acceptable to God the Father almighty.
 
 **R. May the Lord receive the sacrifice at thy hands, to the praise and glory of his name, for our good and the good of all his holy Church.**
-
-**R. Amen.**
 
 #### Preface
 
@@ -158,7 +157,7 @@ In a similar way, when supper was ended, he took this precious chalice in his ho
 
 FOR THIS IS THE CHALICE OF MY BLOOD, THE BLOOD OF THE NEW AND ETERNAL COVENANT, THE MYSTERY OF FAITH, WHICH WILL BE POURED OUT FOR YOU AND FOR MANY FOR THE FORGIVENESS OF SINS.
 
-As often as you do these things, you shall do them in memory of me.
+AS OFTEN AS YOU DO THESE THINGS, YOU SHALL DO THEM IN MEMORY OF ME.
 
 Therefore, O Lord, as we celebrate the memorial of the blessed Passion, the Resurrection from the dead, and the glorious Ascension into heaven of Christ, your Son, our Lord, we, your servants and your holy people, offer to your glorious majesty
 from the gifts that you have given us, this pure ✠ victim, this holy ✠ victim, this spotless ✠ victim, the holy Bread ✠ of eternal life and the Chalice ✠ of everlasting salvation.

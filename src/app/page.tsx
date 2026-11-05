@@ -29,6 +29,7 @@ type Screen =
 type Locale = "en" | "zh-TW";
 type MassForm = "Ordinary Form" | "Extraordinary Form";
 type MassContent = { latin: string; english: string };
+type MassLanguage = "latin" | "english";
 
 function getMassMarkdownUrls(form: MassForm) {
   const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
@@ -337,6 +338,7 @@ export default function HomePage() {
   const [intentionText, setIntentionText] = useState("");
   const [intentionConsent, setIntentionConsent] = useState(false);
   const [massForm, setMassForm] = useState<MassForm>("Ordinary Form");
+  const [massLanguage, setMassLanguage] = useState<MassLanguage>("latin");
   const [massContent, setMassContent] = useState<MassContent>({ latin: "", english: "" });
   const [massLoading, setMassLoading] = useState(false);
 
@@ -811,12 +813,24 @@ export default function HomePage() {
                 </button>
               ))}
             </div>
+            <div className="mass-mobile-language-switch" role="group" aria-label="Choose the Mass language">
+              {(["latin", "english"] as const).map((language) => (
+                <button
+                  key={language}
+                  className={`filter-chip${massLanguage === language ? " active" : ""}`}
+                  aria-pressed={massLanguage === language}
+                  onClick={() => setMassLanguage(language)}
+                >
+                  {language === "latin" ? "Latin" : "English"}
+                </button>
+              ))}
+            </div>
             <div className="mass-columns" aria-live="polite">
-              <article className="mass-markdown mass-language-column">
+              <article className={`mass-markdown mass-language-column${massLanguage === "english" ? " mobile-language-hidden" : ""}`}>
                 <h3>Latin</h3>
                 {massLoading ? <p>Loading the Latin text…</p> : renderMarkdown(massContent.latin)}
               </article>
-              <article className="mass-markdown mass-language-column">
+              <article className={`mass-markdown mass-language-column${massLanguage === "latin" ? " mobile-language-hidden" : ""}`}>
                 <h3>English Translation</h3>
                 {massLoading ? <p>Loading the English translation…</p> : renderMarkdown(massContent.english)}
               </article>
