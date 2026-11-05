@@ -24,7 +24,6 @@ type Screen =
   | "Prayer library"
   | "Prayer intentions"
   | "Order of Holy Mass"
-  | "Divine Office"
   | "The Rosary"
   | "About";
 type Locale = "en" | "zh-TW";
@@ -438,7 +437,6 @@ export default function HomePage() {
   useEffect(() => {
     setMassLanguage("latin");
     if (locale === "zh-TW") setMassForm("Ordinary Form");
-    if (locale === "zh-TW" && screen === "Divine Office") setScreen("Home");
   }, [locale, screen]);
 
   useEffect(() => {
@@ -847,45 +845,6 @@ export default function HomePage() {
       );
     }
 
-    if (screen === "Divine Office") {
-      return (
-        <main className="main-content readings-page divine-office-page">
-          <header className="page-heading">
-            <div>
-              <span className="eyebrow">LITURGIA HORARUM</span>
-              <h1>Divine Office</h1>
-              <p>Sanctify the hours of the day with the Church's prayer.</p>
-            </div>
-            <span className="heading-mark">✣</span>
-          </header>
-          <section className="office-intro" aria-labelledby="office-intro-heading">
-            <span className="office-sun">☼</span>
-            <div>
-              <span className="eyebrow">ORDINARY FORM</span>
-              <h2 id="office-intro-heading">Pray with the rhythm of the hours.</h2>
-              <p>Choose an hour below to begin. Each office gathers psalms, Scripture, and the prayer of the whole Church.</p>
-            </div>
-          </section>
-          <section className="office-hours" aria-labelledby="office-hours-heading">
-            <div className="section-heading">
-              <div>
-                <span className="eyebrow">THE HOURS</span>
-                <h2 id="office-hours-heading">Latin prayers for every hour</h2>
-              </div>
-              <span className="office-date">{new Intl.DateTimeFormat("en", { weekday: "short", month: "short", day: "numeric" }).format(new Date())}</span>
-            </div>
-            <iframe
-              className="divine-office-embed"
-              src="./divine-office/site/index.html"
-              title="Latin Divine Office prayers"
-              loading="lazy"
-            />
-            <p className="office-source">Powered by the Latin prayer and Gregorian chant resources adapted from Cantus Horarum.</p>
-          </section>
-        </main>
-      );
-    }
-
     if (screen === "Prayer library") {
       return (
         <main className="main-content">
@@ -1040,7 +999,6 @@ export default function HomePage() {
     { name: "Daily readings", icon: "book" },
     { name: "Prayer intentions", icon: "info" },
     { name: "Order of Holy Mass" as const, icon: "book" },
-    ...(locale === "en" ? [{ name: "Divine Office" as const, icon: "book" }] : []),
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
   ];
