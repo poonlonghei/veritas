@@ -1,6 +1,6 @@
 # Ordo Missae
 
-## Forma Ordinaria
+## Forma Ordinaria -- Novus Ordo
 
 ### Ritus Initiales
 

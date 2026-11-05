@@ -1,6 +1,6 @@
 # Ordo Missae
 
-## Forma Extraordinaria
+## Forma Extraordinaria Vetus Ordo
 
 ### Orationes ad Gradus Altaris
 

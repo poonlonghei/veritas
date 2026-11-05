@@ -31,11 +31,10 @@ type MassForm = "Ordinary Form" | "Extraordinary Form";
 type MassContent = { latin: string; english: string };
 
 function getMassMarkdownUrls(form: MassForm) {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
   return {
-    latin: `${basePath}/mass/${name}-form-latin.md`,
-    english: `${basePath}/mass/${name}-form.md`,
+    latin: `./mass/${name}-form-latin.md`,
+    english: `./mass/${name}-form.md`,
   };
 }
 
