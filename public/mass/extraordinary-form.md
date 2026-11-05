@@ -1,10 +1,6 @@
 # Order of Holy Mass
 
-## Extraordinary Form
-
 ### Prayers at the Foot of the Altar
-
-The priest and server begin at the foot of the altar.
 
 In the name of the Father, and of the Son, and of the Holy Ghost.
 
@@ -42,16 +38,12 @@ May the almighty and merciful Lord grant us pardon, absolution, and remission of
 
 ### Introit, Kyrie, and Gloria
 
-The priest ascends to the altar and says the Introit proper to the day.
-
 Lord, have mercy.  
 **Lord, have mercy.**  
 Christ, have mercy.  
 **Christ, have mercy.**  
 Lord, have mercy.  
 **Lord, have mercy.**
-
-On Sundays and feast days, the Gloria is said or sung:
 
 Glory be to God on high, and on earth peace to men of good will. We praise thee, we bless thee, we adore thee, we glorify thee, we give thee thanks for thy great glory, O Lord God, heavenly King, God the Father almighty.
 
@@ -63,14 +55,9 @@ For thou only art holy, thou only art Lord, thou only art most high, O Jesus Chr
 
 ### Collect, Epistle, and Gospel
 
-The priest says the Collect proper to the day.
-
 **Amen.**
 
-The Epistle is proclaimed.  
 **Thanks be to God.**
-
-The people stand for the Gospel.
 
 **The Lord be with you.**  
 **And with thy spirit.**
@@ -78,11 +65,7 @@ The people stand for the Gospel.
 **The continuation of the holy Gospel according to N.**  
 **Glory be to thee, O Lord.**
 
-At the end:
-
 **Praise be to thee, O Christ.**
-
-The people sit for the sermon. On Sundays and certain feast days, the Creed follows:
 
 I believe in one God, the Father almighty, maker of heaven and earth, and of all things visible and invisible. And in one Lord Jesus Christ, the only-begotten Son of God, born of the Father before all ages. God of God, Light of Light, true God of true God. Begotten, not made, consubstantial with the Father: by whom all things were made.
 
@@ -93,8 +76,6 @@ And in the Holy Ghost, the Lord and giver of life, who proceedeth from the Fathe
 **Amen.**
 
 ### Offertory
-
-The priest offers the bread and wine and prepares the altar.
 
 Accept, O holy Father, almighty and eternal God, this spotless host, which I, thine unworthy servant, offer unto thee, my living and true God, for my countless sins, offences, and negligences, and for all here present; and for all faithful Christians, living and dead, that it may avail both me and them for salvation unto life everlasting.
 
@@ -108,7 +89,6 @@ Pray, brethren, that my sacrifice and yours may be acceptable to God the Father 
 
 **May the Lord receive the sacrifice at thy hands, to the praise and glory of his name, for our good and the good of all his holy Church.**
 
-The priest says the Secret proper to the day.  
 **Amen.**
 
 ### Canon of the Mass
@@ -122,19 +102,13 @@ Lift up your hearts.
 Let us give thanks to the Lord our God.  
 **It is meet and just.**
 
-The priest says the Preface proper to the day. All say:
-
 Holy, holy, holy, Lord God of hosts. The heavens and the earth are full of thy glory. Hosanna in the highest. Blessed is he that cometh in the name of the Lord. Hosanna in the highest.
-
-The priest continues the Roman Canon in silence, including the prayers for the Church, the living, the saints, the consecration of the bread and wine, the memorial, and the offering of the sacred Victim.
 
 Through him, and with him, and in him, is to thee, God the Father almighty, in the unity of the Holy Ghost, all honour and glory, world without end.
 
 **Amen.**
 
 ### Communion
-
-Let us pray. Taught by our Saviour's command, and formed by divine institution, we make bold to say:
 
 Our Father, who art in heaven, hallowed be thy name; thy kingdom come; thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses, as we forgive them that trespass against us. And lead us not into temptation.
 
@@ -151,15 +125,11 @@ Lamb of God, who takest away the sins of the world, have mercy on us.
 Lamb of God, who takest away the sins of the world, have mercy on us.  
 Lamb of God, who takest away the sins of the world, grant us peace.
 
-The priest receives Holy Communion and then distributes Communion to the people.
-
 Behold the Lamb of God, behold him who taketh away the sins of the world. Blessed are they that are called to the supper of the Lamb.
 
 **Lord, I am not worthy that thou shouldest enter under my roof, but speak the word only and my soul shall be healed.**
 
 ### Ablutions and Postcommunion
-
-The priest purifies the sacred vessels and says the Postcommunion proper to the day.
 
 **Amen.**
 
@@ -170,8 +140,6 @@ The Lord be with you.
 
 Go, the Mass is ended.  
 **Thanks be to God.**
-
-The priest gives the blessing:
 
 May almighty God, the Father, and the Son, and the Holy Ghost, bless you.
 

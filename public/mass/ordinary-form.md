@@ -1,14 +1,6 @@
 # Order of Holy Mass
 
-## Ordinary Form
-
 ### Introductory Rites
-
-#### Entrance
-
-The priest and ministers enter. The people stand.
-
-#### Greeting
 
 In the name of the Father, and of the Son, and of the Holy Spirit.
 
@@ -51,68 +43,46 @@ For you alone are the Holy One, you alone are the Lord, you alone are the Most H
 
 #### Collect
 
-The priest says the Collect proper to the day.
-
 **Amen.**
 
 ### Liturgy of the Word
 
 #### First Reading
 
-The reader proclaims the first reading. The people sit.
-
 **The word of the Lord.**  
 **Thanks be to God.**
 
 #### Responsorial Psalm
 
-The people respond to the psalm.
-
 #### Second Reading
-
-On Sundays and solemnities, the second reading is proclaimed.
 
 **The word of the Lord.**  
 **Thanks be to God.**
 
 #### Gospel Acclamation
 
-The people stand and acclaim the Gospel.
-
 #### Gospel
 
-The deacon or priest proclaims the Gospel.
-
-**The Lord be with you.**  
+The Lord be with you.*
 **And with your spirit.**
 
-**A reading from the holy Gospel according to N.**  
+A reading from the holy Gospel according to N.  
 **Glory to you, O Lord.**
 
-At the end:
-
-**The Gospel of the Lord.**  
+The Gospel of the Lord.  
 **Praise to you, Lord Jesus Christ.**
 
 #### Homily
 
-The people sit. The priest or deacon gives the homily.
-
 #### Profession of Faith
 
-The people stand and profess the Creed on Sundays and solemnities.
-
 #### Universal Prayer
-
-The people pray for the Church, public authorities, those in need, and the salvation of all.
 
 **Lord, hear our prayer.**
 
 ### Liturgy of the Eucharist
 
 #### Preparation of the Gifts
-
-The people sit. Bread and wine are brought to the altar.
 
 Blessed are you, Lord God of all creation, for through your goodness we have received the bread we offer you: fruit of the earth and work of human hands, it will become for us the bread of life.
 
@@ -128,13 +98,9 @@ Pray, brethren, that my sacrifice and yours may be acceptable to God, the almigh
 
 #### Prayer over the Offerings
 
-The priest says the Prayer over the Offerings proper to the day.
-
 **Amen.**
 
-#### Eucharistic Prayer
-
-The people stand for the Preface dialogue.
+#### Preface
 
 The Lord be with you.  
 **And with your spirit.**
@@ -145,21 +111,53 @@ Lift up your hearts.
 Let us give thanks to the Lord our God.  
 **It is right and just.**
 
-The priest proclaims the Preface proper to the day. All sing or say:
-
 Holy, Holy, Holy Lord God of hosts. Heaven and earth are full of your glory. Hosanna in the highest. Blessed is he who comes in the name of the Lord. Hosanna in the highest.
 
-The priest continues the Eucharistic Prayer, including the invocation of the Holy Spirit, the institution narrative and consecration, the memorial acclamation, the offering, intercessions, and final doxology.
+#### Eucharistic Prayer
 
-Through him, and with him, and in him, O God, almighty Father, in the unity of the Holy Spirit, all glory and honor is yours, for ever and ever.
+To you, therefore, most merciful Father, we make humble prayer and petition through Jesus Christ, your Son, our Lord: He joins his hands and says that you accept and bless ✠ these gifts, these offerings, these holy and unblemished sacrifices, which we offer you first of all for your holy catholic Church. Be pleased to grant her peace, to guard, unite and govern her throughout the whole world, together with your servant Leo our Pope and N. our Bishop, and all those who, holding to the truth, hand on the catholic and apostolic faith.
 
+Remember, Lord, your servants N. and N., and all gathered here, whose faith and devotion are known to you. For them and all who are dear to them we offer you this sacrifice of praise or they offer it for themselves and all who are dear to them, for the redemption of their souls, in hope of health and well-being, and fulfilling their vows to you, the eternal God, living and true.
+
+In communion with those whose memory we venerate, especially the glorious ever-Virgin Mary, Mother of our God and Lord, Jesus Christ, and blessed Joseph, Spouse of the same Virgin,
+your blessed Apostles and Martyrs, Peter and Paul, Andrew, James, John, Thomas, James, Philip, Bartholomew, Matthew, Simon and Jude: Linus, Cletus, Clement, Sixtus, Cornelius, Cyprian, Lawrence, Chrysogonus, John and Paul, Cosmas and Damian and all your Saints: through their merits and prayers, grant that in all things we may be defended by your protecting help. Through Christ our Lord. Amen.
+
+Therefore, Lord, we pray: graciously accept this oblation of our service, that of your whole family;
+order our days in your peace, and command that we be delivered from eternal damnation and counted among the flock of those you have chosen. Through Christ our Lord. Amen.
+
+Be pleased, O God, we pray, to bless, acknowledge, and approve this offering in very respect; make it spiritual and acceptable, so that it may become for us the Body and Blood of your most beloved Son, our Lord Jesus Christ.
+
+On the day before he was to suffer, he took bread in his holy and venerable hands, and with eyes raised to heaven to you, O God, his almighty Father, giving you thanks he said the blessing, broke the bread and gave it to his disciples, saying:
+
+TAKE THIS, ALL OF YOU, AND EAT OF IT, FOR THIS IS MY BODY, WHICH WILL BE GIVEN UP FOR YOU.
+
+In a similar way, when supper was ended, he took this precious chalice in his holy and venerable hands, and once more giving you thanks, he said the blessing and gave the chalice to his disciples, saying:
+
+TAKE THIS, ALL OF YOU, AND DRINK FROM IT, FOR THIS IS THE CHALICE OF MY BLOOD, THE BLOOD OF THE NEW AND ETERNAL COVENANT, WHICH WILL BE POURED OUT FOR YOU AND FOR MANY FOR THE FORGIVENESS OF SINS. DO THIS IN MEMORY OF ME.
+
+The mystery of faith.  
+**We proclaim your death, O Lord, and profess your Resurrection until you come again.**
+
+Therefore, O Lord, as we celebrate the memorial of the blessed Passion, the Resurrection from the dead, and the glorious Ascension into heaven of Christ, your Son, our Lord, we, your servants and your holy people, offer to your glorious majesty
+from the gifts that you have given us, this pure victim, this holy victim, this spotless victim, the holy Bread of eternal life and the Chalice of everlasting salvation.
+
+Be pleased to look upon them with serene and kindly countenance, and to accept them, as you were pleased to accept the gifts of your servant Abel the just, the sacrifice of Abraham, our father in faith, and the offering of your high priest Melchizedek, a holy sacrifice, a spotless victim.
+
+In humble prayer we ask you, almighty God: command that these gifts be borne by the hands of your holy Angel to your altar on high in the sight of your divine majesty, so that all of us who through this participation at the altar receive the most holy Body and Blood of your Son He stands upright again and signs himself with the Sign of the Cross, saying: may be filled with every grace and heavenly blessing. Through Christ our Lord. Amen.
+
+Remember also, Lord, your servants N. and N., who have gone before us with the sign of faith and rest in the sleep of peace. Grant them, O Lord, we pray, and all who sleep in Christ, a place of refreshment, light and peace. Through Christ our Lord. Amen.
+
+To us, also, your servants, who, though sinners, hope in your abundant mercies, graciously grant some share and fellowship with your holy Apostles and Martyrs: with John the Baptist, Stephen, Matthias, Barnabas, Ignatius, Alexander, Marcellinus, Peter, Felicity, Perpetua, Agatha, Lucy, Agnes, Cecilia, Anastasia and all your Saints; admit us, we beseech you, into their company,
+not weighing our merits, but granting us your pardon. Through Christ our Lord.
+
+Through whom you continue to make all these good things, O Lord; you sanctify them, fill them with life, bless them, and bestow them upon us.
+
+Through him, and with him, and in him, O God, almighty Father, in the unity of the Holy Spirit, all glory and honor is yours, for ever and ever.  
 **Amen.**
 
 ### Communion Rite
 
 #### The Lord's Prayer
-
-At the Savior's command and formed by divine teaching, we dare to say:
 
 Our Father, who art in heaven, hallowed be thy name; thy kingdom come, thy will be done on earth as it is in heaven. Give us this day our daily bread, and forgive us our trespasses, as we forgive those who trespass against us; and lead us not into temptation, but deliver us from evil.
 
@@ -184,19 +182,13 @@ Lamb of God, you take away the sins of the world, grant us peace.
 
 #### Holy Communion
 
-The priest shows the consecrated Host and says:
-
 Behold the Lamb of God, behold him who takes away the sins of the world. Blessed are those called to the supper of the Lamb.
 
 **Lord, I am not worthy that you should enter under my roof, but only say the word and my soul shall be healed.**
 
-The priest and people receive Holy Communion.
-
 ### Concluding Rites
 
 #### Prayer after Communion
-
-The priest says the Prayer after Communion proper to the day.
 
 **Amen.**
 

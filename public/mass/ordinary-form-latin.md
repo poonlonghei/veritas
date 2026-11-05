@@ -1,14 +1,6 @@
-# Ordo Missae
-
-## Forma Ordinaria -- Novus Ordo
+# Ordo Missæ
 
 ### Ritus Initiales
-
-#### Introitus
-
-Sacerdos et ministri ingrediuntur. Populus stat.
-
-#### Salutatio
 
 In nomine Patris, et Filii, et Spiritus Sancti.
 
@@ -18,13 +10,13 @@ Gratia Domini nostri Iesu Christi, et caritas Dei, et communicatio Sancti Spirit
 
 **Et cum spiritu tuo.**
 
-#### Actus Paenitentialis
+#### Actus Pænitentialis
 
 Fratres, agnoscamus peccata nostra, ut apti simus ad sacra mysteria celebranda.
 
 Confiteor Deo omnipotenti et vobis, fratres, quia peccavi nimis cogitatione, verbo, opere et omissione: mea culpa, mea culpa, mea maxima culpa. Ideo precor beatam Mariam semper Virginem, omnes Angelos et Sanctos, et vos, fratres, orare pro me ad Dominum Deum nostrum.
 
-**Misereatur nostri omnipotens Deus et, dimissis peccatis nostris, perducat nos ad vitam aeternam.**
+**Misereatur nostri omnipotens Deus et, dimissis peccatis nostris, perducat nos ad vitam æternam.**
 
 **Amen.**
 
@@ -41,7 +33,7 @@ Kyrie, eleison.
 
 #### Gloria
 
-Gloria in excelsis Deo et in terra pax hominibus bonae voluntatis. Laudamus te, benedicimus te, adoramus te, glorificamus te, gratias agimus tibi propter magnam gloriam tuam, Domine Deus, Rex caelestis, Deus Pater omnipotens.
+Gloria in excelsis Deo et in terra pax hominibus bonæ voluntatis. Laudamus te, benedicimus te, adoramus te, glorificamus te, gratias agimus tibi propter magnam gloriam tuam, Domine Deus, Rex cælestis, Deus Pater omnipotens.
 
 Domine Fili unigenite, Iesu Christe, Domine Deus, Agnus Dei, Filius Patris, qui tollis peccata mundi, miserere nobis; qui tollis peccata mundi, suscipe deprecationem nostram; qui sedes ad dexteram Patris, miserere nobis.
 
@@ -51,37 +43,25 @@ Quoniam tu solus Sanctus, tu solus Dominus, tu solus Altissimus, Iesu Christe, c
 
 #### Collecta
 
-Sacerdos dicit Collectam diei.
-
 **Amen.**
 
 ### Liturgia Verbi
 
 #### Prima Lectio
 
-Lector primam lectionem proclamat. Populus sedet.
-
 **Verbum Domini.**  
 **Deo gratias.**
 
 #### Psalmus Responsorius
 
-Populus psalmo respondet.
-
 #### Secunda Lectio
-
-Diebus dominicis et sollemnitatibus proclamatur secunda lectio.
 
 **Verbum Domini.**  
 **Deo gratias.**
 
 #### Acclamatio Evangelii
 
-Populus stat et Evangelium acclamat.
-
 #### Evangelium
-
-Diaconus vel sacerdos Evangelium proclamat.
 
 **Dominus vobiscum.**  
 **Et cum spiritu tuo.**
@@ -89,52 +69,38 @@ Diaconus vel sacerdos Evangelium proclamat.
 **Lectio sancti Evangelii secundum N.**  
 **Gloria tibi, Domine.**
 
-In fine:
-
 **Verbum Domini.**  
 **Laus tibi, Christe.**
 
 #### Homilia
 
-Populus sedet. Sacerdos vel diaconus homiliam habet.
-
 #### Symbolum
 
-Diebus dominicis et sollemnitatibus populus stat et Symbolum profitetur.
-
 #### Oratio Universalis
-
-Populus pro Ecclesia, auctoritatibus civilibus, indigentibus et salute omnium orat.
 
 **Te rogamus, audi nos.**
 
 ### Liturgia Eucharistica
 
-#### Praeparatio Donorum
+#### Præparatio Donorum
 
-Populus sedet. Panis et vinum ad altare afferuntur.
+Benedictus es, Domine, Deus universi, quia de tua largitate accepimus panem, quem tibi offerimus, fructum terræ et operis manuum hominum: ex quo nobis fiet panis vitæ.
 
-Benedictus es, Domine, Deus universi, quia de tua largitate accepimus panem, quem tibi offerimus, fructum terrae et operis manuum hominum: ex quo nobis fiet panis vitae.
-
-**Benedictus Deus in saecula.**
+**Benedictus Deus in sæcula.**
 
 Benedictus es, Domine, Deus universi, quia de tua largitate accepimus vinum, quod tibi offerimus, fructum vitis et operis manuum hominum: ex quo nobis fiet potus spiritalis.
 
-**Benedictus Deus in saecula.**
+**Benedictus Deus in sæcula.**
 
 Orate, fratres, ut meum ac vestrum sacrificium acceptabile fiat apud Deum Patrem omnipotentem.
 
-**Suscipiat Dominus sacrificium de manibus tuis ad laudem et gloriam nominis sui, ad utilitatem quoque nostram totiusque Ecclesiae suae sanctae.**
+**Suscipiat Dominus sacrificium de manibus tuis ad laudem et gloriam nominis sui, ad utilitatem quoque nostram totiusque Ecclesiæ suæ sanctæ.**
 
 #### Oratio super Oblata
-
-Sacerdos dicit Orationem super Oblata diei.
 
 **Amen.**
 
 #### Prex Eucharistica
-
-Populus stat pro dialogo Praefationis.
 
 Dominus vobiscum.  
 **Et cum spiritu tuo.**
@@ -145,13 +111,9 @@ Sursum corda.
 Gratias agamus Domino Deo nostro.  
 **Dignum et iustum est.**
 
-Sacerdos Praefationem diei proclamat. Omnes dicunt:
+Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth. Pleni sunt cæli et terra gloria tua. Hosanna in excelsis. Benedictus qui venit in nomine Domini. Hosanna in excelsis.
 
-Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth. Pleni sunt caeli et terra gloria tua. Hosanna in excelsis. Benedictus qui venit in nomine Domini. Hosanna in excelsis.
-
-Sacerdos Precem Eucharisticam continuat, invocatione Spiritus Sancti, verbis institutionis et consecrationis, acclamatione memoriali, oblatione, intercessionibus et doxologia conclusiva.
-
-Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria per omnia saecula saeculorum.
+Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria per omnia sæcula sæculorum.
 
 **Amen.**
 
@@ -159,17 +121,15 @@ Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate S
 
 #### Oratio Dominica
 
-Praeceptis salutaribus moniti et divina institutione formati, audemus dicere:
+Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo.
 
-Pater noster, qui es in caelis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in caelo et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo.
+**Libera nos, quæsumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiæ tuæ adiuti, et a peccato simus semper liberi et ab omni perturbatione securi, exspectantes beatam spem et adventum Salvatoris nostri Iesu Christi.**
 
-**Libera nos, quaesumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiae tuae adiuti, et a peccato simus semper liberi et ab omni perturbatione securi, exspectantes beatam spem et adventum Salvatoris nostri Iesu Christi.**
-
-**Quia tuum est regnum, et potestas, et gloria in saecula.**
+**Quia tuum est regnum, et potestas, et gloria in sæcula.**
 
 #### Ritus Pacis
 
-Domine Iesu Christe, qui dixisti Apostolis tuis: Pacem relinquo vobis, pacem meam do vobis; ne respicias peccata nostra, sed fidem Ecclesiae tuae, eamque secundum voluntatem tuam pacificare et coadunare digneris. Qui vivis et regnas in saecula saeculorum.
+Domine Iesu Christe, qui dixisti Apostolis tuis: Pacem relinquo vobis, pacem meam do vobis; ne respicias peccata nostra, sed fidem Ecclesiæ tuæ, eamque secundum voluntatem tuam pacificare et coadunare digneris. Qui vivis et regnas in sæcula sæculorum.
 
 **Amen.**
 
@@ -188,13 +148,9 @@ Ecce Agnus Dei, ecce qui tollit peccata mundi. Beati qui ad cenam Agni vocati su
 
 **Domine, non sum dignus ut intres sub tectum meum, sed tantum dic verbo et sanabitur anima mea.**
 
-Sacerdos et populus Sanctam Communionem accipiunt.
-
 ### Ritus Conclusionis
 
 #### Oratio post Communionem
-
-Sacerdos dicit Orationem post Communionem diei.
 
 **Amen.**
 
