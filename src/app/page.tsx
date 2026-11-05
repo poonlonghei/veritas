@@ -29,15 +29,81 @@ type Screen =
 type Locale = "en" | "zh-TW";
 type MassForm = "Ordinary Form" | "Extraordinary Form";
 
-function getMassTextUrl(form: MassForm) {
-  const parameters = new URLSearchParams({
-    searchvalue: "2",
-    lang1: "English",
-    lang2: "English",
-    version1: form === "Ordinary Form" ? "New Mass" : "Rubrics 1960 - 1960",
-    version2: form === "Ordinary Form" ? "New Mass" : "Rubrics 1960 - 1960",
+function getMassMarkdownUrl(form: MassForm) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  return `${basePath}/mass/${form === "Ordinary Form" ? "ordinary" : "extraordinary"}-form.md`;
+}
+
+function renderMarkdown(markdown: string) {
+  const blocks: React.ReactNode[] = [];
+  let paragraph: string[] = [];
+  let list: string[] = [];
+
+  const flushParagraph = () => {
+    if (paragraph.length) {
+      blocks.push(<p key={`p-${blocks.length}`}>{renderInlineMarkdown(paragraph.join(" "))}</p>);
+      paragraph = [];
+    }
+  };
+  const flushList = () => {
+    if (list.length) {
+      blocks.push(
+        <ul key={`ul-${blocks.length}`}>
+          {list.map((item, index) => <li key={`${item}-${index}`}>{renderInlineMarkdown(item)}</li>)}
+        </ul>,
+      );
+      list = [];
+    }
+  };
+
+  markdown.split(/\r?\n/).forEach((line) => {
+    if (!line.trim()) {
+      flushParagraph();
+      flushList();
+      return;
+    }
+    const heading = /^(#{1,4})\s+(.+)$/.exec(line);
+    if (heading) {
+      flushParagraph();
+      flushList();
+      const level = heading[1].length;
+      const Heading = `h${level}` as "h1" | "h2" | "h3" | "h4";
+      blocks.push(<Heading key={`h-${blocks.length}`}>{renderInlineMarkdown(heading[2])}</Heading>);
+      return;
+    }
+    if (/^---+$/.test(line.trim())) {
+      flushParagraph();
+      flushList();
+      blocks.push(<hr key={`hr-${blocks.length}`} />);
+      return;
+    }
+    const bullet = /^[-*]\s+(.+)$/.exec(line);
+    if (bullet) {
+      flushParagraph();
+      list.push(bullet[1]);
+      return;
+    }
+    if (line.startsWith("> ")) {
+      flushParagraph();
+      flushList();
+      blocks.push(<blockquote key={`quote-${blocks.length}`}>{renderInlineMarkdown(line.slice(2))}</blockquote>);
+      return;
+    }
+    flushList();
+    paragraph.push(line);
   });
-  return `https://www.divinumofficium.com/cgi-bin/missa/Cmissa.pl?${parameters.toString()}`;
+  flushParagraph();
+  flushList();
+  return blocks;
+}
+
+function renderInlineMarkdown(value: string) {
+  const parts = value.split(/(\*\*[^*]+\*\*)/g);
+  return parts.map((part, index) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>
+      : part,
+  );
 }
 
 function getCurrentMonth() {
@@ -267,6 +333,8 @@ export default function HomePage() {
   const [intentionText, setIntentionText] = useState("");
   const [intentionConsent, setIntentionConsent] = useState(false);
   const [massForm, setMassForm] = useState<MassForm>("Ordinary Form");
+  const [massMarkdown, setMassMarkdown] = useState("");
+  const [massLoading, setMassLoading] = useState(false);
 
   useEffect(() => {
     try {
@@ -363,6 +431,29 @@ export default function HomePage() {
       setScreen("Home");
     }
   }, [locale, screen]);
+
+  useEffect(() => {
+    if (screen !== "Order of Holy Mass") return;
+    let isActive = true;
+    setMassLoading(true);
+    fetch(getMassMarkdownUrl(massForm))
+      .then((response) => {
+        if (!response.ok) throw new Error(`Mass content request failed (${response.status})`);
+        return response.text();
+      })
+      .then((content) => {
+        if (isActive) setMassMarkdown(content);
+      })
+      .catch(() => {
+        if (isActive) setMassMarkdown("The Mass text could not be loaded. Please try again later.");
+      })
+      .finally(() => {
+        if (isActive) setMassLoading(false);
+      });
+    return () => {
+      isActive = false;
+    };
+  }, [massForm, screen]);
 
   useEffect(() => {
     if (!toast) return;
@@ -681,7 +772,6 @@ export default function HomePage() {
     }
 
     if (screen === "Order of Holy Mass" && locale === "en") {
-      const massTextUrl = getMassTextUrl(massForm);
       return (
         <main className="main-content readings-page holy-mass-page">
           <header className="page-heading">
@@ -695,7 +785,7 @@ export default function HomePage() {
           <section className="readings-section" aria-labelledby="mass-form-heading">
             <div className="readings-section-heading">
               <h2 id="mass-form-heading">Choose the form</h2>
-              <p>The full English text is provided by Divinum Officium.</p>
+              <p>Choose a form to read its locally maintained liturgical text.</p>
             </div>
             <div className="mass-form-selector" role="group" aria-label="Choose the form of Holy Mass">
               {(["Ordinary Form", "Extraordinary Form"] as const).map((form) => (
@@ -709,21 +799,9 @@ export default function HomePage() {
                 </button>
               ))}
             </div>
-            <iframe
-              key={massForm}
-              className="reading-embed holy-mass-embed"
-              src={massTextUrl}
-              title={`${massForm} of the Order of Holy Mass`}
-              loading="lazy"
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-            <p className="holy-mass-credit">
-              Text and liturgical materials are displayed from{" "}
-              <a href={massTextUrl} target="_blank" rel="noreferrer">
-                Divinum Officium
-              </a>
-              . If the text does not load here, open it on their website.
-            </p>
+            <article className="mass-markdown" aria-live="polite">
+              {massLoading ? <p>Loading the Order of Holy Mass…</p> : renderMarkdown(massMarkdown)}
+            </article>
           </section>
         </main>
       );
