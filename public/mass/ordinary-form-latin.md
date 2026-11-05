@@ -100,7 +100,7 @@ Orate, fratres, ut meum ac vestrum sacrificium acceptabile fiat apud Deum Patrem
 
 **Amen.**
 
-#### Prex Eucharistica
+#### Præfacio
 
 Dominus vobiscum.  
 **Et cum spiritu tuo.**
@@ -113,17 +113,51 @@ Gratias agamus Domino Deo nostro.
 
 Sanctus, Sanctus, Sanctus Dominus Deus Sabaoth. Pleni sunt cæli et terra gloria tua. Hosanna in excelsis. Benedictus qui venit in nomine Domini. Hosanna in excelsis.
 
-Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria per omnia sæcula sæculorum.
+#### Prex Eucharistica
 
+Te ígitur, clementíssime Pater, per Iesum Christum, Fílium tuum, Dóminum nostrum, súpplices rogámus, ac pétimus, uti accépta hábeas et benedícas, hæc ✠ dona, hæc múnera, hæc sancta sacrifícia illibáta, in primis, quæ tibi offérimus pro Ecclésia tua sancta cathólica: quam pacificáre, custodíre, adunáre et régere dignéris toto orbe terrárum: una cum fámulo tuo Papa nostro Leone et Antístite nostro et ómnibus orthodóxis, atque cathólicæ et apostólicæ fídei cultóribus.
+
+Meménto, Dómine, famulórum famularúmque tuarum N. et N. et ómnium circumstántium, quorum tibi fides cógnita est et nota devótio, pro quibus tibi offérimus: vel qui tibi ófferunt hoc sacrifícium laudis, pro se suísque ómnibus: pro redemptióne animárum suárum, pro spe salútis et incolumitátis suæ: tibíque reddunt vota sua ætérno Deo, vivo et vero.
+
+Communicántes, et memóriam venerántes, in primis gloriósæ semper Vírginis Maríæ, Genetrícis Dei et Dómini nostri Iesu Christi: sed et beáti Ioseph, eiúsdem Vírginis Sponsi, et beatórum Apostolórum ac Mártyrum tuórum, Petri et Pauli, Andréæ, Iacóbi, Ioánnis, Thomæ, Iacóbi, Philíppi, Bartholomǽi, Matthǽi, Simónis et Thaddǽi: Lini, Cleti, Cleméntis, Xysti, Cornélii, Cypriáni, Lauréntii, Chrysógoni, Ioánnis et Pauli, Cosmæ et Damiáni: et ómnium Sanctórum tuórum; quorum méritis precibúsque concédas, ut in ómnibus protectiónis tuæ muniámur auxílio. Per Christum, Dóminum nostrum. Amen.
+
+Hanc ígitur oblatiónem servitútis nostræ, sed et cunctæ famíliæ tuæ, quǽsumus, Dómine, ut placátus accípias: diésque nostros in tua pace dispónas, atque ab ætérna damnatióne nos éripi, et in electórum tuórum iúbeas grege numerári. Per Christum, Dóminum nostrum. Amen.
+
+Quam oblatiónem tu, Deus, in ómnibus, quǽsumus, benedíctam, adscríptam, ratam, rationábilem, acceptabilémque fácere dignéris: ut nobis Corpus, et Sanguis fiat dilectíssimi Fílii tui, Dómini nostri Iesu Christi.
+
+Qui prídie quam paterétur, accépit panem in sanctas ac venerábiles manus suas, et elevátis óculis in cælum ad te Deum, Patrem suum omnipoténtem, tibi grátias agens, bene ✠ díxit, fregit, dedítque discípulis suis, dicens: 
+
+ACCÍPITE ET MANDUCÁTE EX HOC OMNES: HOC EST ENIM CORPUS MEUM, QUOD PRO VOBIS TRADÉTUR.
+
+Símili modo, postquam cenátum est, accipit calicem, eumque parum elevatum super altare tenens, prosequitur: accípiens et hunc praeclárum cálicem in sanctas ac venerábiles manus suas, item tibi grátias agens benedíxit, dedítque discípulis suis, dicens:
+
+ACCÍPITE ET BÍBITE EX EO OMNES: HIC EST ENIM CALIX SÁNGUINIS MEI NOVI ET AETÉRNI TESTAMÉNTI, QUI PRO VOBIS ET PRO MULTIS EFFUNDÉTUR IN REMISSIÓNEM PECCATÓRUM. HOC FÁCITE IN MEAM COMMEMORATIÓNEM.
+
+Mystérium fídei.  
+**Mortem tuam annuntiámus, Dómine, et tuam resurrectiónem confitémur, donec vénias.**
+
+Unde et mémores, Dómine, nos servi tui, sed et plebs tua sancta, eiúsdem Christi, Fílii tui, Dómini nostri, tam beátae passiónis, necnon et ab ínferis resurrectiónis, sed et in caelos gloriósae ascensiónis: offérimus praeclárae maiestáti tuae de tuis donis ac datis hóstiam puram, hóstiam sanctam, hóstiam immaculátam, Panem sanctum vitae aetérnae et Cálicem salútis perpétuae.
+
+Supra quae propítio ac seréno vultu respícere dignéris: et accépta habére, sícuti accépta habére dignátus es múnera púeri tui iusti Abel, et sacrifícium Patriárchae nostri Abrahae, et quod tibi óbtulit summus sacérdos tuus Melchísedech, sanctum sacrifícium, immaculátam hóstiam.
+
+Súpplices te rogámus, omnípotens Deus: iube haec perférri per manus sancti Angeli tui in sublíme altáre tuum, in conspéctu divínae maiestátis tuae; ut, quotquot ex hac altáris participatióne sacrosánctum Fílii tui Corpus et Sánguinem sumpsérimus, erigit se atque seipsum signat, dicens: omni benedictióne caelésti et grátia repleámur. Per Christum, Dóminum nostrum. Amen.
+
+Meménto étiam, Dómine, famulórum famularúmque tuárum N. et N., qui nos præcessérunt cum signo fídei, et dórmiunt in somno pacis. Ipsis, Dómine, et ómnibus in Christo quiescéntibus locum refrigérii, lucis, et pacis, ut indúlgeas, deprecámur. Per eúndem Christum, Dóminum nostrum. Amen.
+
+Nobis quoque peccatóribus fámulis tuis, de multitúdine miseratiónum tuárum sperántibus, partem áliquam et societátem donáre dignéris, cum tuis sanctis Apóstolis et Martýribus: cum Ioánne, Stéphano, Matthía, Bárnaba, Ignátio, Alexándro, Marcellíno, Petro, Felicitáte, Perpétua, Agatha, Lúcia, Agnéte, Cæcília, Anastásia, et ómnibus Sanctis tuis: intra quorum nos consórtium, non æstimátor mériti, sed véniæ, quǽsumus, largítor admítte. Per Christum, Dóminum nostrum.
+
+Per quem haec ómnia, Dómine, semper bona creas, sanctíficas, vivíficas, benedícis, et praestas nobis.
+
+Per ipsum, et cum ipso, et in ipso, est tibi Deo Patri omnipotenti, in unitate Spiritus Sancti, omnis honor et gloria per omnia sæcula sæculorum.  
 **Amen.**
 
 ### Ritus Communionis
 
 #### Oratio Dominica
 
-Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo.
+**Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum cotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo.**
 
-**Libera nos, quæsumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiæ tuæ adiuti, et a peccato simus semper liberi et ab omni perturbatione securi, exspectantes beatam spem et adventum Salvatoris nostri Iesu Christi.**
+Libera nos, quæsumus, Domine, ab omnibus malis, da propitius pacem in diebus nostris, ut, ope misericordiæ tuæ adiuti, et a peccato simus semper liberi et ab omni perturbatione securi, exspectantes beatam spem et adventum Salvatoris nostri Iesu Christi.
 
 **Quia tuum est regnum, et potestas, et gloria in sæcula.**
 
@@ -159,8 +193,7 @@ Ecce Agnus Dei, ecce qui tollit peccata mundi. Beati qui ad cenam Agni vocati su
 Dominus vobiscum.  
 **Et cum spiritu tuo.**
 
-Benedicat vos omnipotens Deus, Pater, et Filius, et Spiritus Sanctus.
-
+Benedicat vos omnipotens Deus, Pater , et Filius, ✠ et Spiritus Sanctus.  
 **Amen.**
 
 Ite, missa est.  
