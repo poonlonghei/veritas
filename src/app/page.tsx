@@ -24,12 +24,21 @@ type Screen =
   | "Prayer library"
   | "Prayer intentions"
   | "Order of Holy Mass"
+  | "Divine Office"
   | "The Rosary"
   | "About";
 type Locale = "en" | "zh-TW";
 type MassForm = "Ordinary Form" | "Extraordinary Form";
 type MassContent = { latin: string; english: string; chinese: string };
 type MassLanguage = "latin" | "english" | "chinese";
+
+const divineOfficeHours = [
+  { name: "Office of Readings", time: "Any time", description: "A spacious hour for Scripture, the Fathers, and quiet reflection." },
+  { name: "Morning Prayer", time: "Morning", description: "Begin the day by praising God and offering the work ahead." },
+  { name: "Daytime Prayer", time: "Midday", description: "Return briefly to prayer in the middle of the day's work." },
+  { name: "Evening Prayer", time: "Evening", description: "Give thanks for the day and place the night in God's hands." },
+  { name: "Night Prayer", time: "Night", description: "End the day with a peaceful examination of conscience." },
+] as const;
 
 function getMassMarkdownUrls(form: MassForm, locale: Locale) {
   const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
@@ -437,7 +446,8 @@ export default function HomePage() {
   useEffect(() => {
     setMassLanguage("latin");
     if (locale === "zh-TW") setMassForm("Ordinary Form");
-  }, [locale]);
+    if (locale === "zh-TW" && screen === "Divine Office") setScreen("Home");
+  }, [locale, screen]);
 
   useEffect(() => {
     if (screen !== "Order of Holy Mass") return;
@@ -845,6 +855,54 @@ export default function HomePage() {
       );
     }
 
+    if (screen === "Divine Office") {
+      return (
+        <main className="main-content readings-page divine-office-page">
+          <header className="page-heading">
+            <div>
+              <span className="eyebrow">LITURGIA HORARUM</span>
+              <h1>Divine Office</h1>
+              <p>Sanctify the hours of the day with the Church's prayer.</p>
+            </div>
+            <span className="heading-mark">✣</span>
+          </header>
+          <section className="office-intro" aria-labelledby="office-intro-heading">
+            <span className="office-sun">☼</span>
+            <div>
+              <span className="eyebrow">ORDINARY FORM</span>
+              <h2 id="office-intro-heading">Pray with the rhythm of the hours.</h2>
+              <p>Choose an hour below to begin. Each office gathers psalms, Scripture, and the prayer of the whole Church.</p>
+            </div>
+          </section>
+          <section className="office-hours" aria-labelledby="office-hours-heading">
+            <div className="section-heading">
+              <div>
+                <span className="eyebrow">THE HOURS</span>
+                <h2 id="office-hours-heading">Choose an office</h2>
+              </div>
+              <span className="office-date">{new Intl.DateTimeFormat("en", { weekday: "short", month: "short", day: "numeric" }).format(new Date())}</span>
+            </div>
+            <div className="office-hour-grid">
+              {divineOfficeHours.map((hour, index) => (
+                <article className="office-hour-card" key={hour.name}>
+                  <span className="office-hour-number">{String(index + 1).padStart(2, "0")}</span>
+                  <div>
+                    <span className="office-hour-time">{hour.time}</span>
+                    <h3>{hour.name}</h3>
+                    <p>{hour.description}</p>
+                  </div>
+                  <button className="text-link" onClick={() => setToast(`${hour.name} is being prepared for Veritas.`)}>
+                    Begin prayer <Icon name="arrow" size={16} />
+                  </button>
+                </article>
+              ))}
+            </div>
+          </section>
+          <p className="office-source">The structure is inspired by the traditional arrangement of the Roman Divine Office.</p>
+        </main>
+      );
+    }
+
     if (screen === "Prayer library") {
       return (
         <main className="main-content">
@@ -999,6 +1057,7 @@ export default function HomePage() {
     { name: "Daily readings", icon: "book" },
     { name: "Prayer intentions", icon: "info" },
     { name: "Order of Holy Mass" as const, icon: "book" },
+    ...(locale === "en" ? [{ name: "Divine Office" as const, icon: "book" }] : []),
     { name: "Prayer library", icon: "book" },
     { name: "The Rosary", icon: "rosary" },
   ];
