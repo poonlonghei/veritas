@@ -1,57 +1,49 @@
 # Order of Holy Mass
 
-## Extraordinary Form
-
 ### Prayers at the Foot of the Altar
-
-The priest and server begin at the foot of the altar.
 
 In the name of the Father, and of the Son, and of the Holy Ghost.
 
-**Amen.**
+**R. Amen.**
 
-I will go in to the altar of God.  
-**To God, who giveth joy to my youth.**
+**V. I will go in to the altar of God.**
+**R. To God, who giveth joy to my youth.**
 
-Judge me, O God, and distinguish my cause from the nation that is not holy: deliver me from the unjust and deceitful man.
+**V. Judge me, O God, and distinguish my cause from the nation that is not holy: deliver me from the unjust and deceitful man.**
 
-**For thou, O God, art my strength: why hast thou cast me off? and why do I go sorrowful, whilst the enemy afflicteth me?**
+**R. For thou, O God, art my strength: why hast thou cast me off? and why do I go sorrowful, whilst the enemy afflicteth me?**
 
-Send forth thy light and thy truth: they have conducted me, and brought me unto thy holy hill, and into thy tabernacles.
+**V. Send forth thy light and thy truth: they have conducted me, and brought me unto thy holy hill, and into thy tabernacles.**
 
-**And I will go in to the altar of God: to God who giveth joy to my youth.**
+**R. And I will go in to the altar of God: to God who giveth joy to my youth.**
 
-I will praise thee upon the harp, O God, my God. Why art thou sad, O my soul? and why dost thou disquiet me?
+**V. I will praise thee upon the harp, O God, my God. Why art thou sad, O my soul? and why dost thou disquiet me?**
 
-**Hope in God, for I will still give praise to him: the salvation of my countenance, and my God.**
+**R. Hope in God, for I will still give praise to him: the salvation of my countenance, and my God.**
 
-Our help is in the name of the Lord.  
-**Who made heaven and earth.**
+**V. Our help is in the name of the Lord.**
+**R. Who made heaven and earth.**
 
-I confess to almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, to all the Saints, and to you, brethren, that I have sinned exceedingly in thought, word, and deed: through my fault, through my fault, through my most grievous fault.
+**V. I confess to almighty God, to blessed Mary ever Virgin, to blessed Michael the Archangel, to blessed John the Baptist, to the holy Apostles Peter and Paul, to all the Saints, and to you, brethren, that I have sinned exceedingly in thought, word, and deed: through my fault, through my fault, through my most grievous fault.**
 
-**Therefore I beseech blessed Mary ever Virgin, blessed Michael the Archangel, blessed John the Baptist, the holy Apostles Peter and Paul, all the Saints, and you, brethren, to pray for me to the Lord our God.**
+**R. Therefore I beseech blessed Mary ever Virgin, blessed Michael the Archangel, blessed John the Baptist, the holy Apostles Peter and Paul, all the Saints, and you, brethren, to pray for me to the Lord our God.**
 
-May almighty God have mercy on thee, forgive thee thy sins, and bring thee to life everlasting.
+**V. May almighty God have mercy on thee, forgive thee thy sins, and bring thee to life everlasting.**
 
-**Amen.**
+**R. Amen.**
 
-May the almighty and merciful Lord grant us pardon, absolution, and remission of our sins.
+**V. May the almighty and merciful Lord grant us pardon, absolution, and remission of our sins.**
 
-**Amen.**
+**R. Amen.**
 
 ### Introit, Kyrie, and Gloria
 
-The priest ascends to the altar and says the Introit proper to the day.
-
-Lord, have mercy.  
-**Lord, have mercy.**  
-Christ, have mercy.  
-**Christ, have mercy.**  
-Lord, have mercy.  
-**Lord, have mercy.**
-
-On Sundays and feast days, the Gloria is said or sung:
+**V. Lord, have mercy.**
+**R. Lord, have mercy.**
+**V. Christ, have mercy.**
+**R. Christ, have mercy.**
+Lord, have mercy.
+**R. Lord, have mercy.**
 
 Glory be to God on high, and on earth peace to men of good will. We praise thee, we bless thee, we adore thee, we glorify thee, we give thee thanks for thy great glory, O Lord God, heavenly King, God the Father almighty.
 
@@ -59,30 +51,21 @@ O Lord Jesus Christ, the only-begotten Son, O Lord God, Lamb of God, Son of the 
 
 For thou only art holy, thou only art Lord, thou only art most high, O Jesus Christ, together with the Holy Ghost, in the glory of God the Father.
 
-**Amen.**
+**R. Amen.**
 
 ### Collect, Epistle, and Gospel
 
-The priest says the Collect proper to the day.
+**R. Amen.**
 
-**Amen.**
+**R. Thanks be to God.**
 
-The Epistle is proclaimed.  
-**Thanks be to God.**
+**V. The Lord be with you.**
+**R. And with thy spirit.**
 
-The people stand for the Gospel.
+**V. The continuation of the holy Gospel according to N.**
+**R. Glory be to thee, O Lord.**
 
-**The Lord be with you.**  
-**And with thy spirit.**
-
-**The continuation of the holy Gospel according to N.**  
-**Glory be to thee, O Lord.**
-
-At the end:
-
-**Praise be to thee, O Christ.**
-
-The people sit for the sermon. On Sundays and certain feast days, the Creed follows:
+**R. Praise be to thee, O Christ.**
 
 I believe in one God, the Father almighty, maker of heaven and earth, and of all things visible and invisible. And in one Lord Jesus Christ, the only-begotten Son of God, born of the Father before all ages. God of God, Light of Light, true God of true God. Begotten, not made, consubstantial with the Father: by whom all things were made.
 
@@ -90,89 +73,74 @@ For us men and for our salvation he came down from heaven. And was incarnate by 
 
 And in the Holy Ghost, the Lord and giver of life, who proceedeth from the Father and the Son. Who together with the Father and the Son is adored and glorified: who spoke by the Prophets. And one, holy, catholic and apostolic Church. I confess one baptism for the remission of sins. And I look for the resurrection of the dead. And the life of the world to come.
 
-**Amen.**
+**R. Amen.**
 
 ### Offertory
 
-The priest offers the bread and wine and prepares the altar.
-
 Accept, O holy Father, almighty and eternal God, this spotless host, which I, thine unworthy servant, offer unto thee, my living and true God, for my countless sins, offences, and negligences, and for all here present; and for all faithful Christians, living and dead, that it may avail both me and them for salvation unto life everlasting.
 
-**Amen.**
+**R. Amen.**
 
 We offer unto thee, O Lord, the chalice of salvation, beseeching thy clemency that it may ascend before thy divine majesty as a sweet odour for our salvation and for that of the whole world.
 
-**Amen.**
+**R. Amen.**
 
-Pray, brethren, that my sacrifice and yours may be acceptable to God the Father almighty.
+**V. Pray, brethren, that my sacrifice and yours may be acceptable to God the Father almighty.**
 
-**May the Lord receive the sacrifice at thy hands, to the praise and glory of his name, for our good and the good of all his holy Church.**
+**R. May the Lord receive the sacrifice at thy hands, to the praise and glory of his name, for our good and the good of all his holy Church.**
 
-The priest says the Secret proper to the day.  
-**Amen.**
+**R. Amen.**
 
 ### Canon of the Mass
 
-The Lord be with you.  
-**And with thy spirit.**
+**V. The Lord be with you.  **
+**R. And with thy spirit.**
 
-Lift up your hearts.  
-**We have lifted them up unto the Lord.**
+**V. Lift up your hearts.  **
+**R. We have lifted them up unto the Lord.**
 
-Let us give thanks to the Lord our God.  
-**It is meet and just.**
-
-The priest says the Preface proper to the day. All say:
+**V. Let us give thanks to the Lord our God.  **
+**R. It is meet and just.**
 
 Holy, holy, holy, Lord God of hosts. The heavens and the earth are full of thy glory. Hosanna in the highest. Blessed is he that cometh in the name of the Lord. Hosanna in the highest.
 
-The priest continues the Roman Canon in silence, including the prayers for the Church, the living, the saints, the consecration of the bread and wine, the memorial, and the offering of the sacred Victim.
-
 Through him, and with him, and in him, is to thee, God the Father almighty, in the unity of the Holy Ghost, all honour and glory, world without end.
 
-**Amen.**
+**R. Amen.**
 
 ### Communion
 
-Let us pray. Taught by our Saviour's command, and formed by divine institution, we make bold to say:
-
 Our Father, who art in heaven, hallowed be thy name; thy kingdom come; thy will be done on earth as it is in heaven. Give us this day our daily bread; and forgive us our trespasses, as we forgive them that trespass against us. And lead us not into temptation.
 
-**But deliver us from evil.**
+**R. But deliver us from evil.**
 
 Deliver us, we beseech thee, O Lord, from all evils, past, present, and to come; and by the intercession of the blessed and glorious Mary ever Virgin, Mother of God, with thy blessed Apostles Peter and Paul, and Andrew, and all the Saints, mercifully grant peace in our days: that, aided by the help of thy mercy, we may be always free from sin, and secure from all disturbance.
 
-**Amen.**
+**R. Amen.**
 
-May the peace of the Lord be always with you.  
-**And with thy spirit.**
+May the peace of the Lord be always with you.
+**R. And with thy spirit.**
 
-Lamb of God, who takest away the sins of the world, have mercy on us.  
-Lamb of God, who takest away the sins of the world, have mercy on us.  
+Lamb of God, who takest away the sins of the world, have mercy on us.
+Lamb of God, who takest away the sins of the world, have mercy on us.
 Lamb of God, who takest away the sins of the world, grant us peace.
-
-The priest receives Holy Communion and then distributes Communion to the people.
 
 Behold the Lamb of God, behold him who taketh away the sins of the world. Blessed are they that are called to the supper of the Lamb.
 
-**Lord, I am not worthy that thou shouldest enter under my roof, but speak the word only and my soul shall be healed.**
+**R. Lord, I am not worthy that thou shouldest enter under my roof, but speak the word only and my soul shall be healed.**
 
 ### Ablutions and Postcommunion
 
-The priest purifies the sacred vessels and says the Postcommunion proper to the day.
-
-**Amen.**
+**R. Amen.**
 
 ### Dismissal and Blessing
 
-The Lord be with you.  
-**And with thy spirit.**
+**V. The Lord be with you.  **
+**R. And with thy spirit.**
 
-Go, the Mass is ended.  
-**Thanks be to God.**
-
-The priest gives the blessing:
+Go, the Mass is ended.
+**R. Thanks be to God.**
 
 May almighty God, the Father, and the Son, and the Holy Ghost, bless you.
 
-**Amen.**
+**R. Amen.**
