@@ -33,11 +33,12 @@ type MassLanguage = "latin" | "english" | "chinese";
 
 function getMassMarkdownUrls(form: MassForm, locale: Locale) {
   const name = form === "Ordinary Form" ? "ordinary" : "extraordinary";
+  const massPath = `${basePath}/mass`;
   return {
-    latin: `./mass/${name}-form-latin.md`,
+    latin: `${massPath}/${name}-form-latin.md`,
     ...(locale === "zh-TW"
-      ? { chinese: "./mass/ordinary-form-chinese.md" }
-      : { english: `./mass/${name}-form.md` }),
+      ? { chinese: `${massPath}/ordinary-form-chinese.md` }
+      : { english: `${massPath}/${name}-form.md` }),
   };
 }
 

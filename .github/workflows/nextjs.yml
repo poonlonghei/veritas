@@ -81,6 +81,7 @@ jobs:
 
       - name: Build with Next.js
         env:
+          NEXT_PUBLIC_BASE_PATH: /veritas
           NEXT_PUBLIC_API_URL: ${{ vars.NEXT_PUBLIC_API_URL || 'https://veritas-intentions-api.onrender.com/api' }}
           NEXT_PUBLIC_PRAYER_API_URL: ${{ vars.NEXT_PUBLIC_PRAYER_API_URL || 'https://veritas-prayer-api.onrender.com/api' }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
