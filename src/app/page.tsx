@@ -16,6 +16,7 @@ import {
   traditionalChinese,
   traditionalChineseDailyReflection,
 } from "@/lib/translations";
+import { loadLocaleContent, type LocaleContent } from "@/lib/content";
 import type { DailyContent, MonthlyIntentions, Prayer } from "@/lib/types";
 
 export type Screen =
@@ -305,21 +306,31 @@ function getRandomPrayer(items: Prayer[]) {
   return items[index];
 }
 
-function translate(locale: Locale, value: string) {
-  return locale === "zh-TW" ? traditionalChinese[value] ?? value : value;
+function translate(
+  locale: Locale,
+  value: string,
+  localeTranslations?: Record<string, string>,
+) {
+  return locale === "zh-TW"
+    ? localeTranslations?.[value] ?? traditionalChinese[value] ?? value
+    : localeTranslations?.[value] ?? value;
 }
 
-function localizePrayer(prayer: Prayer, locale: Locale): Prayer {
+function localizePrayer(
+  prayer: Prayer,
+  locale: Locale,
+  localeTranslations?: Record<string, string>,
+): Prayer {
   return {
     ...prayer,
-    title: translate(locale, prayer.title),
-    category: translate(locale, prayer.category),
+    title: translate(locale, prayer.title, localeTranslations),
+    category: translate(locale, prayer.category, localeTranslations),
     duration:
       locale === "zh-TW"
         ? prayer.duration.replace(/\s*min$/, " 分鐘")
         : prayer.duration,
-    description: translate(locale, prayer.description),
-    text: translate(locale, prayer.text),
+    description: translate(locale, prayer.description, localeTranslations),
+    text: translate(locale, prayer.text, localeTranslations),
   };
 }
 
@@ -374,6 +385,21 @@ export default function HomePage({
   const [massLanguage, setMassLanguage] = useState<MassLanguage>("latin");
   const [massContent, setMassContent] = useState<MassContent>({ latin: "", english: "", chinese: "" });
   const [massLoading, setMassLoading] = useState(false);
+  const [localeContent, setLocaleContent] = useState<LocaleContent | null>(null);
+
+  useEffect(() => {
+    let isActive = true;
+    loadLocaleContent(locale)
+      .then((content) => {
+        if (isActive) setLocaleContent(content);
+      })
+      .catch(() => {
+        if (isActive) setLocaleContent(null);
+      });
+    return () => {
+      isActive = false;
+    };
+  }, [locale]);
 
   useEffect(() => {
     const mountedAt = new Date();
@@ -504,7 +530,7 @@ export default function HomePage({
     return () => window.clearTimeout(timer);
   }, [toast]);
 
-  const t = (value: string) => translate(locale, value);
+  const t = (value: string) => translate(locale, value, localeContent?.translations);
 
   useEffect(() => {
     if (screen !== "Prayer intentions" || selectedMonth === "1970-01") return;
@@ -517,7 +543,7 @@ export default function HomePage({
       .catch(() => {
         if (isActive) {
           setToast(
-            translate(locale, "Unable to load prayer intentions. Please try again later."),
+            t("Unable to load prayer intentions. Please try again later."),
           );
         }
       })
@@ -540,10 +566,10 @@ export default function HomePage({
       const matchesSearch =
         !query ||
         [
-          translate(locale, prayer.title),
-          translate(locale, prayer.category),
-          translate(locale, prayer.description),
-          translate(locale, prayer.text),
+          t(prayer.title),
+          t(prayer.category),
+          t(prayer.description),
+          t(prayer.text),
           prayer.latinText ?? "",
         ]
           .join(" ")
@@ -551,19 +577,21 @@ export default function HomePage({
           .includes(query);
       return matchesCategory && matchesSearch;
     });
-  }, [locale, prayerList, prayerSearch, savedIds, selectedCategory]);
+  }, [locale, localeContent, prayerList, prayerSearch, savedIds, selectedCategory]);
 
   const dailySaint = today ? getSaintForToday(today) : dailySaints[0];
   const currentMysteries = mysteries[mysterySet];
   const dailyReflection =
     locale === "zh-TW"
-      ? traditionalChineseDailyReflection
+      ? localeContent?.dailyReflection ?? traditionalChineseDailyReflection
       : dailyContent?.reflection ?? {
           title: "A reflection for today",
           text: "Take one unhurried breath. Bring whatever is on your heart to God, and let this quiet moment be enough.",
           reference: "",
         };
-  const displayedSelectedPrayer = selectedPrayer ? localizePrayer(selectedPrayer, locale) : null;
+  const displayedSelectedPrayer = selectedPrayer
+    ? localizePrayer(selectedPrayer, locale, localeContent?.translations)
+    : null;
 
   function navigate(next: Screen) {
     window.location.assign(getPagePath(next, locale));
@@ -624,7 +652,7 @@ export default function HomePage({
 
   function prayerCard(prayer: Prayer, featured = false) {
     const saved = savedIds.includes(prayer.id);
-    const displayedPrayer = localizePrayer(prayer, locale);
+    const displayedPrayer = localizePrayer(prayer, locale, localeContent?.translations);
     return (
       <article className={`prayer-card${featured ? " prayer-card-featured" : ""}`} key={prayer.id}>
         <div className="prayer-card-top">

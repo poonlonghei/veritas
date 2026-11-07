@@ -69,6 +69,14 @@ The static Pages app fetches prayer-library and daily-reflection data in the vis
 
 The Order of Holy Mass content is stored as editable Markdown files in [`public/mass/`](public/mass/). The English page supports the Ordinary and Extraordinary Forms with Latin and English selectors. The Traditional Chinese page provides the Ordinary Form with Latin and Chinese selectors. Edit the matching `-latin.md`, `.md`, or `-chinese.md` file to update the displayed text.
 
+All website interface content is separated into editable locale files:
+
+- [`public/content/en.json`](public/content/en.json) contains the English UI text and default reflection.
+- [`public/content/zh-tw.json`](public/content/zh-tw.json) contains the Traditional Chinese UI text and Chinese daily reflection.
+- [`public/mass/ordinary-form-chinese.md`](public/mass/ordinary-form-chinese.md) contains the Traditional Chinese Mass text.
+
+The page loads the matching locale file at runtime. Changes to these files affect only their respective language site; the English and Traditional Chinese routes do not share translated content.
+
 Prayer intentions are stored in SQLite by the Django API and are publicly visible, including the submitter's name and location. The form requires explicit consent before publishing. English and Traditional Chinese intentions are stored and listed separately, with monthly browsing within each language. Configure `NEXT_PUBLIC_API_URL` in the Pages workflow; without it, the intentions form cannot submit or load shared intentions. Existing SQLite databases are upgraded automatically with name, location, and language fields; existing records are kept in the English list.
 
 ### Deploy the APIs on Render
