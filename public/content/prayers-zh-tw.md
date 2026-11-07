@@ -11,7 +11,7 @@
 耶穌親自教導門徒的祈禱。
 
 ### Prayer
-我們的天父，願你的名受顯揚；願你的國來臨；願你的旨意奉行在人間，如同在天上。求你今天賞給我們日用的食糧；求你寬恕我們的罪過，如同我們寬恕別人一樣；不要讓我們陷於誘惑，但救我們免於凶惡。亞孟。
+在天我等父者，我等願爾名見聖。爾國臨格。爾旨承行於地，如於天焉。我等望爾，今日與我，我日用糧。而免我債，如我亦免負我債者。又不我許陷於誘惑。乃救我於凶惡。亞孟。
 
 ### Latin
 Pater noster, qui es in caelis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in caelo et in terra. Panem nostrum quotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo. Amen.
@@ -25,7 +25,7 @@ Pater noster, qui es in caelis: sanctificetur nomen tuum; adveniat regnum tuum; 
 求聖母與我們一同祈禱，並為我們轉求。
 
 ### Prayer
-萬福瑪利亞，你充滿聖寵，主與你同在；你在婦女中受讚頌，你的親子耶穌同受讚頌。天主聖母瑪利亞，求你現在及我們臨終時，為我們罪人祈求天主。亞孟。
+萬福瑪利亞，滿被聖寵者，主與爾偕焉；女中爾為讚美，爾胎子耶穌並為讚美。天主聖母瑪利亞，為我等罪人，今祈天主，及我等死候。亞孟。
 
 ### Latin
 Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.
@@ -39,7 +39,7 @@ Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictu
 讚美天主聖三的簡短頌禱。
 
 ### Prayer
-願光榮歸於父、及子、及聖神。起初如何，今日亦然，直到永遠。亞孟。
+欽頌榮福，天主聖父、及聖子、及聖神，吾願其獲光榮。厥初如何，今茲亦然，以迨永遠及世之世。亞孟。
 
 ### Latin
 Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.
@@ -98,3 +98,17 @@ Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et
 
 ### Prayer
 耶穌，受苦者的同行者，求你親近所有病患者及照顧他們的人。求你在痛苦中賜下舒緩，在疲憊中賜下力量，在漫長的路上賜下希望。求你助我以溫柔服事，並信賴你的慈悲。亞孟。
+
+## 聖彌額爾總領天使禱文
+<!-- id: prayer-to-st-michael-the-archangel -->
+**Category:** 傳統
+**Duration:** 1 分鐘
+
+### Description
+聖彌額爾總領天使禱文是教宗良十三世所撰寫的傳統天主教禱文，祈求聖彌額爾總領天使保護教會及信友，抵禦魔鬼的誘惑與邪惡勢力的侵害。
+
+### Prayer
+聖彌額爾總領天使，在戰爭的日子裏保衛我們，免我們陷入魔鬼邪惡的陰謀、和奸詐的陷阱中。我們謙卑地祈求，但願上主譴責牠。上天萬軍的統帥，求你因上主的威能，把徘徊人間，引誘人靈，使其喪亡的撒殫及其他邪靈，拋下地獄裏去。亞孟。
+
+### Latin
+Sancte Míchaël Archángele, defénde nos in prǽlio; contra nequítiam et insídias diáboli esto præsídium. Imperet illi Deus, súpplices deprecámur: tuque, Princeps milítiæ Cæléstis, sátanam aliósque spíritus malígnos, qui ad perditiónem animárum pervagántur in mundo, divína virtúte in inférnum detrúde. Amen.
