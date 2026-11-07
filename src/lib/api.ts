@@ -1,5 +1,4 @@
 import type { DailyContent, MonthlyIntentions, Prayer, PrayerIntention } from "./types";
-import { prayers as bundledPrayers } from "./data";
 
 const configuredPrayerApiUrl = process.env.NEXT_PUBLIC_PRAYER_API_URL?.trim();
 const PRAYER_API_URL =
@@ -89,14 +88,6 @@ async function request<T>(
   return body;
 }
 
-export async function fetchPrayers(): Promise<Prayer[]> {
-  if (!PRAYER_API_URL) {
-    return bundledPrayers;
-  }
-
-  const result = await request<{ prayers: Prayer[] }>(PRAYER_API_URL, "/prayers/");
-  return result.prayers;
-}
 
 export async function fetchDaily(): Promise<DailyContent> {
   return request<DailyContent>(PRAYER_API_URL, "/daily/");

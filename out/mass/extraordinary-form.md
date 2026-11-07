@@ -22,6 +22,14 @@ V. I will praise thee upon the harp, O God, my God. Why art thou sad, O my soul?
 
 **R. Hope in God, for I will still give praise to him: the salvation of my countenance, and my God.**
 
+V. Glory be to the Father, and to the Son, and to the Holy Ghost.
+
+**R. As it was in the beginning, is now, and ever shall be, world without end. Amen.**
+
+V. I will go in to the altar of God.
+
+**R. To God, who giveth joy to my youth.**
+
 V. Our help is in the name of the Lord.
 
 **R. Who made heaven and earth.**
@@ -58,11 +66,19 @@ V. The Lord be with you.
 
 **R. And with thy spirit.**
 
+*(Let us pray. Take away from us our iniquities, we beseech Thee, O Lord, that we may be worthy to enter with pure minds into the Holy of Holies, through Christ our Lord. Amen.)*
+
+*(We beseech Thee, O Lord, by the merits of Thy Saints, whose relics are here, and of all the Saints, that Thou wouldst vouchsafe to forgive me all my sins. Amen.)*
+
 ### Introit, Kyrie, and Gloria
 
 V. Lord, have mercy.
 
 **R. Lord, have mercy.**
+
+V. Lord, have mercy.
+
+**R. Christ, have mercy.**
 
 V. Christ, have mercy.
 
@@ -72,19 +88,31 @@ V. Lord, have mercy.
 
 **R. Lord, have mercy.**
 
+V. Lord, have mercy.
+
 Glory be to God on high, and on earth peace to men of good will. We praise thee, we bless thee, we adore thee, we glorify thee, we give thee thanks for thy great glory, O Lord God, heavenly King, God the Father almighty.
 
 O Lord Jesus Christ, the only-begotten Son, O Lord God, Lamb of God, Son of the Father, thou who takest away the sins of the world, have mercy on us; thou who takest away the sins of the world, receive our prayer; thou who sittest at the right hand of the Father, have mercy on us.
 
-For thou only art holy, thou only art Lord, thou only art most high, O Jesus Christ, together with the Holy Ghost, in the glory of God the Father.
+For thou only art holy, thou only art Lord, thou only art most high, O Jesus Christ, together with the Holy Ghost, in the glory of God the Father. Amen.
+
+### Collect, Epistle, Gradual, and Gospel
+
+V. The Lord be with you.
+
+**R. And with thy spirit.**
+
+V. Let us pray.
 
 **R. Amen.**
 
-### Collect, Epistle, and Gospel
-
-**R. Amen.**
+V. Lesson from the N.
 
 **R. Thanks be to God.**
+
+*(Cleanse my heart and my lips, O almighty God, who didst cleanse the lips of the prophet Isaias with a burning coal, and vouchsafe, through Thy gracious mercy, so to purify me, that I may worthily announce Thy holy Gospel. Through Christ our Lord. Amen.)*
+
+*(Give me Thy blessing, O Lord. The Lord be in my heart and on my lips, that I may worthily and in a becoming manner, proclaim His holy Gospel. Amen.)*
 
 V. The Lord be with you.
 
@@ -95,6 +123,8 @@ V. The continuation of the holy Gospel according to N.
 **R. Glory be to thee, O Lord.**
 
 **R. Praise be to thee, O Christ.**
+
+(By the words of the Gospel may our sins be blotted out.)
 
 I believe in one God, the Father almighty, maker of heaven and earth, and of all things visible and invisible. And in one Lord Jesus Christ, the only-begotten Son of God, born of the Father before all ages. God of God, Light of Light, true God of true God. Begotten, not made, consubstantial with the Father: by whom all things were made.
 
@@ -108,12 +138,19 @@ And in the Holy Ghost, the Lord and giver of life, who proceedeth from the Fathe
 
 Accept, O holy Father, almighty and eternal God, this spotless host, which I, thine unworthy servant, offer unto thee, my living and true God, for my countless sins, offences, and negligences, and for all here present; and for all faithful Christians, living and dead, that it may avail both me and them for salvation unto life everlasting.
 
-
 We offer unto thee, O Lord, the chalice of salvation, beseeching thy clemency that it may ascend before thy divine majesty as a sweet odour for our salvation and for that of the whole world.
 
 Accept us, O Lord, in the spirit of humility and contrition of heart, and grant that the sacrifice which we offer this day in Thy sight may be pleasing to Thee, O Lord God.
 
-Come, O almighty and eternal God, the Sanctifier, and bless this Sacrifice, prepared for the glory of Thy holy Name.
+Come, O almighty and eternal God, the Sanctifier, and bless ✠ this Sacrifice, prepared for the glory of Thy holy Name.
+
+I will wash my hands among the innocent: and I will compass Thine altar, O Lord, That I may hear the voice of praise: and tell of all Thy wonderous works. I have loved, O Lord, the beauty of Thy house and the place where Thy glory dwelleth. Take not away my soul, O God, with the wicked: nor my life with blood-thirsty men. In whose hands are iniquities, their right hand is filled with gifts. But I have walked in my innocence: redeem me, and have mercy on me. My foot hath stood in the direct way, in the churches I will bless Thee, O Lord.
+
+V. Glory be to the Father, and to the Son, and to the Holy Ghost.
+
+**R. As it was in the beginning, is now, and ever shall be, world without end. Amen.**
+
+### Secret
 
 V. Pray, brethren, that my sacrifice and yours may be acceptable to God the Father almighty.
 
@@ -189,11 +226,15 @@ Our Father, who art in heaven, hallowed be thy name; thy kingdom come; thy will 
 
 Deliver us, we beseech thee, O Lord, from all evils, past, present, and to come; and by the intercession of the blessed and glorious Mary ever Virgin, Mother of God, with thy blessed Apostles Peter and Paul, and Andrew, and all the Saints, mercifully grant peace in our days: that, aided by the help of thy mercy, we may be always free from sin, and secure from all disturbance.
 
+Through the same Jesus Christ, Thy Son, our Lord. Who with Thee in the unity of the Holy Ghost liveth and reigneth God, world without end.
+
 **R. Amen.**
 
-May the peace of the Lord be always with you.
+V. The peace ✠ of the Lord be ✠ always with ✠ you.
 
 **R. And with thy spirit.**
+
+*(May this mixture and consecration of the Body and Blood of our Lord Jesus Christ be to us who receive it effectual unto eternal life. Amen.)*
 
 Lamb of God, who takest away the sins of the world, have mercy on us.
 
@@ -201,11 +242,33 @@ Lamb of God, who takest away the sins of the world, have mercy on us.
 
 Lamb of God, who takest away the sins of the world, grant us peace.
 
-V. Behold the Lamb of God, behold him who taketh away the sins of the world.
+*(O Lord Jesus Christ, who saidst to Thine Apostles: Peace I leave you, My peace I give you: regard not my sins, but the faith of Thy Church; and vouchsafe to grant her that peace and unity which is agreeable to Thy will: Who livest and reignest God, world without end. Amen.)*
 
-**R. Lord, I am not worthy that thou shouldest enter under my roof, but speak the word only and my soul shall be healed.**
+*(O Lord Jesus Christ, Son of the living God, who, according to the will of Thy Father, with the cooperation of the Holy Ghost, hast by Thy death given life to the world; deliver me by this Thy most sacred Body and Blood, from all my iniquities and from all evils; and make me always cleave to Thy commandments, and suffer me never to be separated from Thee, Who livest and reignest, with the same God the Father and the Holy Ghost, God, world without end. Amen.)*
+
+*(Let not the partaking of Thy Body, O Lord, Jesus Christ, which I, though unworthy, presume to receive, turn to my judgment and condemnation; but let it, through Thy mercy, become a safeguard and remedy, both for soul and body; Who with God the Father, in the unity of the Holy Ghost, livest and reignest God, world without end. Amen.)*
+
+*(I will take the Bread of heaven, and will call upon the Name of the Lord.)*
+
+V. Lord, I am not worthy that Thou shouldst enter under my roof; say but the word, and my soul shall be healed. (Said 3 times)
+
+*(The Body of our Lord Jesus Christ preserve my soul unto life everlasting. Amen.)*
+
+*(What return shall I make to the Lord for all He has given to me? I will take the chalice of salvation, and call upon the Name of the Lord. Praising I will call upon the Lord, and I shall be saved from my enemies.)*
+
+*(The Blood of our Lord Jesus Christ preserve my soul unto life everlasting. Amen.)*
 
 ### Ablutions and Postcommunion
+
+*(Grant, O Lord, that what we have taken with our mouth, we may receive with a pure mind; and from a temporal gift may it become to us an eternal remedy.)*
+
+*(May Thy Body, O Lord, which I have received, and Thy Blood which I have drunk, cleave to my bowels; and grant that no stain of sin may remain in me, who have been fed with this pure and holy Sacrament; Who livest and reignest for ever and ever. Amen.)*
+
+V. The Lord be with you.
+
+**R. And with thy spirit.**
+
+V. Let us pray.
 
 **R. Amen.**
 
@@ -229,7 +292,7 @@ V. The Lord be with you.
 
 **R. And with thy spirit.**
 
-V. The beginning of the holy Gospel according to John
+V. The beginning of the holy Gospel according to John.
 
 **R. Glory be to Thee, O Lord.**
 

@@ -1,4 +1,4 @@
-:HL["/_next/static/chunks/1nfzpyp_8pbpf.css","style"]
+:HL["/veritas/_next/static/chunks/1_lrd-oyrm_5s.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"mianNHkRkVNzQfVgT-DAv","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"pfEVu-i5fkohcNa59Tw3g","t":{"t":{"s":"","h":80,"c":"$Q1"}}}

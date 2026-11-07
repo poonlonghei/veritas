@@ -7,16 +7,18 @@ import {
   fetchMonthlyIntentions,
   fetchDaily,
   getChineseReadingsProxyUrl,
-  fetchPrayers,
   isPrayerApiConfigured,
 } from "@/lib/api";
-import { prayers as starterPrayers } from "@/lib/data";
 import veritasLogo from "@/images/veritas-logo.jpg";
 import {
   traditionalChinese,
   traditionalChineseDailyReflection,
 } from "@/lib/translations";
-import { loadLocaleContent, type LocaleContent } from "@/lib/content";
+import {
+  loadLocaleContent,
+  loadPrayerCatalog,
+  type LocaleContent,
+} from "@/lib/content";
 import type { DailyContent, MonthlyIntentions, Prayer } from "@/lib/types";
 
 export type Screen =
@@ -360,7 +362,7 @@ export default function HomePage({
 }) {
   const [screen] = useState<Screen>(initialScreen);
   const [locale] = useState<Locale>(initialLocale);
-  const [prayerList, setPrayerList] = useState<Prayer[]>(starterPrayers);
+  const [prayerList, setPrayerList] = useState<Prayer[]>([]);
   const [dailyContent, setDailyContent] = useState<DailyContent | null>(null);
   const [prayerSearch, setPrayerSearch] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -426,7 +428,7 @@ export default function HomePage({
       isRefreshing = true;
       try {
         const [prayersResult, dailyResult] = await Promise.allSettled([
-          fetchPrayers(),
+          loadPrayerCatalog(locale),
           isPrayerApiConfigured() ? fetchDaily() : Promise.resolve(null),
         ]);
         if (!isActive) return;
@@ -434,7 +436,7 @@ export default function HomePage({
         if (prayersResult.status === "fulfilled") {
           setPrayerList(prayersResult.value);
         } else {
-          failures.push("Showing the built-in prayer library. The prayer service is unavailable.");
+          failures.push("The prayer library could not be loaded. Please try again later.");
         }
         if (dailyResult.status === "fulfilled") {
           if (dailyResult.value) setDailyContent(dailyResult.value);
@@ -472,7 +474,7 @@ export default function HomePage({
       window.removeEventListener("focus", refreshWhenVisible);
       document.removeEventListener("visibilitychange", refreshWhenVisible);
     };
-  }, []);
+  }, [locale]);
 
   useEffect(() => {
     document.documentElement.lang = locale === "zh-TW" ? "zh-Hant" : "en";

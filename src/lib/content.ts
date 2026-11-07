@@ -21,3 +21,45 @@ export async function loadLocaleContent(
   }
   return response.json() as Promise<LocaleContent>;
 }
+
+function sectionValue(section: string, heading: string): string {
+  const match = new RegExp(`### ${heading}\\s+([\\s\\S]*?)(?=\\n### |$)`).exec(section);
+  return match?.[1].trim() ?? "";
+}
+
+export function parsePrayerMarkdown(markdown: string): Prayer[] {
+  return markdown
+    .split(/\n(?=## )/)
+    .slice(1)
+    .map((section) => {
+      const title = /^## (.+)$/m.exec(section)?.[1].trim() ?? "";
+      const id = /<!-- id: ([^>]+) -->/.exec(section)?.[1].trim() ?? "";
+      const category = /^\*\*Category:\*\* (.+)$/m.exec(section)?.[1].trim() ?? "";
+      const duration = /^\*\*Duration:\*\* (.+)$/m.exec(section)?.[1].trim() ?? "";
+      const latinText = sectionValue(section, "Latin");
+      return {
+        id,
+        title,
+        category,
+        duration,
+        description: sectionValue(section, "Description"),
+        text: sectionValue(section, "Prayer"),
+        ...(latinText ? { latinText } : {}),
+      };
+    })
+    .filter((prayer) => prayer.id && prayer.title && prayer.text);
+}
+
+export async function loadPrayerCatalog(
+  locale: LocaleContent["locale"],
+): Promise<Prayer[]> {
+  const fileName = locale === "zh-TW" ? "prayers-zh-tw.md" : "prayers-en.md";
+  const response = await fetch(`${basePath}/content/${fileName}`, {
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    throw new Error(`Prayer catalog request failed (${response.status})`);
+  }
+  return parsePrayerMarkdown(await response.text());
+}
+import type { Prayer } from "./types";

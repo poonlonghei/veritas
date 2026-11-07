@@ -73,9 +73,11 @@ All website interface content is separated into editable locale files:
 
 - [`public/content/en.json`](public/content/en.json) contains the English UI text and default reflection.
 - [`public/content/zh-tw.json`](public/content/zh-tw.json) contains the Traditional Chinese UI text and Chinese daily reflection.
+- [`public/content/prayers-en.md`](public/content/prayers-en.md) contains the complete English Prayer Library.
+- [`public/content/prayers-zh-tw.md`](public/content/prayers-zh-tw.md) contains the complete Traditional Chinese Prayer Library.
 - [`public/mass/ordinary-form-chinese.md`](public/mass/ordinary-form-chinese.md) contains the Traditional Chinese Mass text.
 
-The page loads the matching locale file at runtime. Changes to these files affect only their respective language site; the English and Traditional Chinese routes do not share translated content.
+The page loads the matching locale file at runtime. Changes to these files affect only their respective language site; the English and Traditional Chinese routes do not share prayer content. Each prayer section has an `id`, category, duration, description, prayer text, and optional Latin text.
 
 Prayer intentions are stored in SQLite by the Django API and are publicly visible, including the submitter's name and location. The form requires explicit consent before publishing. English and Traditional Chinese intentions are stored and listed separately, with monthly browsing within each language. Configure `NEXT_PUBLIC_API_URL` in the Pages workflow; without it, the intentions form cannot submit or load shared intentions. Existing SQLite databases are upgraded automatically with name, location, and language fields; existing records are kept in the English list.
 

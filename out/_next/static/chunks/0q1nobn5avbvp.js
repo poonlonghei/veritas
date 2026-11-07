@@ -1,0 +1,1 @@
+(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,89702,t=>{t.q("/veritas/_next/static/media/veritas-logo.1si9chkf6r8dc.jpg")}]);
