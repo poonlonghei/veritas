@@ -337,7 +337,7 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 function getPagePath(screen: Screen, locale: Locale) {
   const prefix = `${basePath}${locale === "zh-TW" ? "/zh-tw" : ""}`;
   const slug = screen === "Home" ? "" : `/${screenSlugs[screen]}`;
-  return `${prefix}${slug}/`;
+  return `${prefix}${slug || "/"}`;
 }
 
 export default function HomePage({
