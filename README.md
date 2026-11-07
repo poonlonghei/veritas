@@ -61,7 +61,7 @@ The workflow at `.github/workflows/nextjs.yml` exports the Next.js app as a stat
 
 1. Create a **public** GitHub repository named `veritas` and push this project to its `main` branch.
 2. In the repository, open **Settings → Pages** and set the build and deployment source to **GitHub Actions**.
-3. The first successful workflow run publishes the site at `https://<owner>.github.io/veritas/`.
+3. The first successful workflow run publishes the site at `https://<owner>.github.io/veritas/`, or at the custom domain configured in **Settings → Pages**. The workflow obtains the required base path from GitHub Pages, so the same build works for both project URLs and custom domains.
 
 GitHub Pages serves static files only; it cannot run Django or Java. The prayer library, saved prayers, and Rosary work on Pages, while live daily content needs the Java API deployed separately.
 
