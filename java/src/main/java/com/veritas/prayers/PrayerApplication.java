@@ -63,7 +63,12 @@ public final class PrayerApplication {
             "Gracious God, thank you for the gifts and graces of this day, both seen and unseen. Receive the work left unfinished and the worries I carry. Forgive my failures, bless those I love, and grant us peaceful rest beneath your loving care. Amen.", null),
         prayer("prayer-for-the-sick", "Prayer for the Sick", "Hope & Peace", "2 min",
             "Entrust those who are ill to the healing compassion of Christ.",
-            "Jesus, companion of the suffering, draw near to all who are sick and those who care for them. Bring relief where there is pain, strength where there is weariness, and hope where the way feels long. Help me serve with tenderness and trust in your mercy. Amen.", null)
+            "Jesus, companion of the suffering, draw near to all who are sick and those who care for them. Bring relief where there is pain, strength where there is weariness, and hope where the way feels long. Help me serve with tenderness and trust in your mercy. Amen.", null),
+        prayer("prayer-to-st-michael", "Prayer to St. Michael", "Protection", "1 min",
+            "A prayer for protection against evil and temptation.",
+            "St. Michael the Archangel, defend us in battle. Be our protection against the wickedness and snares of the devil; may God rebuke him, we humbly pray; and do thou, O Prince of the heavenly host, by the power of God, thrust into hell Satan and all the evil spirits who prowl about the world seeking the ruin of souls. Amen.",
+            "Sancte Míchaël Archángele, defénde nos in prǽlio; contra nequítiam et insídias diáboli esto præsídium. Imperet illi Deus, súpplices deprecámur: tuque, Princeps milítiæ Cæléstis, sátanam aliósque spíritus malígnos, qui ad perditiónem animárum pervagántur in mundo, divína virtúte in inférnum detrúde. Amen.")
+
     );
 
     private static final List<Map<String, String>> REFLECTIONS = List.of(
