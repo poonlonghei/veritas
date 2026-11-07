@@ -890,11 +890,11 @@ export default function HomePage({
               ))}
             </div>
             <div className="mass-columns" aria-live="polite">
-              <article className={`mass-markdown mass-language-column${massLanguage !== "latin" ? " mobile-language-hidden" : ""}`}>
+              <article className={`mass-markdown mass-latin mass-language-column${massLanguage !== "latin" ? " mobile-language-hidden" : ""}`}>
                 <h3>{isChinese ? "拉丁文" : "Latin"}</h3>
                 {massLoading ? <p>Loading the Latin text…</p> : renderMarkdown(massContent.latin)}
               </article>
-              <article className={`mass-markdown mass-language-column${massLanguage === "latin" ? " mobile-language-hidden" : ""}`}>
+              <article className={`mass-markdown ${isChinese ? "mass-chinese" : "mass-english"} mass-language-column${massLanguage === "latin" ? " mobile-language-hidden" : ""}`}>
                 <h3>{isChinese ? "繁體中文" : "English Translation"}</h3>
                 {massLoading
                   ? <p>{isChinese ? "正在載入中文彌撒經文…" : "Loading the English translation…"}</p>
@@ -1091,7 +1091,9 @@ export default function HomePage({
       <div className="content-column">
         <div className="mobile-header"><button className="icon-button" onClick={() => setSidebarOpen(true)} aria-label={t("Open navigation")}><Icon name="menu" /></button>
           <button className="mobile-brand" onClick={() => navigate("Home")}><Image src={veritasLogo} alt="" width={24} height={24} /> veritas</button><span className="mobile-header-spacer" /></div>
-        {renderMain()}
+        <div key={screen} className="screen-motion">
+          {renderMain()}
+        </div>
         <footer className="page-footer"><span>✳</span><span>{t("Made for a little more stillness.")}</span><span>VERITAS</span></footer>
       </div>
       {selectedPrayer && <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelectedPrayer(null); }}>

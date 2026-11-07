@@ -10,8 +10,10 @@
   --green: #667e68;
   --green-dark: #425b4a;
   --rust: #bd7755;
-  --serif: Georgia, "Times New Roman", serif;
-  --sans: Arial, Helvetica, sans-serif;
+  --garamond: "Garamond", "Apple Garamond", "Times New Roman", serif;
+  --kai: "BiauKai", "DFKai-SB", "標楷體", "KaiTi", serif;
+  --serif: var(--garamond);
+  --sans: var(--garamond);
 }
 
 * { box-sizing: border-box; }
@@ -20,13 +22,13 @@ body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(
 button, input, textarea { font: inherit; }
 button { color: inherit; }
 button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #8c9b78; outline-offset: 3px; }
-.app-shell { min-height: 100vh; }
-.locale-zh { letter-spacing: .01em; }
+.app-shell { min-height: 100vh; font-family: var(--sans); }
+.locale-zh { --serif: var(--kai); --sans: var(--kai); letter-spacing: .01em; font-family: var(--kai); }
 .locale-zh .brand-name, .locale-zh .welcome-row h1, .locale-zh .page-heading h1,
 .locale-zh .daily-copy h2, .locale-zh .scripture-card-heading h2, .locale-zh .readings-section-heading h2,
 .locale-zh .gospel-reflection h2, .locale-zh .intention-month-title, .locale-zh .mass-markdown,
 .locale-zh .prayer-card h3, .locale-zh .rosary-hero-copy h2, .locale-zh .decade-heading h2,
-.locale-zh .about-section h2, .locale-zh .about-hero h1 { font-family: "Noto Serif TC", "PingFang TC", "Microsoft JhengHei", var(--serif); }
+.locale-zh .about-section h2, .locale-zh .about-hero h1 { font-family: var(--kai); }
 .locale-zh .main-content { line-height: 1.75; }
 .locale-zh .page-heading h1, .locale-zh .welcome-row h1 { letter-spacing: 0; }
 .locale-zh .nav-item, .locale-zh button, .locale-zh input, .locale-zh textarea, .locale-zh select { letter-spacing: .02em; }
@@ -92,7 +94,10 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .mass-columns { display: grid; grid-template-columns: 1fr; gap: 25px; margin-top: 24px; }
 .mass-language-column { min-width: 0; padding: 22px 20px; border: 1px solid #eeece5; border-radius: 4px; }
 .mass-language-column > h3 { margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid #eeece5; color: var(--green-dark); font: 700 13px var(--sans); letter-spacing: 1.4px; text-transform: uppercase; }
-.mass-markdown { color: #5f6b61; font-family: var(--serif); line-height: 1.8; }
+.mass-markdown { color: #5f6b61; font-family: var(--garamond); line-height: 1.8; }
+.mass-markdown.mass-chinese { font-family: var(--kai); }
+.locale-zh .mass-markdown.mass-latin { font-family: var(--garamond); }
+.locale-zh .mass-language-column > h3 { font-family: var(--kai); }
 .mass-markdown h1 { margin: 0 0 8px; color: var(--ink-deep); font-size: 30px; font-weight: 500; }
 .mass-markdown h2 { margin: 30px 0 10px; color: var(--ink-deep); font-size: 24px; font-weight: 500; }
 .mass-markdown h3 { margin: 25px 0 8px; color: var(--ink-deep); font-size: 20px; font-weight: 500; }
@@ -268,7 +273,7 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
 .modal-divider { display: flex; align-items: center; gap: 13px; margin: 19px 0; color: #bd876b; font-size: 14px; }
 .modal-divider:before, .modal-divider:after { height: 1px; flex: 1; background: #e8e4dc; content: ""; }
 .prayer-text { margin: 0; color: #5f685f; font: 400 15px/1.95 var(--serif); }
-.prayer-text-latin { font-style: italic; }
+.prayer-text-latin { font-family: var(--garamond); font-style: italic; }
 .modal-done { margin-top: 24px; }
 .toast-message { position: fixed; z-index: 40; right: 24px; bottom: 24px; max-width: min(390px, calc(100% - 48px)); padding: 13px 17px; border: 1px solid #dce3d6; border-radius: 5px; color: #405744; background: #f8fbf5; box-shadow: 0 7px 25px #1b2b201a; font-size: 14px; line-height: 1.6; }
 .closing-note { display: flex; flex-direction: column; align-items: center; margin: 36px 0 5px; color: #a67d64; text-align: center; }
@@ -362,4 +367,102 @@ button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px
   .prayer-modal h2 { font-size: 27px; }
   .prayer-text { font-size: 16px; }
   .toast-message { right: 12px; bottom: 12px; }
+}
+
+/* Gentle motion keeps page changes and interactive states feeling responsive. */
+.screen-motion { animation: screen-arrive .42s cubic-bezier(.2,.7,.25,1) both; }
+.screen-motion :is(.daily-card, .scripture-card, .saint-card, .quick-card, .prayer-card,
+  .readings-section, .gospel-reflection, .office-intro, .office-hour-card,
+  .intention-form-card, .monthly-intentions-section, .rosary-hero, .decade-card,
+  .about-intro, .about-values article, .about-me) {
+  animation: surface-arrive .48s cubic-bezier(.2,.7,.25,1) both;
+}
+.screen-motion .prayer-card:nth-child(2), .screen-motion .quick-card:nth-child(2),
+.screen-motion .office-hour-card:nth-child(2), .screen-motion .about-values article:nth-child(2) { animation-delay: 55ms; }
+.screen-motion .prayer-card:nth-child(3), .screen-motion .quick-card:nth-child(3),
+.screen-motion .office-hour-card:nth-child(3), .screen-motion .about-values article:nth-child(3) { animation-delay: 100ms; }
+.screen-motion .prayer-card:nth-child(4), .screen-motion .quick-card:nth-child(4) { animation-delay: 145ms; }
+.screen-motion .prayer-card:nth-child(5), .screen-motion .quick-card:nth-child(5) { animation-delay: 190ms; }
+.screen-motion .prayer-card:nth-child(n+6), .screen-motion .quick-card:nth-child(n+6) { animation-delay: 220ms; }
+
+.nav-item, .locale-switch button, .mobile-brand, .icon-button, .cream-button,
+.primary-button, .secondary-button, .text-link, .scripture-links a,
+.scripture-links button, .filter-chip, .search-clear, .language-button,
+.prayer-card, .quick-card, .saint-card, .office-hour-card, .about-values article {
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-item, .locale-switch button, .mobile-brand, .icon-button, .cream-button,
+.primary-button, .secondary-button, .text-link, .scripture-links a,
+.scripture-links button, .filter-chip, .search-clear {
+  transition: color .2s ease, background-color .2s ease, border-color .2s ease,
+    box-shadow .24s ease, transform .2s cubic-bezier(.2,.7,.25,1);
+}
+.prayer-card, .quick-card, .saint-card, .office-hour-card, .about-values article,
+.scripture-card, .readings-section, .gospel-reflection, .decade-card, .about-me {
+  transition: border-color .22s ease, box-shadow .25s ease, transform .25s cubic-bezier(.2,.7,.25,1);
+}
+.filter-chip.active { box-shadow: 0 4px 12px #425b4a20; }
+.sidebar-overlay { animation: overlay-arrive .2s ease-out both; }
+.modal-backdrop { animation: overlay-arrive .2s ease-out both; }
+.toast-message { animation: toast-arrive .32s cubic-bezier(.2,.7,.25,1) both; }
+.sun-disc { animation: sun-breathe 7s ease-in-out infinite; transform-origin: center; }
+.rosary-ring:after { animation: rosary-turn 90s linear infinite; transform-origin: center; }
+
+@keyframes screen-arrive {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes surface-arrive {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes overlay-arrive { from { opacity: 0; } to { opacity: 1; } }
+@keyframes toast-arrive { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes sun-breathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-5px) scale(1.025); } }
+@keyframes rosary-turn { to { transform: rotate(360deg); } }
+
+@media (hover: hover) and (pointer: fine) {
+  .prayer-card:hover, .quick-card:hover, .saint-card:hover, .office-hour-card:hover,
+  .about-values article:hover, .scripture-card:hover, .readings-section:hover,
+  .gospel-reflection:hover, .decade-card:hover, .about-me:hover {
+    transform: translateY(-3px);
+    border-color: #d8ded2;
+    box-shadow: 0 12px 30px #25382f0c;
+  }
+  .quick-card:hover .quick-icon, .nav-item:hover svg, .text-link:hover svg {
+    transform: translateX(2px);
+  }
+  .brand:hover .brand-mark { transform: rotate(-7deg) scale(1.04); }
+}
+.quick-icon, .nav-item svg, .text-link svg, .brand-mark { transition: transform .25s cubic-bezier(.2,.7,.25,1); }
+.nav-item:active, .locale-switch button:active, .mobile-brand:active, .icon-button:active,
+.cream-button:active, .primary-button:active:not(:disabled), .secondary-button:active,
+.text-link:active, .scripture-links a:active, .scripture-links button:active,
+.filter-chip:active, .search-clear:active { transform: scale(.97); }
+.prayer-card:active, .quick-card:active, .saint-card:active, .office-hour-card:active,
+.about-values article:active { transform: scale(.99); }
+
+@media (max-width: 800px) {
+  .screen-motion { animation-duration: .34s; }
+  .screen-motion :is(.daily-card, .scripture-card, .saint-card, .quick-card, .prayer-card,
+    .readings-section, .gospel-reflection, .office-intro, .office-hour-card,
+    .intention-form-card, .monthly-intentions-section, .rosary-hero, .decade-card,
+    .about-intro, .about-values article, .about-me) { animation-duration: .38s; }
+  .sidebar.sidebar-open .nav-item { animation: menu-item-arrive .28s both; }
+  .sidebar.sidebar-open .nav-item:nth-child(2) { animation-delay: 25ms; }
+  .sidebar.sidebar-open .nav-item:nth-child(3) { animation-delay: 50ms; }
+  .sidebar.sidebar-open .nav-item:nth-child(4) { animation-delay: 75ms; }
+  .sidebar.sidebar-open .nav-item:nth-child(5) { animation-delay: 100ms; }
+  .sidebar.sidebar-open .nav-item:nth-child(6) { animation-delay: 125ms; }
+}
+@keyframes menu-item-arrive { from { opacity: 0; transform: translateX(-7px); } to { opacity: 1; transform: translateX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
 }
