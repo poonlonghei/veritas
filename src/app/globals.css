@@ -21,6 +21,15 @@ button, input, textarea { font: inherit; }
 button { color: inherit; }
 button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #8c9b78; outline-offset: 3px; }
 .app-shell { min-height: 100vh; }
+.locale-zh { letter-spacing: .01em; }
+.locale-zh .brand-name, .locale-zh .welcome-row h1, .locale-zh .page-heading h1,
+.locale-zh .daily-copy h2, .locale-zh .scripture-card-heading h2, .locale-zh .readings-section-heading h2,
+.locale-zh .gospel-reflection h2, .locale-zh .intention-month-title, .locale-zh .mass-markdown,
+.locale-zh .prayer-card h3, .locale-zh .rosary-hero-copy h2, .locale-zh .decade-heading h2,
+.locale-zh .about-section h2, .locale-zh .about-hero h1 { font-family: "Noto Serif TC", "PingFang TC", "Microsoft JhengHei", var(--serif); }
+.locale-zh .main-content { line-height: 1.75; }
+.locale-zh .page-heading h1, .locale-zh .welcome-row h1 { letter-spacing: 0; }
+.locale-zh .nav-item, .locale-zh button, .locale-zh input, .locale-zh textarea, .locale-zh select { letter-spacing: .02em; }
 .sidebar { position: fixed; z-index: 10; inset: 0 auto 0 0; display: flex; flex-direction: column; width: 258px; overflow-y: auto; padding: 34px 23px 21px; background: #f4f1e9; border-right: 1px solid #ebe7de; }
 .brand { display: flex; align-items: center; gap: 12px; padding: 0 8px; border: 0; background: none; text-align: left; cursor: pointer; }
 .brand-mark { display: block; width: 36px; height: 36px; flex: 0 0 auto; }

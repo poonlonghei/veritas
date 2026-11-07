@@ -18,7 +18,7 @@ import {
 } from "@/lib/translations";
 import type { DailyContent, MonthlyIntentions, Prayer } from "@/lib/types";
 
-type Screen =
+export type Screen =
   | "Home"
   | "Daily readings"
   | "Prayer library"
@@ -26,7 +26,7 @@ type Screen =
   | "Order of Holy Mass"
   | "The Rosary"
   | "About";
-type Locale = "en" | "zh-TW";
+export type Locale = "en" | "zh-TW";
 type MassForm = "Ordinary Form" | "Extraordinary Form";
 type MassContent = { latin: string; english: string; chinese: string };
 type MassLanguage = "latin" | "english" | "chinese";
@@ -105,11 +105,17 @@ function renderMarkdown(markdown: string) {
 }
 
 function renderInlineMarkdown(value: string) {
-  const parts = value.split(/(\*\*[^*]+\*\*)/g);
+  const parts = value.split(/(\*\*.+?\*\*|__.+?__|\*.+?\*|_.+?_)/g);
   return parts.map((part, index) =>
     part.startsWith("**") && part.endsWith("**")
-      ? <strong key={`${part}-${index}`}>{part.slice(2, -2)}</strong>
-      : part,
+      ? <strong key={`${part}-${index}`}>{renderInlineMarkdown(part.slice(2, -2))}</strong>
+      : part.startsWith("__") && part.endsWith("__")
+        ? <strong key={`${part}-${index}`}>{renderInlineMarkdown(part.slice(2, -2))}</strong>
+        : part.startsWith("*") && part.endsWith("*")
+          ? <em key={`${part}-${index}`}>{renderInlineMarkdown(part.slice(1, -1))}</em>
+          : part.startsWith("_") && part.endsWith("_")
+            ? <em key={`${part}-${index}`}>{renderInlineMarkdown(part.slice(1, -1))}</em>
+            : part,
   );
 }
 
@@ -268,24 +274,24 @@ function Icon({ name, size = 20 }: { name: string; size?: number }) {
   return <svg {...common}>{paths[name] ?? paths.home}</svg>;
 }
 
-function getToday(locale: Locale) {
+function getToday(locale: Locale, date = new Date()) {
   return new Intl.DateTimeFormat(locale === "zh-TW" ? "zh-TW" : "en", {
     weekday: "long",
     month: "long",
     day: "numeric",
-  }).format(new Date());
+  }).format(date);
 }
 
-function getSaintForToday() {
-  const today = new Date();
+function getSaintForToday(date = new Date()) {
+  const today = date;
   const yearStart = Date.UTC(today.getFullYear(), 0, 1);
   const todayUtc = Date.UTC(today.getFullYear(), today.getMonth(), today.getDate());
   const dayOfYear = Math.floor((todayUtc - yearStart) / 86_400_000);
   return dailySaints[dayOfYear % dailySaints.length];
 }
 
-function getMysteryForToday(): MysterySet {
-  const day = new Date().getDay();
+function getMysteryForToday(date = new Date()): MysterySet {
+  const day = date.getDay();
   if ([1, 6].includes(day)) return "Joyful";
   if (day === 2 || day === 5) return "Sorrowful";
   if (day === 4) return "Luminous";
@@ -316,9 +322,30 @@ function localizePrayer(prayer: Prayer, locale: Locale): Prayer {
   };
 }
 
-export default function HomePage() {
-  const [screen, setScreen] = useState<Screen>("Home");
-  const [locale, setLocale] = useState<Locale>("en");
+const screenSlugs: Partial<Record<Exclude<Screen, "Home">, string>> = {
+  "Daily readings": "readings",
+  "Prayer intentions": "prayer-intentions",
+  "Order of Holy Mass": "holy-mass",
+  "Prayer library": "prayer-library",
+  "The Rosary": "rosary",
+  About: "about",
+};
+
+function getPagePath(screen: Screen, locale: Locale) {
+  const prefix = locale === "zh-TW" ? "/zh-tw" : "";
+  const slug = screen === "Home" ? "" : `/${screenSlugs[screen]}`;
+  return `${prefix}${slug}/`;
+}
+
+export default function HomePage({
+  initialScreen = "Home",
+  initialLocale = "en",
+}: {
+  initialScreen?: Screen;
+  initialLocale?: Locale;
+}) {
+  const [screen] = useState<Screen>(initialScreen);
+  const [locale] = useState<Locale>(initialLocale);
   const [prayerList, setPrayerList] = useState<Prayer[]>(starterPrayers);
   const [dailyContent, setDailyContent] = useState<DailyContent | null>(null);
   const [prayerSearch, setPrayerSearch] = useState("");
@@ -326,12 +353,13 @@ export default function HomePage() {
   const [selectedPrayer, setSelectedPrayer] = useState<Prayer | null>(null);
   const [prayerLanguage, setPrayerLanguage] = useState<"en" | "la">("en");
   const [savedIds, setSavedIds] = useState<string[]>([]);
-  const [mysterySet, setMysterySet] = useState<MysterySet>(getMysteryForToday);
+  const [mysterySet, setMysterySet] = useState<MysterySet>("Joyful");
+  const [today, setToday] = useState<Date | null>(null);
   const [decade, setDecade] = useState(0);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [toast, setToast] = useState("");
   const [readingRefreshKey, setReadingRefreshKey] = useState(0);
-  const [selectedMonth, setSelectedMonth] = useState(getCurrentMonth);
+  const [selectedMonth, setSelectedMonth] = useState("1970-01");
   const [monthlyIntentions, setMonthlyIntentions] = useState<MonthlyIntentions | null>(null);
   const [intentionsLoading, setIntentionsLoading] = useState(false);
   const [intentionSubmitting, setIntentionSubmitting] = useState(false);
@@ -345,14 +373,10 @@ export default function HomePage() {
   const [massLoading, setMassLoading] = useState(false);
 
   useEffect(() => {
-    try {
-      const savedLocale = window.localStorage.getItem("veritas-locale");
-      if (savedLocale === "en" || savedLocale === "zh-TW") {
-        setLocale(savedLocale);
-      }
-    } catch {
-      // Keep English as the default when browser storage is unavailable.
-    }
+    const mountedAt = new Date();
+    setToday(mountedAt);
+    setMysterySet(getMysteryForToday(mountedAt));
+    setSelectedMonth(getCurrentMonth());
     try {
       const stored = window.localStorage.getItem("veritas-saved-prayers");
       if (stored) {
@@ -480,7 +504,7 @@ export default function HomePage() {
   const t = (value: string) => translate(locale, value);
 
   useEffect(() => {
-    if (screen !== "Prayer intentions") return;
+    if (screen !== "Prayer intentions" || selectedMonth === "1970-01") return;
     let isActive = true;
     setIntentionsLoading(true);
     fetchMonthlyIntentions(selectedMonth, locale)
@@ -526,7 +550,7 @@ export default function HomePage() {
     });
   }, [locale, prayerList, prayerSearch, savedIds, selectedCategory]);
 
-  const dailySaint = getSaintForToday();
+  const dailySaint = today ? getSaintForToday(today) : dailySaints[0];
   const currentMysteries = mysteries[mysterySet];
   const dailyReflection =
     locale === "zh-TW"
@@ -539,9 +563,7 @@ export default function HomePage() {
   const displayedSelectedPrayer = selectedPrayer ? localizePrayer(selectedPrayer, locale) : null;
 
   function navigate(next: Screen) {
-    setScreen(next);
-    setSidebarOpen(false);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.location.assign(getPagePath(next, locale));
   }
 
   function toggleSaved(id: string) {
@@ -636,7 +658,7 @@ export default function HomePage() {
       return (
         <main className="main-content readings-page">
           <header className="page-heading">
-            <div><span className="eyebrow">{getToday(locale).toUpperCase()}</span><h1>{t("Daily readings & reflection")}</h1>
+            <div><span className="eyebrow">{today ? getToday(locale, today).toUpperCase() : ""}</span><h1>{t("Daily readings & reflection")}</h1>
               <p>{t("Spend a moment with the readings and Gospel for today.")}</p></div>
             <span className="heading-mark">✳</span>
           </header>
@@ -761,10 +783,14 @@ export default function HomePage() {
                 </select>
               </label>
             </div>
-            <h3 className="intention-month-title">{formatMonth(selectedMonth, locale)}</h3>
-            {intentionsLoading ? (
+            {selectedMonth === "1970-01" ? (
               <p className="intentions-empty" role="status">{t("Loading intentions…")}</p>
-            ) : monthlyIntentions?.intentions.length ? (
+            ) : (
+              <>
+                <h3 className="intention-month-title">{formatMonth(selectedMonth, locale)}</h3>
+                {intentionsLoading ? (
+              <p className="intentions-empty" role="status">{t("Loading intentions…")}</p>
+                ) : monthlyIntentions?.intentions.length ? (
               <div className="intention-list">
                 {monthlyIntentions.intentions.map((intention) => (
                   <article className="intention-card" key={intention.id}>
@@ -781,6 +807,8 @@ export default function HomePage() {
               </div>
             ) : (
               <p className="intentions-empty">{t("There are no shared intentions for this month yet.")}</p>
+                )}
+              </>
             )}
           </section>
         </main>
@@ -950,7 +978,7 @@ export default function HomePage() {
 
     return (
       <main className="main-content home-content">
-        <header className="welcome-row"><div><span className="eyebrow">{getToday(locale).toUpperCase()}</span><h1>{t("A moment for your soul.")}</h1>
+        <header className="welcome-row"><div><span className="eyebrow">{today ? getToday(locale, today).toUpperCase() : ""}</span><h1>{t("A moment for your soul.")}</h1>
           <p>{t("Welcome to a quieter place. Let us begin.")}</p></div><div className="sun-mark" aria-hidden="true"><span>✳</span></div></header>
         <section className="daily-card">
           <div className="daily-copy"><span className="eyebrow light">{t("A MOMENT OF PRAYER")}</span>
@@ -1004,7 +1032,7 @@ export default function HomePage() {
   ];
 
   return (
-    <div className="app-shell min-h-screen antialiased">
+    <div className={`app-shell min-h-screen antialiased${locale === "zh-TW" ? " locale-zh" : ""}`}>
       <aside className={`sidebar${sidebarOpen ? " sidebar-open" : ""}`}>
         <button className="brand" onClick={() => navigate("Home")} aria-label={t("Veritas home")}>
           <Image className="brand-mark" src={veritasLogo} alt="" width={36} height={36} /><span className="brand-name">veritas<small>{t("A QUIET PLACE TO PRAY")}</small></span>
@@ -1020,8 +1048,8 @@ export default function HomePage() {
             <Icon name="info" size={19} /><span>{t("About")}</span>
           </button>
           <div className="locale-switch" role="group" aria-label={t("Language")}>
-            <button className={locale === "en" ? "locale-active" : ""} aria-pressed={locale === "en"} onClick={() => setLocale("en")}>English</button>
-            <button className={locale === "zh-TW" ? "locale-active" : ""} aria-pressed={locale === "zh-TW"} onClick={() => setLocale("zh-TW")}>繁體中文</button>
+            <button className={locale === "en" ? "locale-active" : ""} aria-pressed={locale === "en"} onClick={() => window.location.assign(getPagePath(screen, "en"))}>English</button>
+            <button className={locale === "zh-TW" ? "locale-active" : ""} aria-pressed={locale === "zh-TW"} onClick={() => window.location.assign(getPagePath(screen, "zh-TW"))}>繁體中文</button>
           </div>
           <div className="sidebar-quote"><span>✧</span><p>{t("“Be still, and let your heart listen.”")}</p><small>{t("A moment of quiet")}</small></div>
           <div className="sidebar-footer"><span className="footer-cross">✝</span><span>{t("FAITH · HOPE · LOVE")}</span></div></div>
