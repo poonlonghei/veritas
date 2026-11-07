@@ -564,7 +564,7 @@ export default function HomePage({
         selectedCategory === "All" ||
         (selectedCategory === "Saved"
           ? savedIds.includes(prayer.id)
-          : prayer.category === selectedCategory);
+          : prayer.category === t(selectedCategory));
       const matchesSearch =
         !query ||
         [
