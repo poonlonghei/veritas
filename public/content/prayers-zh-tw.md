@@ -14,7 +14,7 @@
 在天我等父者，我等願爾名見聖。爾國臨格。爾旨承行於地，如於天焉。我等望爾，今日與我，我日用糧。而免我債，如我亦免負我債者。又不我許陷於誘惑。乃救我於凶惡。亞孟。
 
 ### Latin
-Pater noster, qui es in caelis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in caelo et in terra. Panem nostrum quotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo. Amen.
+Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum quotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo. Amen.
 
 ## 聖母經
 <!-- id: hail-mary -->
@@ -28,7 +28,7 @@ Pater noster, qui es in caelis: sanctificetur nomen tuum; adveniat regnum tuum; 
 萬福瑪利亞，滿被聖寵者，主與爾偕焉；女中爾為讚美，爾胎子耶穌並為讚美。天主聖母瑪利亞，為我等罪人，今祈天主，及我等死候。亞孟。
 
 ### Latin
-Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.
+Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostræ. Amen.
 
 ## 聖三光榮經
 <!-- id: glory-be -->
@@ -42,7 +42,7 @@ Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictu
 欽頌榮福，天主聖父、及聖子、及聖神，吾願其獲光榮。厥初如何，今茲亦然，以迨永遠及世之世。亞孟。
 
 ### Latin
-Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in saecula saeculorum. Amen.
+Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in sæcula sæculorum. Amen.
 
 ## 痛悔經
 <!-- id: act-of-contrition -->
@@ -105,7 +105,7 @@ Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et
 **Duration:** 1 分鐘
 
 ### Description
-聖彌額爾總領天使禱文是教宗良十三世所撰寫的傳統天主教禱文，祈求聖彌額爾總領天使保護教會及信友，抵禦魔鬼的誘惑與邪惡勢力的侵害。
+祈求聖彌額爾總領天使保護教會及信友，抵禦魔鬼的誘惑與邪惡勢力的侵害。
 
 ### Prayer
 聖彌額爾總領天使，在戰爭的日子裏保衛我們，免我們陷入魔鬼邪惡的陰謀、和奸詐的陷阱中。我們謙卑地祈求，但願上主譴責牠。上天萬軍的統帥，求你因上主的威能，把徘徊人間，引誘人靈，使其喪亡的撒殫及其他邪靈，拋下地獄裏去。亞孟。
