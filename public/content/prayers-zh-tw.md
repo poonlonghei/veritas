@@ -14,7 +14,7 @@
 在天我等父者，我等願爾名見聖。爾國臨格。爾旨承行於地，如於天焉。我等望爾，今日與我，我日用糧。而免我債，如我亦免負我債者。又不我許陷於誘惑。乃救我於凶惡。亞孟。
 
 ### Latin
-Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum quotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo. Amen.
+Páter nóster, qui es in cælis: sanctificétur nómen túum; advéniat regnum túum; fiat volúntas túa, sícut in cælo et in térra. Pánem nóstrum quotidiánum da nóbis hódie; et dimítte nóbis débita nóstra, sícut et nos dimíttimus debitóribus nóstris; et ne nos indúcas in tentatiónem; sed líbera nos a málo. Ámen.
 
 ## 聖母經
 <!-- id: hail-mary -->
@@ -28,7 +28,7 @@ Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; 
 萬福瑪利亞，滿被聖寵者，主與爾偕焉；女中爾為讚美，爾胎子耶穌並為讚美。天主聖母瑪利亞，為我等罪人，今祈天主，及我等死候。亞孟。
 
 ### Latin
-Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostræ. Amen.
+Áve María, grátia plena, Dóminus tecum. Benedícta tu in muliéribus, et benedíctus fructus ventris túi, Iésus. Sáncta María, Máter Déi, ora pro nóbis peccatóribus, nunc et in hora mortis nóstræ. Ámen.
 
 ## 聖三光榮經
 <!-- id: glory-be -->
@@ -42,7 +42,7 @@ Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictu
 欽頌榮福，天主聖父、及聖子、及聖神，吾願其獲光榮。厥初如何，今茲亦然，以迨永遠及世之世。亞孟。
 
 ### Latin
-Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in sæcula sæculorum. Amen.
+Glória Pátri, et Fílio, et Spirítui Sáncto. Sícut erat in princípio, et nunc, et sémper, et in sæcula sæculórum. Ámen.
 
 ## 痛悔經
 <!-- id: act-of-contrition -->

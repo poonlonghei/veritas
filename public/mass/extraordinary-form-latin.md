@@ -22,9 +22,9 @@ V. Cónfiteor tíbi ín cíthara, Deús, Deús méus. Quáre trístis és, ánim
 
 **R. Spéra ín Deó, quóniam ádhuc confitébor ílli: salútare vúltus meí, ét Deús méus.**
 
-V. Glória Patri, et Fílio, et Spirítui Sancto.
+V. Glória Pátri, et Fílio, et Spirítui Sáncto.
 
-**R. Sicut erat in princípio, et nunc, et semper: et in sǽcula sæculórum. Amen.**
+**R. Sícut érat in princípio, et nunc, et sémper: et in sǽcula sæculórum. Ámen.**
 
 V. Introíbo ád áltare Deí.
 
@@ -68,9 +68,9 @@ V. Dóminus vobíscum.
 
 V. Orémus.
 
-*(Aufer a nobis, quǽsumus, Dómine, iniquitátes nostras: ut ad Sancta sanctórum puris mereámur méntibus introíre. Per Christum, Dóminum nostrum. Amen.)*
+*(Áufer a nóbis, quǽsumus, Dómine, iniquitátes nóstras: ut ad Sáncta sanctórum púris mereámur méntibus introíre. Per Chrístum, Dóminum nóstrum. Ámen.)*
 
-*(Orámus te, Dómine, per mérita Sanctórum tuórum, quorum relíquiæ hic sunt, et ómnium Sanctórum: ut indulgére dignéris ómnia peccáta mea. Amen.)*
+*(Orámus te, Dómine, per mérita Sanctórum tuórum, quórum relíquiæ hic sunt, et ómnium Sanctórum: ut indulgére dignéris ómnia peccáta mea. Ámen.)*
 
 ### Intróitus, Kýrie ét Glória
 
@@ -112,15 +112,15 @@ V. Sequéntia sáncti Evángelii secúndum N.
 
 Crédo ín únum Deúm, Pátrem omnipoténtem, factórem cǽli ét térræ, visíbilium ómniúm ét invisíbilium. Ét ín únum Dóminum Iésum Chrístum, Fíliúm Deí unigénitum, ét éx Pátre nátum ánte ómniá sǽcula. Deúm dé Deó, lúmen dé lúmine, Deúm vérum dé Deó véro. Génitum, nón fáctum, consubstantiálem Pátri: pér quém ómniá fácta súnt.
 
-Quí própter nós hómines ét própter nóstram salútem descéndit dé cǽlis. Ét incarnátus ést dé Spíritu Sáncto éx María Vírgine: ét hómo factus ést. Crucifíxus étiám pró nóbis súb Póntio Piláto; pássus ét sepúltus ést. Ét resurréxit tértia die, secúndum Scriptúras. Ét ascéndit ín cǽlum: sédet ád déxteram Pátris. Ét íterum ventúrus ést cúm glória iudicáre vívos ét mórtuos: cúius régni nón érit fínis.
+Quí própter nós hómines ét própter nóstram salútem descéndit dé cǽlis. Ét incarnátus ést dé Spíritu Sáncto éx María Vírgine: ét hómo fáctus ést. Crucifíxus étiám pró nóbis súb Póntio Piláto; pássus ét sepúltus ést. Ét resurréxit tértia die, secúndum Scriptúras. Ét ascéndit ín cǽlum: sédet ád déxteram Pátris. Ét íterum ventúrus ést cúm glória iudicáre vívos ét mórtuos: cúius régni nón érit fínis.
 
-Ét ín Spíritum Sánctum, Dóminum ét vivificántem: quí éx Pátre Fílioque procédit. Quí cúm Pátre ét Fílio símul adorátur ét conglorificátur: quí locútus ést pér Prophétas. Ét únam, sánctam, cathólicam ét apostólicam Ecclésiam. Cónfiteor únum baptísma ín remíssióném péccatórúm. Ét exspécto resurréctióném mortuórum. Ét vítam ventúri sæculi.
+Ét ín Spíritum Sánctum, Dóminum ét vivificántem: quí éx Pátre Fílioque procédit. Quí cúm Pátre ét Fílio símul adorátur ét conglorificátur: quí locútus ést pér Prophétas. Ét únam, sánctam, cathólicam ét apostólicam Ecclésiam. Cónfiteor únum baptísma ín remíssióném péccatórúm. Ét exspécto resurréctióném mortuórum. Ét vítam ventúri sǽculi.
 
 **R. Ámen.**
 
 ### Offertórium
 
-Súscipe, sáncte Páter, hánc ímmaculátám hóstiám, quám ego índignus fámulus tuús óffero tíbi, Deó meo vívo ét véro, pró innumerábilibus péccatis ét offensiónibus ét negligéntiis meís, ét pró ómníbus circumstántibus, séd ét pró ómníbus fidélibus Christiánis vívis átque defúnctis: út míhi ét íllis profíciat ád salútem ín vítam ætérnam.
+Súscipe, sáncte Páter, hánc ímmaculátám hóstiám, quám égo índignus fámulus tuús óffero tíbi, Deó meo vívo ét véro, pró innumerábilibus péccatis ét offensiónibus ét negligéntiis meís, ét pró ómníbus circumstántibus, séd ét pró ómníbus fidélibus Christiánis vívis átque defúnctis: út míhi ét íllis profíciat ád salútem ín vítam ætérnam.
 
 Offérimus tíbi, Dómine, cálicem salutáris, deprecántes cleméntiam tuám: út ín cónspéctú dívínaé maiéstátís tuaé pró nóstra ét tótius múndi salúte cúm odóre suavitátis ascéndat.
 
@@ -128,7 +128,7 @@ Offérimus tíbi, Dómine, cálicem salutáris, deprecántes cleméntiam tuám: 
 
 Véni, sanctificátor omnípotens ætérne Deús: ét bénedic hóc sacrifícium, tuó sáncto nómini præparátum.
 
-### Secreta
+### Secréta
 
 V. Órate, frátres, út meúm ác véstrum sacríficium acceptábile fiát ápud Deúm Pátrem omnipoténtem.
 
@@ -198,7 +198,7 @@ V. Pér ómniá sǽcula sæcúlorum.
 
 Orémus: Præcéptis salutáribus móniti, ét divína institutióne formáti audémus dícere:
 
-Páter nóster, quí és ín cǽlis: sanctifícetur nómen tuúm; ádveniat régnum tuúm; fiát volúntas tuá, sícut ín cælo ét ín térra. Pánem nóstrum cotidiánum dá nóbis hódie; ét dimítte nóbis débita nóstra, sícut ét nós dimíttimus debitóribus nóstris; ét né nós índucas ín tentatiónem.
+Páter nóster, quí és ín cǽlis: sanctifícetur nómen tuúm; ádveniat régnum tuúm; fiát volúntas tuá, sícut ín cǽlo ét ín térra. Pánem nóstrum cotidiánum dá nóbis hódie; ét dimítte nóbis débita nóstra, sícut ét nós dimíttimus debitóribus nóstris; ét né nós índucas ín tentatiónem.
 
 **R. Séd líbera nós á málo.**
 
@@ -218,27 +218,27 @@ V. Páx Dómini sít sémper vobíscum.
 Ágnus Deí, quí tóllis péccata múndi, misérere nóbis.
 Ágnus Deí, quí tóllis péccata múndi, dóna nóbis pácem.
 
-*(Dómine Iesu Christe, qui dixísti Apóstolis tuis: Pacem relínquo vobis, pacem meam do vobis: ne respícias peccáta mea, sed fidem Ecclésiæ tuæ; eámque secúndum voluntátem tuam pacificáre et coadunáre dignéris: Qui vivis et regnas Deus per ómnia sǽcula sæculórum. Amen.)*
+*(Dómine Iésu Chríste, qui dixísti Apóstolis tuis: Pácem relínquo vóbis, pácem meam do vóbis: ne respícias peccáta mea, sed fídem Ecclésiæ tuæ; eámque secúndum voluntátem tuam pacificáre et coadunáre dignéris: Qui vívis et régnas Deus per ómnia sǽcula sæculórum. Ámen.)*
 
-*(Dómine Iesu Christe, Fili Dei vivi, qui ex voluntáte Patris, cooperánte Spíritu Sancto, per mortem tuam mundum vivificásti: líbera me per hoc sacrosánctum Corpus et Sánguinem tuum ab ómnibus iniquitátibus meis, et univérsis malis: et fac me tuis semper inhærére mandátis, et a te numquam separári permíttas: Qui cum eódem Deo Patre et Spíritu Sancto vivis et regnas Deus in sǽcula sæculórum. Amen.)*
+*(Dómine Iésu Chríste, Fíli Dei vívi, qui ex voluntáte Pátris, cooperánte Spíritu Sáncto, per mórtem tuam múndum vivificásti: líbera me per hoc sacrosánctum Córpus et Sánguinem tuum ab ómnibus iniquitátibus meis, et univérsis mális: et fac me tuis sémper inhærére mandátis, et a te númquam separári permíttas: Qui cum eódem Deo Pátre et Spíritu Sáncto vívis et régnas Deus in sǽcula sæculórum. Ámen.)*
 
-*(Percéptio Córporis tui, Dómine Iesu Christe, quod ego indígnus súmere præsúmo, non mihi provéniat in iudícium et condemnatiónem: sed pro tua pietáte prosit mihi ad tutaméntum mentis et córporis, et ad medélam percipiéndam: Qui vivis et regnas cum Deo Patre in unitáte Spíritus Sancti Deus, per ómnia sǽcula sæculórum. Amen.)*
+*(Percéptio Córporis tui, Dómine Iésu Chríste, quod égo indígnus súmere præsúmo, non míhi provéniat in iudícium et condemnatiónem: sed pro tua pietáte prósit míhi ad tutaméntum méntis et córporis, et ad medélam percipiéndam: Qui vívis et régnas cum Deo Pátre in unitáte Spíritus Sáncti Deus, per ómnia sǽcula sæculórum. Ámen.)*
 
-*(Panem cæléstem accípiam, et nomen Dómini invocábo.)*
+*(Pánem cæléstem accípiam, et nómen Dómini invocábo.)*
 
-V. Dómine, non sum dignus, ut intres sub tectum meum: sed tantum dic verbo, et sanábitur ánima mea. (x3)
+V. Dómine, non sum dígnus, ut íntres sub téctum meum: sed tántum dic vérbo, et sanábitur ánima mea. (x3)
 
-*(Corpus Dómini nostri Iesu Christi custódiat ánimam meam in vitam ætérnam. Amen.)*
+*(Córpus Dómini nóstri Iésu Chrísti custódiat ánimam meam in vítam ætérnam. Ámen.)*
 
-*(Quid retríbuam Dómino pro ómnibus, quæ retríbuit mihi? Cálicem salutáris accípiam, et nomen Dómini invocábo. Laudans invocábo Dóminum, et ab inimícis meis salvus ero.)*
+*(Quid retríbuam Dómino pro ómnibus, quæ retríbuit míhi? Cálicem salutáris accípiam, et nómen Dómini invocábo. Láudans invocábo Dóminum, et ab inimícis meis sálvus éro.)*
 
-*(Sanguis Dómini nostri Iesu Christi custódiat ánimam meam in vitam ætérnam. Amen.)*
+*(Sánguis Dómini nóstri Iésu Chrísti custódiat ánimam meam in vítam ætérnam. Ámen.)*
 
 ### Ablutiónes ét Postcommúnio
 
-*(Quod ore súmpsimus, Dómine, pura mente capiámus: et de múnere temporáli fiat nobis remédium sempitérnum.)*
+*(Quod óre súmpsimus, Dómine, púra ménte capiámus: et de múnere temporáli fiat nóbis remédium sempitérnum.)*
 
-*(Corpus tuum, Dómine, quod sumpsi, et Sanguis, quem potávi, adhǽreat viscéribus meis: et præsta; ut in me non remáneat scélerum mácula, quem pura et sancta refecérunt sacraménta: Qui vivis et regnas in sǽcula sæculórum. Amen.)*
+*(Córpus tuum, Dómine, quod súmpsi, et Sánguis, quem potávi, adhǽreat viscéribus meis: et prǽsta; ut in me non remáneat scélerum mácula, quem púra et sáncta refecérunt sacraménta: Qui vívis et régnas in sǽcula sæculórum. Ámen.)*
 
 V. Dóminus vobíscum.
 
@@ -268,15 +268,15 @@ V. Dóminus vobíscum.
 
 **R. Ét cúm spíritu tuó.**
 
-V. Inítium ✠ sancti Evangélii secúndum Ioánnem.
+V. Inítium ✠ sáncti Evangélii secúndum Ioánnem.
 
-**R. Glória tibi, Dómine.**
+**R. Glória tíbi, Dómine.**
 
-In princípio erat Verbum, et Verbum erat apud Deum, et Deus erat Verbum. Hoc erat in princípio apud Deum. Omnia per ipsum facta sunt: et sine ipso factum est nihil, quod factum est: in ipso vita erat, et vita erat lux hóminum: et lux in ténebris lucet, et ténebræ eam non comprehendérunt.
+In princípio érat Vérbum, et Vérbum érat ápud Deum, et Deus érat Vérbum. Hoc érat in princípio ápud Deum. Ómnia per ípsum fácta sunt: et síne ípso fáctum est níhil, quod fáctum est: in ípso víta érat, et víta érat lux hóminum: et lux in ténebris lúcet, et ténebræ eam non comprehendérunt.
 
-Fuit homo missus a Deo, cui nomen erat Ioánnes. Hic venit in testimónium, ut testimónium perhibéret de lúmine, ut omnes créderent per illum. Non erat ille lux, sed ut testimónium perhibéret de lúmine.
-Erat lux vera, quæ illúminat omnem hóminem veniéntem in hunc mundum. In mundo erat, et mundus per ipsum factus est, et mundus eum non cognóvit. In própria venit, et sui eum non recepérunt. Quotquot autem recepérunt eum, dedit eis potestátem fílios Dei fíeri, his, qui credunt in nómine eius: qui non ex sanguínibus, neque ex voluntáte carnis, neque ex voluntáte viri, sed ex Deo nati sunt. 
+Fuit hómo míssus a Deo, cui nómen érat Ioánnes. Hic vénit in testimónium, ut testimónium perhibéret de lúmine, ut ómnes créderent per íllum. Non érat ílle lux, sed ut testimónium perhibéret de lúmine.
+Érat lux véra, quæ illúminat ómnem hóminem veniéntem in hunc múndum. In múndo érat, et múndus per ípsum fáctus est, et múndus eum non cognóvit. In própria vénit, et sui eum non recepérunt. Quótquot áutem recepérunt eum, dédit eis potestátem fílios Dei fíeri, his, qui crédunt in nómine eius: qui non ex sanguínibus, néque ex voluntáte cárnis, néque ex voluntáte víri, sed ex Deo náti sunt.
 
-Et Verbum caro factum est,  et habitávit in nobis: et vídimus glóriam eius, glóriam quasi Unigéniti a Patre, plenum grátiæ et veritátis.
+Et Vérbum cáro fáctum est,  et habitávit in nóbis: et vídimus glóriam eius, glóriam quási Unigéniti a Pátre, plénum grátiæ et veritátis.
 
 **R. Deó grátias.**
