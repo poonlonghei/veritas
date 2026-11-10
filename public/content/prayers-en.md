@@ -14,7 +14,7 @@ The prayer Jesus taught his disciples.
 Our Father, who art in heaven, hallowed be thy name. Thy kingdom come, thy will be done, on earth as it is in heaven. Give us this day our daily bread, and forgive us our trespasses, as we forgive those who trespass against us. And lead us not into temptation, but deliver us from evil. Amen.
 
 ### Latin
-Páter nóster, qui es in cælis: sanctificétur nómen túum; advéniat regnum túum; fiat volúntas túa, sícut in cælo et in térra. Pánem nóstrum quotidiánum da nóbis hódie; et dimítte nóbis débita nóstra, sícut et nos dimíttimus debitóribus nóstris; et ne nos indúcas in tentatiónem; sed líbera nos a málo. Ámen.
+Pater noster, qui es in cælis: sanctificetur nomen tuum; adveniat regnum tuum; fiat voluntas tua, sicut in cælo et in terra. Panem nostrum quotidianum da nobis hodie; et dimitte nobis debita nostra, sicut et nos dimittimus debitoribus nostris; et ne nos inducas in tentationem; sed libera nos a malo. Amen.
 
 ## Hail Mary
 <!-- id: hail-mary -->
@@ -28,7 +28,7 @@ A prayer asking Mary to pray with us and for us.
 Hail Mary, full of grace, the Lord is with thee. Blessed art thou among women, and blessed is the fruit of thy womb, Jesus. Holy Mary, Mother of God, pray for us sinners, now and at the hour of our death. Amen.
 
 ### Latin
-Áve María, grátia plena, Dóminus tecum. Benedícta tu in muliéribus, et benedíctus fructus ventris túi, Iésus. Sáncta María, Máter Déi, ora pro nóbis peccatóribus, nunc et in hora mortis nóstrae. Ámen.
+Ave Maria, gratia plena, Dominus tecum. Benedicta tu in mulieribus, et benedictus fructus ventris tui, Iesus. Sancta Maria, Mater Dei, ora pro nobis peccatoribus, nunc et in hora mortis nostrae. Amen.
 
 ## Glory Be
 <!-- id: glory-be -->
@@ -42,7 +42,7 @@ A short doxology of praise to the Holy Trinity.
 Glory be to the Father, and to the Son, and to the Holy Spirit. As it was in the beginning, is now, and ever shall be, world without end. Amen.
 
 ### Latin
-Glória Pátri, et Fílio, et Spirítui Sáncto. Sícut erat in princípio, et nunc, et sémper, et in sæcula sæculórum. Ámen.
+Gloria Patri, et Filio, et Spiritui Sancto. Sicut erat in principio, et nunc, et semper, et in sæcula sæculorum. Amen.
 
 ## Act of Contrition
 <!-- id: act-of-contrition -->
